@@ -14,16 +14,17 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Chirpy # the main title
+title: Devopsinuse # the main title
 
-tagline: A text-focused Jekyll theme # it will display as the subtitle
+tagline: Senior Cloud | DevOps | GCP | AWS | Terraform | Kubernetes | Helm | Python | Udemy Instructor # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+  Knowledgebase and Pesonal notes.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
-url: "https://xjantoth.github.io"
+url: # "https://xjantoth.github.io"
+# url: "https://xjantoth.github.io"
 
 github:
   username: xjantoth # change to your GitHub username
@@ -34,15 +35,15 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: your_full_name
-  email: example@domain.com # change to your email address
+  name: Jan Toth
+  email: devopsinuse@gmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your Twitter homepage
-    - https://github.com/username # change to your GitHub homepage
+    - https://twitter.com/jantoth # change to your Twitter homepage
+    - https://github.com/xjantoth # change to your GitHub homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - https://www.linkedin.com/in/jan-toth/
 
 # Site Verification Settings
 webmaster_verifications:
@@ -98,7 +99,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: https://avatars.githubusercontent.com/u/3645561?s=400&u=1da8418a4fd99d77d2359b0b7e69b95297b27eba&v=4
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
@@ -150,7 +151,7 @@ pwa:
 paginate: 10
 
 # The base URL of your site
-baseurl: "https://xjantoth.github.io"
+baseurl: "" #"https://xjantoth.github.io"
 
 # ------------ The following options are not recommended to be modified ------------------
 
