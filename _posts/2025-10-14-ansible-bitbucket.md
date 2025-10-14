@@ -1,20 +1,19 @@
 ---
 title: Ansible Bitbucket
 date: 2024-10-04T20:14:27+0200
-categories: [notes, ansible, bitbucket]
+lastmod: 2024-10-04T20:14:27+0200
+draft: false
+description: Ansible Bitbucket
+image: "images/blog/linux-1.jpg"
+author: "Jan Toth"
 tags:
   - bash
-  - ansible
-  - bitbucket
   - devopsinuse
 ---
 
 
-## Links:
 
-202410042010
-
-```bash
+```yaml
 ---
 # .........................................................................
 # 1. Creating Bitbucket project for GCP Solution Project
