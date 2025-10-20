@@ -4,7 +4,7 @@ date: 2024-03-16T19:08:02+0100
 lastmod: 2024-03-16T19:08:02+0100
 draft: false
 description: My Tmux setup
-image: "assets/images/blog/linux-1.jpg"
+image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
 tags:
   - bash

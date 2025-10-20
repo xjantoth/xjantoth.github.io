@@ -4,7 +4,7 @@ date: 2024-03-05T08:53:16+0100
 lastmod: 2024-03-05T08:53:16+0100
 draft: false
 description: Azure az behind corporate proxy
-image: "assets/images/blog/linux-1.jpg"
+image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
 tags:
   - bash

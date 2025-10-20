@@ -4,7 +4,7 @@ date: 2024-05-10T21:11:50+0200
 lastmod: 2024-05-10T21:11:50+0200
 draft: false
 description: How to detect duplicates using jq
-image: "assets/images/blog/linux-1.jpg"
+image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
 tags:
   - bash

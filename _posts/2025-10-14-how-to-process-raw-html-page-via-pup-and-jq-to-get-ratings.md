@@ -4,7 +4,7 @@ date: 2024-07-18T12:29:43+0200
 lastmod: 2024-07-18T12:29:43+0200
 draft: false
 description: How to process raw html page via pup and jq to get ratings
-image: "assets/images/blog/linux-1.jpg"
+image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
 tags:
   - bash

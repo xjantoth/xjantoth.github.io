@@ -4,7 +4,7 @@ date: 2024-02-23T18:44:45+0100
 lastmod: 2024-02-23T18:44:45+0100
 draft: false
 description: How to use Google AppScript for docs templating at presonal Google Drive
-image: "assets/images/blog/linux-1.jpg"
+image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
 tags:
   - bash

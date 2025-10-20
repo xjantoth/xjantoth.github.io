@@ -3,7 +3,7 @@ title: How to use bufdo in Neovim
 date: 2024-03-26T13:19:22+0100
 lastmod: 2024-03-26T13:19:22+0100
 description: Useful Vim Commands
-image: "assets/images/blog/linux-1.jpg"
+image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
 tags:
   - bash

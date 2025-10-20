@@ -4,7 +4,7 @@ date: 2025-10-20T11:46:24:+0200
 lastmod: 2025-10-20T11:46:24:+0200
 draft: false
 description: "How to server Jekkyl from github pages"
-image: "assets/images/blog/linux-1.jpg"
+image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
 tags:
   - "websupport"

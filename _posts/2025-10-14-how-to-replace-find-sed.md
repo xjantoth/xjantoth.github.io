@@ -4,7 +4,7 @@ date: 2024-02-21T15:00:30+0100
 lastmod: 2024-02-21T15:00:30+0100
 draft: false
 description: "How to replace text in lots of file via sed and find"
-image: "assets/images/blog/linux-1.jpg"
+image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
 tags:
   - sed

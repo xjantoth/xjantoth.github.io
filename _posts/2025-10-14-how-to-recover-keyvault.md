@@ -4,7 +4,7 @@ date: 2022-02-09T11:04:38+0100
 lastmod: 2022-02-09T11:04:38+0100
 draft: false
 description: "How to recover keyvault"
-image: "assets/images/blog/linux-1.jpg"
+image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
 tags:
   - azure

@@ -4,7 +4,7 @@ date: 2024-03-04T14:41:24+0100
 lastmod: 2024-03-04T14:41:24+0100
 draft: false
 description: Oneliner to compare software versions for Vault on Github
-image: "assets/images/blog/linux-1.jpg"
+image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
 tags:
   - bash
