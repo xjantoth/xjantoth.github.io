@@ -115,16 +115,15 @@ curl  -k -X PUT \
 # .........................................................................
 # 1. Creating Bitbucket project
 # .........................................................................
-- name: Read input yaml file
-  ansible.builtin.shell: "cat {{ DEFINITION_FILE }}"
+- name: Read input YAML file
+  ansible.builtin.shell: cat {{ DEFINITION_FILE }}
   register: result
 
 - name: Load input data into data variable
   set_fact:
     data: "{{ result.stdout | from_yaml }}"
 
-
-- name: creating Bitbucket project
+- name: Create Bitbucket project
   uri:
     url: "{{ BITBUCKET_URL }}/rest/api/latest/projects"
     user: "{{ BITBUCKET_USER }}"
@@ -134,37 +133,35 @@ curl  -k -X PUT \
       Content-Type: "application/json"
       Accept: "application/json"
     method: POST
-    body: |
-      {
-        "key": "{{ data | json_query('bb_project') }}"
-      }
-    validate_certs: False
+    body:
+      key: "{{ data.bb_project }}"
     body_format: json
+    validate_certs: no
     status_code: [200, 201, 409]
-  register: _response
+  register: response
 
 # .........................................................................
 # 2. Granting PROJECT_ADMIN to BB_GROUP_NAME group at Bitbucket project level
 # .........................................................................
 - name: Grant permissions to group BB_GROUP_NAME
   uri:
-    url: "{{ BITBUCKET_URL }}/rest/api/latest/projects/{{ data | json_query('bb_project') }}/permissions/groups?name={{ BB_GROUP_NAME | urlencode}}&permission=PROJECT_ADMIN"
+    url: "{{ BITBUCKET_URL }}/rest/api/latest/projects/{{ data.bb_project }}/permissions/groups?name={{ BB_GROUP_NAME | urlencode }}&permission=PROJECT_ADMIN"
     user: "{{ BITBUCKET_USER }}"
     password: "{{ BITBUCKET_PASS }}"
     force_basic_auth: yes
     headers:
       Accept: "application/json"
     method: PUT
-    validate_certs: False
+    validate_certs: no
     status_code: [200, 201, 204]
-  register: _response
+  register: response
 
 # .........................................................................
 # 3. Import/create new repo with sample code
 # .........................................................................
-- name: import/create new repo with sample code
+- name: Import/create new repo with sample code
   uri:
-    url: "{{ BITBUCKET_URL }}/rest/importer/latest/projects/{{ data | json_query('bb_project') }}/import/repos"
+    url: "{{ BITBUCKET_URL }}/rest/importer/latest/projects/{{ data.bb_project }}/import/repos"
     user: "{{ BITBUCKET_USER }}"
     password: "{{ BITBUCKET_PASS }}"
     force_basic_auth: yes
@@ -172,26 +169,27 @@ curl  -k -X PUT \
       Content-Type: "application/json"
       Accept: "application/json"
     method: POST
-    body: |
-      {
-      "externalRepositories":[{
-        "cloneUrl":"{{ SAMPLE_PROJECT_URL }}",
-        "name":"{{ data | json_query('bb_repo') }}",
-        "scmId":"git"
-      }]
-      }
-    validate_certs: False
+    body:
+      externalRepositories:
+        - cloneUrl: "{{ SAMPLE_PROJECT_URL }}"
+          name: "{{ data.bb_repo }}"
+          scmId: "git"
     body_format: json
+    validate_certs: no
     status_code: [200, 201, 409]
-  register: _response
+  register: response
 
 # .........................................................................
-# 4. Grant neceassary permissions to Bitbucket repo
+# 4. Grant necessary permissions to Bitbucket repo
 # .........................................................................
+- name: Construct permissions query string for REPO_ADMIN
+  set_fact:
+    admins_query: "permission=REPO_ADMIN{% for admin in data.bb_repo_admins %}&name={{ admin | urlencode}}{% endfor %}"
+  when: data.bb_repo_admins is defined
 
-- name: grant neceassary permissions to Bitbucket repo REPO_ADMIN
+- name: Grant necessary permissions to Bitbucket repo REPO_ADMIN
   uri:
-    url: "{{ BITBUCKET_URL }}/rest/api/latest/projects/{{ data | json_query('bb_project') }}/repos/{{ data | json_query('bb_repo') }}/permissions/users?permission=REPO_ADMIN{% for item in data | json_query('bb_repo_admins') %}&name={{ item }}{% endfor %}"
+    url: "{{ BITBUCKET_URL }}/rest/api/latest/projects/{{ data.bb_project }}/repos/{{ data.bb_repo }}/permissions/users?{{ admins_query }}"
     user: "{{ BITBUCKET_USER }}"
     password: "{{ BITBUCKET_PASS }}"
     force_basic_auth: yes
@@ -199,12 +197,10 @@ curl  -k -X PUT \
       Content-Type: "application/json"
       Accept: "application/json"
     method: PUT
-    body_format: form-urlencoded
-    validate_certs: False
+    validate_certs: no
     status_code: [200, 201, 204]
-  register: _response
+  register: response
+  when: data.bb_repo_admins is defined
+---
 ```
 
-## Links:
-
-202407250907
