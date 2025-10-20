@@ -4,7 +4,7 @@ date: 2022-07-18T13:39:59+0200
 lastmod: 2022-07-18T13:39:59+0200
 draft: false
 description: "How to transfer gitlab calculated variable into trigger section"
-image: "images/blog/linux-1.jpg"
+image: "assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
 tags:
   -

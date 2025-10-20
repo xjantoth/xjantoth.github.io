@@ -4,7 +4,7 @@ date: 2024-07-19T14:15:27+0200
 lastmod: 2024-07-19T14:15:27+0200
 draft: false
 description: Check permissions for users and service account in GCP via gcloud
-image: "images/blog/linux-1.jpg"
+image: "assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
 tags:
   - bash

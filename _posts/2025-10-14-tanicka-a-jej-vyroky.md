@@ -4,7 +4,7 @@ date: "2022-01-07T12:07:56+0100"
 lastmod: "2022-01-07T12:07:56+0100"
 draft: false
 author: "Jan Toth"
-image: "images/blog/kubernetes-cert-1.png"
+image: "assets/images/blog/kubernetes-cert-1.png"
 description: "Tanicka a jej vyroky"
 
 tags: ["Tanicka"]

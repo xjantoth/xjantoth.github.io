@@ -4,7 +4,7 @@ date: 2022-03-15T08:59:30+0100
 lastmod: 2022-03-15T08:59:30+0100
 draft: false
 description: "Jenkins seed"
-image: "images/blog/linux-1.jpg"
+image: "assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
 tags:
   - jenkins

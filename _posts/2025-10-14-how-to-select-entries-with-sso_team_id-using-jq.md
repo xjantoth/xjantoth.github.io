@@ -4,7 +4,7 @@ date: 2024-06-05T12:58:07+0200
 lastmod: 2024-06-05T12:58:07+0200
 draft: false
 description: How to select entries with sso_team_id using jq
-image: "images/blog/linux-1.jpg"
+image: "assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
 tags:
   - bash

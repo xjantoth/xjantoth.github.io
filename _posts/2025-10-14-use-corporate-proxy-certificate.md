@@ -4,7 +4,7 @@ date: 2025-07-30T11:16:59+0200
 lastmod: 2025-07-30T11:16:59+0200
 draft: false
 description: Use corporate proxy certificate
-image: "images/blog/linux-1.jpg"
+image: "assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
 tags:
   - bash
