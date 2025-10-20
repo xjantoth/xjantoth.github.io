@@ -1,7 +1,7 @@
 ---
 title: How to create a clonable proxmox Ubuntu VM
-date: 2024-03-04T14:41:24+0100
-lastmod: 2024-03-04T14:41:24+0100
+date: 2024-10-04T14:41:24+0100
+lastmod: 2024-10-04T14:41:24+0100
 draft: false
 description: How to create a clonable proxmox Ubuntu VM
 image: "https://www.codeschoepfer.de/wp-content/uploads/2024/05/proxmox-blog-960_480.jpg"
