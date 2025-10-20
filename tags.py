@@ -1,23 +1,12 @@
 #!/usr/bin/env python
 
 import glob
-import os
 import re
-import sys
-from datetime import datetime
-
-current_date = datetime.now().strftime('%Y-%m-%d')
-
-# Check if the filename is provided
-# if len(sys.argv) < 2:
-#     print("Usage: python script.py <filename>")
-#     sys.exit(1)
-#
-# f = sys.argv[1]
+import ast
 
 all_files = glob.glob("_posts/*.md")
 
-for _file in all_files:
+for x, _file in enumerate(all_files):
   with open(_file, 'r', encoding='utf-8') as file:
       c = file.readlines()
 
@@ -25,17 +14,26 @@ for _file in all_files:
         if line.startswith("tags:"):
           # line = True
           if re.search(r'^tags:.*', line):
-            # print(_file, line)
-            print(line)
+            s = line.split(":")[1].strip(" ")
+            l = ast.literal_eval(s)
+            for i in l:
+              if re.match(r'\d+', i):
+                # print(f"delefing: {i}")
+                l.remove(i)
+              if re.search(r"\(.*\)", i):
+                # print(f"delefing: {i}")
+                l.remove(i)
+              if re.search(r"<title><title>", i):
+                # print(f"delefing: {i}")
+                l.remove(i)
+            print(l)
+
+            c[e] = f"tags: {l}\n"
 
 
 
-          # c[e] = f"tags: {title}\n".strip("\"")
 
-
-
-
-      # with open(f"{p}/{current_date}-{fn}", 'w', encoding='utf-8') as file:
-      #     for line in c:
-      #         file.write(line)  # Add a newline to each line
+  with open(_file, 'w', encoding='utf-8') as file:
+      for line in c:
+          file.write(line)  # Add a newline to each line
 
