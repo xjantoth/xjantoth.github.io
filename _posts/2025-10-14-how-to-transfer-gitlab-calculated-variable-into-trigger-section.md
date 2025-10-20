@@ -6,8 +6,7 @@ draft: false
 description: "How to transfer gitlab calculated variable into trigger section"
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags:
-  -
+tags: ["gitlab", "variables"]
 ---
 
 One has to used `artifacts` section combined with `reports` child keyword and save a variable with its value to `build.env` file.

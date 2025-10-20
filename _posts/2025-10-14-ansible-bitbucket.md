@@ -7,9 +7,7 @@ draft: false
 description: Ansible Bitbucket
 image: https://miro.medium.com/v2/0*sV8pi5txXJiFOJfJ.png 
 author: "Jan Toth"
-tags:
-  - bash
-  - devopsinuse
+tags: ["bash", "devopsinuse"]
 ---
 
 

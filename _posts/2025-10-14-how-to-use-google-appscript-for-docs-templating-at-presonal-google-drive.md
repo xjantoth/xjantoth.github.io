@@ -6,12 +6,7 @@ draft: false
 description: How to use Google AppScript for docs templating at presonal Google Drive
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags:
-  - bash
-  - devopsinuse
-  - appscript
-  - google-drive
-  - docs
+tags: ["bash", "devopsinuse", "appscript", "google-drive", "docs"]
 ---
 
 I have recently had a requirement to create write quite a bit of letters. Each letter must have a recepepient

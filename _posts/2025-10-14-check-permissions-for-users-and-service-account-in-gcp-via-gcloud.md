@@ -6,9 +6,7 @@ draft: false
 description: Check permissions for users and service account in GCP via gcloud
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags:
-  - bash
-  - devopsinuse
+tags: ["bash", "devopsinuse"]
 ---
 
 

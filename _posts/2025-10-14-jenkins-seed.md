@@ -6,9 +6,7 @@ draft: false
 description: "Jenkins seed"
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags:
-  - jenkins
-  - seed
+tags: ["jenkins", "seed"]
 ---
 
 

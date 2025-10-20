@@ -6,9 +6,7 @@ draft: false
 description: My Tmux setup
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags:
-  - bash
-  - devopsinuse
+tags: ["bash", "devopsinuse"]
 ---
 
 I have been using `tmux` for quite a while now. Despite the fact that, I sometimes felt weird because of all the other colleagues use VSCODE

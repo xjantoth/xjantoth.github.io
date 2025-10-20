@@ -6,9 +6,7 @@ draft: false
 description: "How to recover keyvault"
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags:
-  - azure
-  - keyvault
+tags: ["azure", "keyvault"]
 ---
 
 A simple way how to recover Azrue keyvault if needed

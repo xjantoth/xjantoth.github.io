@@ -6,12 +6,7 @@ draft: false
 description: How to GCP Private Service Connect PSC between two VPCs within different projects
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags:
-  - bash
-  - devopsinuse
-  - gcp
-  - psc
-  - private-service-connect
+tags: ["bash", "devopsinuse", "gcp", "psc", "private-service-connect"]
 ---
 
 

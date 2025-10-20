@@ -6,11 +6,7 @@ draft: false
 description: Use corporate proxy certificate
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags:
-  - bash
-  - devopsinuse
-  - cert
-  - ssl
+tags: ["bash", "devopsinuse", "cert", "ssl"]
 ---
 
 

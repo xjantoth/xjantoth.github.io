@@ -6,11 +6,7 @@ draft: false
 description: How to process raw html page via pup and jq to get ratings
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags:
-  - bash
-  - devopsinuse
-  - jq
-  - pup
+tags: ["bash", "devopsinuse", "jq", "pup"]
 
 ---
 

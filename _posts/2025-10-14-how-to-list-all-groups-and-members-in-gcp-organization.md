@@ -6,11 +6,7 @@ draft: false
 description: How to list all groups and members in GCP organization
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags:
-  - bash
-  - devopsinuse
-  - gcloud
-  - gcp
+tags: ["bash", "devopsinuse", "gcloud", "gcp"]
 ---
 
 ```bash

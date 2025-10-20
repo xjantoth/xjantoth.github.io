@@ -6,11 +6,7 @@ draft: false
 description: How to use regexp with jq
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags:
-  - bash
-  - devopsinuse
-  - jq
-  - regexp
+tags: ["bash", "devopsinuse", "jq", "regexp"]
 ---
 
 How to use regexp within `jq` when selecting documents

@@ -6,11 +6,7 @@ draft: false
 description: "How to replace text in lots of file via sed and find"
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags:
-  - sed
-  - find
-  - bash
-  - replace
+tags: ["sed", "find", "bash", "replace"]
 ---
 
 
