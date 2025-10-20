@@ -19,10 +19,11 @@ CNI_NETNS=/proc/6137/ns/net
 ```
 
 
+```bash
 # interesting fact
 ls -sfT $CNI_NETNS /var/run/netns/$CNI_CONTAINERID
+```
 
-```bash
 ![Image](/assets/images/blog/cni-1.png)
 ![Image](/assets/images/blog/cni-2.png)
 ![Image](/assets/images/blog/cni-3.png)
@@ -33,7 +34,7 @@ ls -sfT $CNI_NETNS /var/run/netns/$CNI_CONTAINERID
 ![Image](/assets/images/blog/cni-8.png)
 ![Image](/assets/images/blog/cni-9.png)
 ![Image](/assets/images/blog/cni-10.png)
-```
+
 
 #### How to create client/server namespace and run python webserver
 
