@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-1.jpg"
 description: "Drain node from K3S"
 
-tags: ["kubernetes", "drain", "node", "k3s"]
+tags: ['kubernetes', 'drain', 'node', 'k3s']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

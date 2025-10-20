@@ -7,7 +7,7 @@ author: "Jan Toth"
 description: "Kubernetes cluster (home)"
 image: "/assets/images/blog/raspberrypi/raspberrypi.png"
 
-tags: ["raspberry", "grafana", "prometheus", "helm", "deployment"]
+tags: ['raspberry', 'grafana', 'prometheus', 'helm', 'deployment']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

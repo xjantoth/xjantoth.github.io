@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "Install Raspberry Pi OS (Raspberry Pi 3)"
 
-tags: ["ml", "raspberry", "k3s", "os"]
+tags: ['ml', 'raspberry', 'k3s', 'os']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

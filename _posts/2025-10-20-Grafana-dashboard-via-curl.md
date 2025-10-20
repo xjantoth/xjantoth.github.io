@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-1.jpg"
 description: "Grafana dashboard via curl"
 
-tags: ["kubernetes", "grafana", "dashboard", "curl"]
+tags: ['kubernetes', 'grafana', 'dashboard', 'curl']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

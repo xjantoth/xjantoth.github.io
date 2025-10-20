@@ -7,7 +7,7 @@ author: "Jan Toth"
 description: "Create SD card for Raspberry Pi"
 image: "/assets/images/blog/raspberrypi/raspberrypi.png"
 
-tags: ["raspberry", "sd", "card"]
+tags: ['raspberry', 'sd', 'card']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

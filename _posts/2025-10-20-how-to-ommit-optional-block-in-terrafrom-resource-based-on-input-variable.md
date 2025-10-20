@@ -6,7 +6,7 @@ draft: false
 description: "How to ommit optional block in terrafrom resource based on input variable"
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ["ommit", "optional", "block", "terraform"]
+tags: ['ommit', 'optional', 'block', 'terraform']
 ---
 
 The goal is to create azurerm_virtual_hub_connection which might or might not have an optional block called `static_vnet_route` section under `routing {}` block.

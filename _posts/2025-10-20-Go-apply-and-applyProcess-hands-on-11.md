@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/go-1.jpg"
 description: "Go apply and applyProcess hands on 11"
 
-tags: ['go', 'apply', 'and', 'applyprocess', 'hands', 'on', '11']
+tags: ['go', 'apply', 'and', 'applyprocess', 'hands', 'on']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

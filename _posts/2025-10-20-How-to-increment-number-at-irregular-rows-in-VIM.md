@@ -7,7 +7,7 @@ author: "Jan Toth"
 description: "vim increment number at irregular rows"
 image: "/assets/images/blog/vim-1.jpg"
 
-tags: ["vim", "increment", "rows"]
+tags: ['vim', 'increment', 'rows']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

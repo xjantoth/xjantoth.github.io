@@ -6,7 +6,7 @@ draft: false
 description: Oneliner to compare software versions for Vault on Github
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ["bash", "devopsinuse"]
+tags: ['bash', 'devopsinuse']
 ---
 
 ```bash

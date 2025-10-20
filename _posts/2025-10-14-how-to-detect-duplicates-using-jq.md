@@ -6,7 +6,7 @@ draft: false
 description: How to detect duplicates using jq
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ["bash", "devopsinuse", "jq"]
+tags: ['bash', 'devopsinuse', 'jq']
 ---
 
 How to detect duplicates using jq

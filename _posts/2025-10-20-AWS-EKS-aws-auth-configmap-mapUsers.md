@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-1.jpg"
 description: "AWS EKS aws-auth configmap mapUsers"
 
-tags: ["kubernetes", "aws", "eks"]
+tags: ['kubernetes', 'aws', 'eks']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

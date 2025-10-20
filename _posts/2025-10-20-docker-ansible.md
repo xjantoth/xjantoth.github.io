@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "docker ansible"
 
-tags: ["ml", "docket", "ansible"]
+tags: ['ml', 'docket', 'ansible']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

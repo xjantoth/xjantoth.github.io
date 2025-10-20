@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "Destroy terrafrom project -backend-config"
 
-tags: ["ml", "terraform", "backend", "aws"]
+tags: ['ml', 'terraform', 'backend', 'aws']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

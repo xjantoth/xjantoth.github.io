@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/go-1.jpg"
 description: "Go StripPrefix()"
 
-tags: ['go', 'stripprefix()']
+tags: ['go']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

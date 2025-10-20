@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/go-1.jpg"
 description: "Go request.FormValue('xyz')"
 
-tags: ['go', "request.formvalue('xyz')"]
+tags: ['go']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-1.jpg"
 description: "Install K3S with Rancher UI"
 
-tags: ["kubernetes", "install", "rancher", "ui", "k3s"]
+tags: ['kubernetes', 'install', 'rancher', 'ui', 'k3s']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

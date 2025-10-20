@@ -7,7 +7,7 @@ author: "Jan Toth"
 description: "How to start K3S on Raspberry Pi3"
 image: "/assets/images/blog/raspberrypi/raspberrypi.png"
 
-tags: ["raspberry", "k3s", "k8s"]
+tags: ['raspberry', 'k3s', 'k8s']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

@@ -6,7 +6,7 @@ draft: false
 description: "How to use jq as PRO"
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ["jq", "bash"]
+tags: ['jq', 'bash']
 ---
 
 ```bash

@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/ssh-1.png"
 description: "SSH config examples"
 
-tags: ["ssh", "config"]
+tags: ['ssh', 'config']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

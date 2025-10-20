@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "How to open support ticket at Udemy"
 
-tags: ["udemy"]
+tags: ['udemy']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

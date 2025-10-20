@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/ssh-1.png"
 description: "Generate SSH kyes for websupport gitlab"
 
-tags: ["ssh", "genrerate", "keys", "gitlab", "ssh config"]
+tags: ['ssh', 'genrerate', 'keys', 'gitlab', 'ssh config']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

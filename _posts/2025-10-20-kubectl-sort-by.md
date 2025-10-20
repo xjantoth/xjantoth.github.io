@@ -8,7 +8,7 @@ image: "/assets/images/blog/kubernetes-1.jpg"
 
 description: "kubectl sort by"
 
-tags: ["kubernetes", "sort", "by"]
+tags: ['kubernetes', 'sort', 'by']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

@@ -6,7 +6,7 @@ draft: false
 description: How to pass --url-query to curl
 image: https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2020/07/curl.jpg
 author: "Jan Toth"
-tags: ["bash", "devopsinuse", "curl"]
+tags: ['bash', 'devopsinuse', 'curl']
 ---
 
 This is a nice way how to multiline query parameters when using `curl`

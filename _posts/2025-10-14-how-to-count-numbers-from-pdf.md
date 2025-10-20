@@ -6,7 +6,7 @@ draft: false
 description: "How to count numbers from pdf"
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ["pdf"]
+tags: ['pdf']
 ---
 
 

@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "IPSec Tunnel"
 
-tags: ["ml", "ipsec", "tunnel"]
+tags: ['ml', 'ipsec', 'tunnel']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

@@ -6,7 +6,7 @@ draft: false
 description: GCP PCA certification notes
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ["bash", "gcp", "gcloud", "devopsinuse"]
+tags: ['bash', 'gcp', 'gcloud', 'devopsinuse']
 ---
 
 # Using multiple gcloud configurations/profile

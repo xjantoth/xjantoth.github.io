@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "Ansible k3sup installation"
 
-tags: ["ml", "ansible", "k3s", "k3sup", "wrt"]
+tags: ['ml', 'ansible', 'k3s', 'k3sup', 'wrt']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

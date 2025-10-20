@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-1.jpg"
 description: "Remove taint"
 
-tags: ["kubernetes", "remove", "taint"]
+tags: ['kubernetes', 'remove', 'taint']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

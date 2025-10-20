@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/ssh-1.png"
 description: "Keep SSH active"
 
-tags: ["ssh", "keep", "active"]
+tags: ['ssh', 'keep', 'active']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

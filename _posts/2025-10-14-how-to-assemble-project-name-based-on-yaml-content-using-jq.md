@@ -6,7 +6,7 @@ draft: false
 description: How to assemble project name based on yaml content using jq
 image: https://miro.medium.com/1*Kmn2vLqmIGiaUdc2-oaNRw.png
 author: "Jan Toth"
-tags: ["bash", "devopsinuse", "jq"]
+tags: ['bash', 'devopsinuse', 'jq']
 ---
 
 

@@ -7,7 +7,7 @@ author: "Jan Toth"
 description: "vim show hidden characters"
 image: "/assets/images/blog/vim-1.jpg"
 
-tags: ["vim", "hidden", "characters"]
+tags: ['vim', 'hidden', 'characters']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-1.jpg"
 description: "PostgreSQL RDS AWS"
 
-tags: ["kubernetes", "postgresql", "rds", "aws"]
+tags: ['kubernetes', 'postgresql', 'rds', 'aws']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

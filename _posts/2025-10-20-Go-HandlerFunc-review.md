@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/go-1.jpg"
 description: "Go HandlerFunc() review"
 
-tags: ['go', 'handlerfunc()', 'review']
+tags: ['go', 'review']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

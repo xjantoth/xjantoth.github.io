@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/ssh-1.png"
 description: "Copy store.php to websupport linuxinuse.com via sftp"
 
-tags: ["ssh", "websupport"]
+tags: ['ssh', 'websupport']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

@@ -6,7 +6,7 @@ draft: false
 description: Azure az behind corporate proxy
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ["bash", "devopsinuse"]
+tags: ['bash', 'devopsinuse']
 ---
 
 ## Url that solves that problem with being behind corporate proxy

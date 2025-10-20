@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/go-1.jpg"
 description: "Go serving files hands on 1"
 
-tags: ['go', 'serving', 'files', 'hands', 'on', '1']
+tags: ['go', 'serving', 'files', 'hands', 'on']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

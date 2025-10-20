@@ -6,7 +6,7 @@ draft: false
 description: How to conditionally add key value to Terraform map
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ["bash", "devopsinuse", "terraform"]
+tags: ['bash', 'devopsinuse', 'terraform']
 ---
 
 

@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "Tanicka a jej vyroky"
 
-tags: ["Tanicka"]
+tags: ['Tanicka']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

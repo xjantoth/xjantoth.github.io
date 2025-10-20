@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/go-1.jpg"
 description: "Go serving files with StripPrefix() hands on"
 
-tags: ['go', 'serving', 'files', 'with', 'stripprefix()', 'hands', 'on']
+tags: ['go', 'serving', 'files', 'with', 'hands', 'on']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

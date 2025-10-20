@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "Install Ubuntu 20.04 (Raspberry Pi 4 8GB)"
 
-tags: ["ml", "install", "ubuntu", "raspberry"]
+tags: ['ml', 'install', 'ubuntu', 'raspberry']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

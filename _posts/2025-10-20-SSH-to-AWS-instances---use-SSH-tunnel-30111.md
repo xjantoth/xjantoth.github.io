@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/ssh-1.png"
 description: "SSH to AWS instances - use SSH tunnel 30111"
 
-tags: ["ssh", "aws", "tunnel"]
+tags: ['ssh', 'aws', 'tunnel']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

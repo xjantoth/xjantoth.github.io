@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "Ansible debug variables"
 
-tags: ["ml"]
+tags: ['ml']
 categories: ["tiddlywiki", "ansible", "variable"]
 
 hiddenFromSearch: false

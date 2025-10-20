@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-1.jpg"
 description: "Apache Spark"
 
-tags: ["kubernetes", "apache", "spark", "helm"]
+tags: ['kubernetes', 'apache', 'spark', 'helm']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

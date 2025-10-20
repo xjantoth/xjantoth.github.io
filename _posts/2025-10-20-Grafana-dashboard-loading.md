@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-1.jpg"
 description: "Grafana dashboard loading"
 
-tags: ["kubernetes", "grafana", "dashboard", "helm"]
+tags: ['kubernetes', 'grafana', 'dashboard', 'helm']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

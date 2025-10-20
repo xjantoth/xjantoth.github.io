@@ -7,7 +7,7 @@ author: "Jan Toth"
 description: "backend helm chart"
 image: "/assets/images/blog/kubernetes-1.jpg"
 
-tags: ["raspberry", "helm", "backend", "k8s"]
+tags: ['raspberry', 'helm', 'backend', 'k8s']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-1.jpg"
 description: "Create Pod on the fly"
 
-tags: ["kubernetes", "pod", "kubectl"]
+tags: ['kubernetes', 'pod', 'kubectl']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

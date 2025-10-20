@@ -6,7 +6,7 @@ draft: false
 description: "How to server Jekkyl from github pages"
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ["websupport", "jekkyl"]
+tags: ['websupport', 'jekkyl']
 ---
 
 How to set custom domain at Github pages at Websupport.

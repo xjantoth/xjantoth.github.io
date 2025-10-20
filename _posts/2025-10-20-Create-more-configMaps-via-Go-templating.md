@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-1.jpg"
 description: "Create more configMaps via Go templating"
 
-tags: ["kubernetes", "go", "templating", "configmap"]
+tags: ['kubernetes', 'go', 'templating', 'configmap']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

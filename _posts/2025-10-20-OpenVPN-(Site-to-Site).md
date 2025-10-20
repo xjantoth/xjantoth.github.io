@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "OpenVPN (Site to Site)"
 
-tags: ["ml", "openvpn"]
+tags: ['ml', 'openvpn']
 categories: ["tiddlywiki", "openvpn", "vpn"]
 
 hiddenFromSearch: false

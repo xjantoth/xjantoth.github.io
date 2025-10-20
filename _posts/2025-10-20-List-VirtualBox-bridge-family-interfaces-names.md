@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "List VirtualBox bridge family interfaces names"
 
-tags: ["ml", "virtualbox", "bridge"]
+tags: ['ml', 'virtualbox', 'bridge']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

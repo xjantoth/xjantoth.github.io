@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-1.jpg"
 description: "Delete AWS ENI via cmd"
 
-tags: ["aws", "kubernetes", "sed"]
+tags: ['aws', 'kubernetes', 'sed']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

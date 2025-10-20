@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/ssh-1.png"
 description: "SSH tunnel to Samba server via hron"
 
-tags: ["ssh", "sabma", "hron"]
+tags: ['ssh', 'sabma', 'hron']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

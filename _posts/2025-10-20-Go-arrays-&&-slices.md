@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/go-1.jpg"
 description: "Go arrays <TITLE><TITLE> slices"
 
-tags: ['go', 'arrays', '<title><title>', 'slices']
+tags: ['go', 'arrays', 'slices']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false
