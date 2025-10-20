@@ -4,7 +4,7 @@ date: "2022-01-07T11:48:59+0100"
 lastmod: "2022-01-07T11:48:59+0100"
 draft: false
 author: "Jan Toth"
-image: "assets/images/blog/kubernetes-cert-1.png"
+image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "Ansible k3sup installation"
 
 tags: ["ml", "ansible", "k3s", "k3sup", "wrt"]

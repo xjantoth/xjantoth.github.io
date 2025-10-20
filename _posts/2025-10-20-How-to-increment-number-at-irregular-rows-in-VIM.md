@@ -5,7 +5,7 @@ lastmod: "2021-12-31T16:18:38+0100"
 draft: false
 author: "Jan Toth"
 description: "vim increment number at irregular rows"
-image: "assets/images/blog/vim-1.jpg"
+image: "/assets/images/blog/vim-1.jpg"
 
 tags: ["vim", "increment", "rows"]
 categories: ["tiddlywiki"]
