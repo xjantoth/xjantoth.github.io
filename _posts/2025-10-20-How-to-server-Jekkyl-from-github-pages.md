@@ -16,6 +16,6 @@ How to set custom domain at Github pages at Websupport.
 - set 4 A-recors
 - one CNAME www.<domain>.com
 
-![Image](images/blog/ws-1.png)
+![Image](/assets/images/blog/ws-1.png)
 
-![Image](images/blog/ws-2.png)
+![Image](/assets/images/blog/ws-2.png)
