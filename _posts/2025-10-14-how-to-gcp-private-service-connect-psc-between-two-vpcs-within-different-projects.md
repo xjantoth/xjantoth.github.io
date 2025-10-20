@@ -15,7 +15,7 @@ tags:
 ---
 
 
-![Image](images/blog/psc.drawio.png)
+![Image](/assets/images/blog/psc.drawio.png)
 ### Create 2 new GCP Projects in Free Tier Account
 
 
@@ -453,15 +453,15 @@ https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/c
 
 
 ### Consumer section
-![Image](images/blog/psc-1.png)
-![Image](images/blog/psc-2.png)
+![Image](/assets/images/blog/psc-1.png)
+![Image](/assets/images/blog/psc-2.png)
 
 ### Producer section
-![Image](images/blog/psc-3.png)
-![Image](images/blog/psc-4.png)
-![Image](images/blog/psc-5.png)
-![Image](images/blog/psc-6.png)
-![Image](images/blog/psc-7.png)
+![Image](/assets/images/blog/psc-3.png)
+![Image](/assets/images/blog/psc-4.png)
+![Image](/assets/images/blog/psc-5.png)
+![Image](/assets/images/blog/psc-6.png)
+![Image](/assets/images/blog/psc-7.png)
 
 
 
