@@ -4,7 +4,7 @@ date: 2024-06-28T10:39:00+0200
 lastmod: 2024-06-28T10:39:00+0200
 draft: false
 description: How to assemble project name based on yaml content using jq
-image: "images/blog/linux-1.jpg"
+image: https://miro.medium.com/1*Kmn2vLqmIGiaUdc2-oaNRw.png
 author: "Jan Toth"
 tags:
   - bash

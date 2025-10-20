@@ -4,7 +4,7 @@ date: 2024-10-04T20:14:27+0200
 lastmod: 2024-10-04T20:14:27+0200
 draft: false
 description: Ansible Bitbucket
-image: "images/blog/linux-1.jpg"
+image: https://miro.medium.com/v2/0*sV8pi5txXJiFOJfJ.png 
 author: "Jan Toth"
 tags:
   - bash

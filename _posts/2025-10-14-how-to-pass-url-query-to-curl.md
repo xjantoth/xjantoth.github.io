@@ -4,7 +4,7 @@ date: 2024-06-10T13:50:44+0200
 lastmod: 2024-06-10T13:50:44+0200
 draft: false
 description: How to pass --url-query to curl
-image: "images/blog/linux-1.jpg"
+image: https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2020/07/curl.jpg
 author: "Jan Toth"
 tags:
   - bash

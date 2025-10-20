@@ -4,7 +4,7 @@ date: 2024-07-25T09:39:30+0200
 lastmod: 2024-07-25T09:39:30+0200
 draft: false
 description: How to create resource in Bitbucket via curl and Ansible
-image: "images/blog/linux-1.jpg"
+image: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4sLbHPgMQ6s1WLgCB-6JUcjlftThBFl-OdQ&s
 author: "Jan Toth"
 tags:
   - bash
