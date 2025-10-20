@@ -26,6 +26,9 @@ for x, _file in enumerate(all_files):
               if re.search(r"<title><title>", i):
                 # print(f"delefing: {i}")
                 l.remove(i)
+              if re.search(r"-", i):
+                # print(f"delefing: {i}")
+                l.remove(i)
             print(l)
 
             c[e] = f"tags: {l}\n"

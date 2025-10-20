@@ -22,7 +22,18 @@ title = []
 for e, line in enumerate(c):
   if line.startswith("title:"):
     line = line.strip("()-[]").replace("\"", "").split(":")[1].strip(" ") # remove brackets
-    title = [word.lower() for word in line.split()]
+    l = [word.lower() for word in line.split()]
+    for i in l:
+      if re.match(r'\d+', i):
+        # print(f"delefing: {i}")
+        l.remove(i)
+      if re.search(r"\(.*\)", i):
+        # print(f"delefing: {i}")
+        l.remove(i)
+      if re.search(r"<title><title>", i):
+        # print(f"delefing: {i}")
+        l.remove(i)
+    title = l
 
 # rewrite tags
 for e, line in enumerate(c):

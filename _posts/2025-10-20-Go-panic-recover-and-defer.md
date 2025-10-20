@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/go-1.jpg"
 description: "Go panic() recover() and defer()"
 
-tags: ['go', 'recover()', 'and']
+tags: ['go', 'and']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false
