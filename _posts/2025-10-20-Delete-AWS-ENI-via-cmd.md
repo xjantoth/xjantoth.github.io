@@ -1,13 +1,13 @@
 ---
 title: "Delete AWS ENI via cmd"
-date: "2022-01-07T11:30:42+0100"
-lastmod: "2022-01-07T11:30:42+0100"
+date: "2022-01-04T13:36:26+0100"
+lastmod: "2022-01-04T13:36:26+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-1.jpg"
+image: "/assets/images/blog/aws-1.jpg"
 description: "Delete AWS ENI via cmd"
 
-tags: ['aws', 'kubernetes', 'sed']
+tags: ['delete', 'aws', 'eni', 'via', 'cmd']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false
