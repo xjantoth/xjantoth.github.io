@@ -28,5 +28,6 @@ git remote add chirpy https://github.com/cotes2020/chirpy-starter.git
 git checkout -b upgrade/v7.4.0
 git restore --staged assets/lib
 git checkout --ours _config.yml
-
+git add .
+git commit -m "upgrade theme to v7.4.0"
 ```
