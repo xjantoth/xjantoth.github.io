@@ -4,7 +4,7 @@ date: 2022-08-03T20:57:04+0200
 lastmod: 2022-08-03T20:57:04+0200
 draft: false
 description: "CKS Kubernetes CNI"
-image: "/assets/images/blog/linux-1.jpg"
+image: "https://www.cncf.io/wp-content/uploads/2020/08/cni-icon-color.png"
 author: "Jan Toth"
 tags: ['cks', 'kubernetes', 'cni']
 ---

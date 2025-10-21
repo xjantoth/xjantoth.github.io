@@ -7,7 +7,7 @@ author: "Jan Toth"
 description: "VPN in Archlinux"
 
 image: "/assets/images/blog/linux-1.jpg"
-tags: ['vpn', 'in', 'archlinux']
+tags: ['vpn', 'archlinux']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

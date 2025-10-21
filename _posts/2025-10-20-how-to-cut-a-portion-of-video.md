@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/linux-1.jpg"
 description: "How to cut a portion of video"
 
-tags: ['how', 'to', 'cut', 'a', 'portion', 'of', 'video']
+tags: ['cut', 'portion', 'video']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

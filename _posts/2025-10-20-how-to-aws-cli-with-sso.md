@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/aws-1.jpg"
 description: "How to aws cli with SSO"
 
-tags: ['how', 'to', 'aws', 'cli', 'with', 'sso']
+tags: ['aws', 'cli', 'sso']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

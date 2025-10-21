@@ -7,7 +7,7 @@ author: "Jan Toth"
 description: "Pacman setup mirrors and refresh keys"
 
 image: "/assets/images/blog/linux-1.jpg"
-tags: ['pacman', 'setup', 'mirrors', 'and', 'refresh', 'keys']
+tags: ['pacman', 'setup', 'mirrors', 'refresh', 'keys']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false
