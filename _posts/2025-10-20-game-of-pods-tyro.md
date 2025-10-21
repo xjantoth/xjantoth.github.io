@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "Game of Pods - Tyro"
 
-tags: ['game', 'of', 'pods', 'tyro']
+tags: ['game', 'pods', 'tyro']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

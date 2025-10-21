@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/linux-1.jpg"
 description: "Determine the length of mp4 file"
 
-tags: ['determine', 'the', 'length', 'of', 'mp4', 'file']
+tags: ['determine', 'the', 'length', 'mp4', 'file']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

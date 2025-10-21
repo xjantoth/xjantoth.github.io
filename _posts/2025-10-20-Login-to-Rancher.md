@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-1.jpg"
 description: "Login to Rancher"
 
-tags: ['kubernetes', 'work', 'login', 'rancher']
+tags: ['kubernetes', 'login', 'rancher']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

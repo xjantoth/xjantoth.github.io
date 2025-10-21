@@ -7,7 +7,7 @@ author: "Jan Toth"
 description: "cryptsetup"
 
 image: "/assets/images/blog/linux-1.jpg"
-tags: ['how', 'to', 'use', 'cryptsetup', 'while', 'installing', 'archlinux']
+tags: ['to', 'cryptsetup', 'installing', 'archlinux']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

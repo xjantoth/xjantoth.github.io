@@ -7,7 +7,7 @@ author: "Jan Toth"
 description: "cryptsetup"
 
 image: "/assets/images/blog/linux-1.jpg"
-tags: ['self-signed', 'ssl', 'tls', 'certificates', 'linux']
+tags: ['ssl', 'tls', 'certificates', 'linux']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

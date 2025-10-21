@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/go-1.jpg"
 description: "Go using DefaultMux with nil"
 
-tags: ['go', 'using', 'defaultmux', 'with', 'nil']
+tags: ['go', 'using', 'defaultmux', 'nil']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

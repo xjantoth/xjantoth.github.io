@@ -6,7 +6,7 @@ draft: false
 description: "Protect Kubernetes node metadata"
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ['protect', 'kubernetes', 'node', 'metadata']
+tags: ['kubernetes', 'node', 'metadata']
 ---
 
 ###### Deny all traffic to google's metadata server

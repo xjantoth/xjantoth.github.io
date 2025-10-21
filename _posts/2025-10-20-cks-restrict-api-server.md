@@ -6,7 +6,7 @@ draft: false
 description: "CKS Restrict API server"
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ['cks', 'restrict', 'api', 'server']
+tags: ['cks', 'api', 'server']
 ---
 
 #### There is an flag when starting `kube-aoiserver` called:

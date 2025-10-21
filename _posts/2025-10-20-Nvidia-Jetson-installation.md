@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "Nvidia Jetson installation"
 
-tags: ['ml', 'install', 'k3s', 'raspberry', 'gpu', 'nvidia', 'jetson']
+tags: ['ml', 'k3s', 'raspberry', 'gpu', 'nvidia', 'jetson']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

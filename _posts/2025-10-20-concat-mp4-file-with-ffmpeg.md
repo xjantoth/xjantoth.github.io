@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/linux-1.jpg"
 description: "Concat mp4 file with ffmpeg"
 
-tags: ['concat', 'mp4', 'file', 'with', 'ffmpeg']
+tags: ['concat', 'mp4', 'file', 'ffmpeg']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

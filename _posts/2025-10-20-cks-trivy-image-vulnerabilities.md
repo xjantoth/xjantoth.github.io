@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "CKS Trivy and Clair - Vulnerability Scanner for Containers and other Artifacts"
 
-tags: ['cks', 'trivy', 'and', 'clair', 'vulnerability', 'scanner', 'for', 'containers', 'and', 'other', 'artifacts']
+tags: ['cks', 'trivy', 'clair', 'vulnerability', 'scanner', 'containers', 'other', 'artifacts']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

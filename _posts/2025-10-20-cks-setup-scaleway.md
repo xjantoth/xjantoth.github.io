@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "CKS setup Scaleway kubernetes cluster at Ubuntu 18.04"
 
-tags: ['cks', 'setup', 'scaleway', 'kubernetes', 'cluster', 'at', 'ubuntu']
+tags: ['cks', 'setup', 'scaleway', 'kubernetes', 'cluster', 'ubuntu']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

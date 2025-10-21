@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-1.jpg"
 description: "K3S with Nvidia GPU"
 
-tags: ['kubernetes', 'install', 'k3s', 'raspberry', 'gpu', 'nvidia']
+tags: ['kubernetes', 'k3s', 'raspberry', 'gpu', 'nvidia']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/go-1.jpg"
 description: "Go create file on server"
 
-tags: ['go', 'create', 'file', 'on', 'server']
+tags: ['go', 'file', 'server']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "Jobs and CronJobs"
 
-tags: ['jobs', 'and', 'cronjobs']
+tags: ['jobs', 'cronjobs']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

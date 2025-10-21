@@ -6,7 +6,7 @@ draft: false
 description: "CKS Reduce Attack Surface"
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ['cks', 'reduce', 'attack', 'surface']
+tags: ['cks', 'attack', 'surface']
 ---
 
 ##### Overview

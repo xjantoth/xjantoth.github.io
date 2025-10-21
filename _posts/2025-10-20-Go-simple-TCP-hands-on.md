@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/go-1.jpg"
 description: "Go simple TCP hands on"
 
-tags: ['go', 'simple', 'tcp', 'hands', 'on']
+tags: ['go', 'simple', 'tcp', 'hands']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

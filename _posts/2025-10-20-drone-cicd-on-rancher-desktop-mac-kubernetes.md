@@ -6,7 +6,7 @@ draft: false
 description: "Drone CICD on Rancher Desktop MAC Kubernetes"
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ['drone', 'cicd', 'on', 'rancher', 'desktop', 'mac', 'kubernetes']
+tags: ['drone', 'cicd', 'rancher', 'desktop', 'mac', 'kubernetes']
 ---
 
 

@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/go-1.jpg"
 description: "Go StripPrefix() cumbersome one hands on 9"
 
-tags: ['go', 'cumbersome', 'one', 'hands', 'on']
+tags: ['go', 'cumbersome', 'one', 'hands']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

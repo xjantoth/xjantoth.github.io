@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "Game of Pods - Redis cluster"
 
-tags: ['game', 'of', 'pods', 'redis', 'cluster']
+tags: ['game', 'pods', 'redis', 'cluster']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

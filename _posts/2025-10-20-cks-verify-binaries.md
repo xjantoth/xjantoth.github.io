@@ -6,7 +6,7 @@ draft: false
 description: "Verify binaries"
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ['verify', 'binaries']
+tags: ['binaries']
 ---
 
 One has to compare the binary version which is currently running at the Kubernetes master and later on find out the PID of kubelet process.

@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "taint and tolerations"
 
-tags: ['taint', 'and', 'tolerations']
+tags: ['taint', 'tolerations']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

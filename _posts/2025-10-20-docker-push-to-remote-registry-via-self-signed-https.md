@@ -7,7 +7,7 @@ author: "Jan Toth"
 description: "Docker push to remote registry via self signed https"
 
 image: "/assets/images/blog/linux-1.jpg"
-tags: ['docker', 'push', 'to', 'remote', 'registry', 'via', 'self', 'signed', 'ssl', 'certificate']
+tags: ['docker', 'to', 'remote', 'registry', 'self', 'signed', 'ssl', 'certificate']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

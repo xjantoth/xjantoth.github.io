@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "Create John user in Kuberentes"
 
-tags: ['create', 'john', 'user', 'in', 'kuberentes']
+tags: ['john', 'user', 'kuberentes']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

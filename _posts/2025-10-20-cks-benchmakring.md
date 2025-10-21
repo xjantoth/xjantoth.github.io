@@ -6,7 +6,7 @@ draft: false
 description: "cks-benchmakring.md"
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ["cks", "benchmarking"]
+tags: ['cks', 'benchmarking']
 ---
 
 ## CSI Kubernetes Benchmark 1.6.0 (at the time)

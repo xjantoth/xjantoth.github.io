@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/aws-1.jpg"
 description: "Delete AWS ENI via cmd"
 
-tags: ['delete', 'aws', 'eni', 'via', 'cmd']
+tags: ['aws', 'eni', 'cmd']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

@@ -7,7 +7,7 @@ author: "Jan Toth"
 description: "How to generate TOC by calling external sh"
 image: "/assets/images/blog/vim-1.jpg"
 
-tags: ['vim', 'generate', 'toc']
+tags: ['vim', 'toc']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

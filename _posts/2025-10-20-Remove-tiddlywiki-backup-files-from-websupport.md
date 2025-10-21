@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/ssh-1.png"
 description: "Remove tiddlywiki backup files from websupport"
 
-tags: ['ssh', 'remove', 'tiddlywiki', 'backup']
+tags: ['ssh', 'tiddlywiki']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

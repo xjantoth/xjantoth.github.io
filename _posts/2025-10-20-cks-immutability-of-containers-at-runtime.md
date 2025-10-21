@@ -6,7 +6,7 @@ draft: false
 description: "CKS Immutability of containers at runtime"
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ['cks', 'immutability', 'of', 'containers', 'at', 'runtime']
+tags: ['cks', 'immutability', 'containers', 'runtime']
 ---
 
 * advanced deployment methods

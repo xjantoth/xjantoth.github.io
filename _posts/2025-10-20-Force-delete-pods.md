@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-1.jpg"
 description: "Force delete pods"
 
-tags: ['kubernetes', 'delete', 'pod']
+tags: ['kubernetes', 'pod']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

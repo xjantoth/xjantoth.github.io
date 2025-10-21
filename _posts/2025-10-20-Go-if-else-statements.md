@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/go-1.jpg"
 description: "Go if else statements"
 
-tags: ['go', 'if', 'else', 'statements']
+tags: ['go', 'else', 'statements']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

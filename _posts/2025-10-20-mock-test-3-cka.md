@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "MOCK TEST 3 CKA"
 
-tags: ['mock', 'test', 'cka']
+tags: ['mock', 'cka']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/aws-1.jpg"
 description: "create ACM certificate"
 
-tags: ['create', 'acm', 'certificate']
+tags: ['acm', 'certificate']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

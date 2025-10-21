@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/gcp-1.jpg"
 description: "Connecting to PostgreSQL via Cloud SQL Proxy"
 
-tags: ['connecting', 'to', 'postgresql', 'via', 'cloud', 'sql', 'proxy']
+tags: ['connecting', 'postgresql', 'cloud', 'sql', 'proxy']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

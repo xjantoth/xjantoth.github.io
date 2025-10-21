@@ -6,7 +6,7 @@ draft: false
 description: "How to run n8s on locally on Apple containers Mac"
 image: "https://i.ytimg.com/vi/YUw1xk82980/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBSJXX-TBEA6uAZg8hLGFgOYk32_g"
 author: "Jan Toth"
-tags: ["mac", "containers", "n8s"]
+tags: ['mac', 'containers', 'n8s']
 ---
 
 Apple has recently inctroduced their own container solution. I have decided to test it and start n8s. 

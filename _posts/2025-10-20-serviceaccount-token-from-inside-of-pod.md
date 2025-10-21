@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "ServiceAccount token from inside of pod"
 
-tags: ['serviceaccount', 'token', 'from', 'inside', 'of', 'pod']
+tags: ['serviceaccount', 'token', 'inside', 'pod']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "Game of Pods - Voting app"
 
-tags: ['game', 'of', 'pods', 'voting', 'app']
+tags: ['game', 'pods', 'voting', 'app']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

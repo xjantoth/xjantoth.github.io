@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "RuntimeClass GAdvisor and  Kata containers"
 
-tags: ['runtimeclass', 'gadvisor', 'and', 'kata', 'containers']
+tags: ['runtimeclass', 'gadvisor', 'kata', 'containers']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

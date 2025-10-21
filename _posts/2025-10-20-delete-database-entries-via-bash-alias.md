@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/linux-1.jpg"
 description: "Delete database entries via bash alias"
 
-tags: ['delete', 'database', 'entries', 'via', 'bash', 'alias']
+tags: ['database', 'entries', 'bash', 'alias']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

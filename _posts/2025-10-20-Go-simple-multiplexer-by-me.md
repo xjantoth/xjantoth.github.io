@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/go-1.jpg"
 description: "Go simple multiplexer by me"
 
-tags: ['go', 'simple', 'multiplexer', 'by', 'me']
+tags: ['go', 'simple', 'multiplexer', 'me']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

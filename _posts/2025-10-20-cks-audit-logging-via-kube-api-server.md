@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "CKS Audit logging via kube-api server"
 
-tags: ['cks', 'audit', 'logging', 'via', 'server']
+tags: ['cks', 'audit', 'logging', 'server']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

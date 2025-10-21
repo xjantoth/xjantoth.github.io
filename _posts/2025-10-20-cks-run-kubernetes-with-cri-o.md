@@ -6,7 +6,7 @@ draft: false
 description: "CKS run kubernetes with cri-o"
 image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ['cks', 'run', 'kubernetes', 'with']
+tags: ['cks', 'kubernetes']
 ---
 
 

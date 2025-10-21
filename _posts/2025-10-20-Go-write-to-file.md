@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/go-1.jpg"
 description: "Go write to file"
 
-tags: ['go', 'write', 'to', 'file']
+tags: ['go', 'to', 'file']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

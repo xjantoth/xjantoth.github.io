@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "Backup ETCD"
 
-tags: ['backup', 'etcd']
+tags: ['etcd']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

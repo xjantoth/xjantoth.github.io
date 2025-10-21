@@ -7,7 +7,7 @@ author: "Jan Toth"
 image: "/assets/images/blog/kubernetes-cert-1.png"
 description: "CKS Mock test 2 - Q3"
 
-tags: ['cks', 'mock', 'test', 'q3']
+tags: ['cks', 'mock', 'q3']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false

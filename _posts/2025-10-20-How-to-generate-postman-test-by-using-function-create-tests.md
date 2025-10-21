@@ -7,7 +7,7 @@ author: "Jan Toth"
 description: "vim function create tests"
 image: "/assets/images/blog/vim-1.jpg"
 
-tags: ['vim', 'generate', 'postman', 'tests']
+tags: ['vim', 'postman', 'tests']
 categories: ["tiddlywiki"]
 
 hiddenFromSearch: false
