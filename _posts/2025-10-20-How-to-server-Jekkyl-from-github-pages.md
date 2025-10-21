@@ -10,6 +10,7 @@ tags: ['websupport', 'jekkyl']
 ---
 
 How to set custom domain at Github pages at Websupport.
+Template repo was created from https://github.com/cotes2020/chirpy-starter
 
 - set 4 A-recors
 - one CNAME www.<domain>.com
@@ -17,3 +18,20 @@ How to set custom domain at Github pages at Websupport.
 ![Image](/assets/images/blog/ws-1.png)
 
 ![Image](/assets/images/blog/ws-2.png)
+
+
+## Upgrade and keep up with changes
+
+https://github.com/cotes2020/jekyll-theme-chirpy/wiki/Upgrade-Guide
+
+```bash
+git remote add chirpy https://github.com/cotes2020/chirpy-starter.git
+git checkout -b upgrade/v7.4.0
+git restore --staged assets/lib
+git checkout --ours _config.yml
+git add .
+git commit -m "upgrade theme to v7.4.0"
+bundle update
+git push 
+
+```
