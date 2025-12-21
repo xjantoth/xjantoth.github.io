@@ -11,7 +11,24 @@ tags: ['bash', 'proxmox', 'kvm', 'clone', 'devopsinuse']
 
 Referece: https://github.com/caiocampoos/homelab-k8s/blob/main/vm-templates/ubuntu-22.04/ubuntu-22.04.sh
 
+ISO: https://old-releases.ubuntu.com/releases/24.04/SHA256SUMS
+
 Cloud images: http://cloud-images.ubuntu.com/releases/jammy/release/
+
+# Configure and create Proxmox template with Packer
+
+```
+vim template-creds.pkr.hcl
+
+...
+proxmox_api_url = "https://192.168.0.224:8006/api2/json"
+proxmox_api_token_id = "root@pam!Packer"
+proxmox_api_token_secret = "ea0a6743-126c-48b2-a704-a223b36017a4"
+...
+
+
+
+```
 
 ```bash
 #!/bin/sh

@@ -45,6 +45,7 @@ tags: ['bash', 'devopsinuse']
 # .........................................................................
 # 2. Granting PROJECT_ADMIN to ed pas horizon group at Bitbucket project level
 # .........................................................................
+  helloo world.
 - name: Grant permissions to ed pas horizon
   uri:
     url: "{{ BITBUCKET_URL }}/rest/api/latest/projects/{{ feed.vcs_project }}/permissions/groups?name={{ HORZION_GROUP | urlencode }}&permission=PROJECT_ADMIN"
