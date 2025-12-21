@@ -4,9 +4,9 @@ date: 2025-12-21T21:49:54:+0100
 lastmod: 2025-12-21T21:49:54:+0100
 draft: false
 description: "How to get PID of the main process in containers to be used for strace"
-image: ""
+image: "/assets/images/blog/linux-1.jpg"
 author: "Jan Toth"
-tags: ["cks", "strace", "kubernetes", "awk", "crictl"]
+tags: ["cks", "strace", "kubernetes", "awk", "crictl", "custom-columns"]
 ---
 
 Hwo to get PID of the main process in a container used later on to check strace. Needed for CKS Kubernetes certification.
