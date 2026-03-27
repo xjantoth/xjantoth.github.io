@@ -4,13 +4,11 @@ date: "2022-01-04T13:36:26+0100"
 lastmod: "2022-01-04T13:36:26+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/aws-1.jpg"
-description: "How to aws cli with SSO"
+image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=420&fit=crop"
+description: "Practical guide: how to aws cli with SSO."
 
 tags: ['aws', 'cli', 'sso']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["AWS"]
 ---
 
 ```

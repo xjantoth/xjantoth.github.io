@@ -4,13 +4,11 @@ date: "2022-01-07T11:20:36+0100"
 lastmod: "2022-01-07T11:20:36+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/linux-1.jpg"
-description: "Delete database entries via bash alias"
+image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=420&fit=crop"
+description: "Delete database entries via bash alias — practical walkthrough with examples."
 
 tags: ['database', 'entries', 'bash', 'alias']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Linux"]
 ---
 
 ```

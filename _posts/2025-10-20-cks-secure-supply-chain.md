@@ -4,13 +4,11 @@ date: 2022-06-07T08:52:52+02:00
 lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "CKS Secure supply chain - ImagePolicyWebhook"
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
+description: "If you want to pull from a docker registry you need to docker login first."
 
 tags: ['cks', 'secure', 'supply', 'chain', 'imagepolicywebhook']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Kubernetes"]
 ---
 
 ![Image](/assets/images/blog/sch-2.png)

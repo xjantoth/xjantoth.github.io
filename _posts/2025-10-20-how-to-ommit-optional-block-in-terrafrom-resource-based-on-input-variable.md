@@ -1,12 +1,13 @@
 ---
-title: "How to ommit optional block in terrafrom resource based on input variable"
+title: "How to ommit optional block in Terraform resource based on input variable"
 date: 2022-08-19T09:36:10+0200
 lastmod: 2022-08-19T09:36:10+0200
 draft: false
-description: "How to ommit optional block in terrafrom resource based on input variable"
-image: "/assets/images/blog/linux-1.jpg"
+description: "The goal is to create azurerm_virtual_hub_connection which might or might not have an optional block called static_vnet_route section under routing {} block."
+image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['ommit', 'optional', 'block', 'terraform']
+categories: ["Terraform"]
 ---
 
 The goal is to create azurerm_virtual_hub_connection which might or might not have an optional block called `static_vnet_route` section under `routing {}` block.

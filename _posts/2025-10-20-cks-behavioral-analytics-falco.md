@@ -4,13 +4,11 @@ date: 2022-06-07T13:29:03+02:00
 lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "CKS behavioral analytics falco"
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
+description: "CKS exam topic: behavioral analytics falco — concepts, configuration, and practice exercises."
 
 tags: ['cks', 'behavioral', 'analytics', 'falco']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Kubernetes"]
 ---
 
 

@@ -4,13 +4,11 @@ date: "2022-01-04T13:36:26+0100"
 lastmod: "2022-01-04T13:36:26+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/aws-1.jpg"
-description: "create ACM certificate"
+image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
+description: "Https://medium.com/@Ahmed_Ansar/how-to-setup-aws-vpn-endpoint-8b15e78fd8b0."
 
 tags: ['acm', 'certificate']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["DevOps"]
 ---
 
 https://medium.com/@Ahmed_Ansar/how-to-setup-aws-vpn-endpoint-8b15e78fd8b0

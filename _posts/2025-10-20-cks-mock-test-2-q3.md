@@ -4,13 +4,11 @@ date: "2022-01-06T14:53:42+0100"
 lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "CKS Mock test 2 - Q3"
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
+description: "**3. A pod has been created in the gamma namespace using a service account called cluster-view. This service account has been granted additional permissions as compared."
 
 tags: ['cks', 'mock', 'q3']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Kubernetes"]
 ---
 
 **3. A pod has been created in the gamma namespace using a service account called cluster-view. This service account has been granted additional permissions as compared to the default service account and can view resources cluster-wide on this Kubernetes cluster. While these permissions are important for the application in this pod to work, the secret token is still mounted on this pod.

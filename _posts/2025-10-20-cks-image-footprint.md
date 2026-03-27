@@ -3,10 +3,11 @@ title: "CKS Image Footprint"
 date: 2022-06-04T13:09:33+0200
 lastmod: 2022-06-04T13:09:33+0200
 draft: false
-description: "CKS Image Footprint"
-image: "/assets/images/blog/linux-1.jpg"
+description: "Run specific version do not run as root not shell read only filesystem."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'image', 'footprint']
+categories: ["Kubernetes"]
 ---
 
 * run specific version

@@ -3,11 +3,11 @@ title: How to process raw html page via pup and jq to get ratings
 date: 2024-07-18T12:29:43+0200
 lastmod: 2024-07-18T12:29:43+0200
 draft: false
-description: How to process raw html page via pup and jq to get ratings
-image: "/assets/images/blog/linux-1.jpg"
+description: "The friend of mine wrote Bash script that parses raw HTML page using grep and loops to find images with rating higher than some number."
+image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse', 'jq', 'pup']
-
+categories: ["Linux"]
 ---
 
 

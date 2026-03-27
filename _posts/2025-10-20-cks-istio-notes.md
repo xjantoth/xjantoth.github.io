@@ -3,10 +3,11 @@ title: "CKS Istio notes"
 date: 2022-08-12T18:22:24+0200
 lastmod: 2022-08-12T18:22:24+0200
 draft: false
-description: "CKS Istio notes"
-image: "/assets/images/blog/linux-1.jpg"
+description: "Work in progress on Istio."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'istio', 'notes']
+categories: ["Kubernetes"]
 ---
 
 #### Work in progress on Istio

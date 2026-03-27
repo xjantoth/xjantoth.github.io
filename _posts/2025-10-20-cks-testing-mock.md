@@ -3,10 +3,11 @@ title: "CKS testing mock"
 date: 2022-08-29T11:08:34+0200
 lastmod: 2022-08-29T11:08:34+0200
 draft: false
-description: "CKS testing mock"
-image: "/assets/images/blog/linux-1.jpg"
+description: "Kube-apiserver manifest with PodSecurityPolicy, ImagePolicyWebhook, Auditing."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'testing', 'mock']
+categories: ["Kubernetes"]
 ---
 
 ##### kube-apiserver manifest with PodSecurityPolicy, ImagePolicyWebhook, Auditing

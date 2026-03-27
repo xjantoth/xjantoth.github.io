@@ -1,12 +1,13 @@
 ---
-title: "Check terrafrom variable present in any environment"
+title: "Check Terraform variable present in any environment"
 date: 2026-01-09T10:45:30:+0100
 lastmod: 2026-01-09T10:45:30:+0100
 draft: false
-description: "Check terrafrom variable present in any environment"
-image: "/assets/images/blog/linux-1.jpg"
+description: "Check Terraform variable present in any environment — practical walkthrough with examples."
+image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: []
+categories: ["Terraform"]
 ---
 
 

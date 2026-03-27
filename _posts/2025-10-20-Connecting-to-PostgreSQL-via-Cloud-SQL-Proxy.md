@@ -4,13 +4,11 @@ date: "2022-01-06T15:00:26+0100"
 lastmod: "2022-01-06T15:00:26+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/gcp-1.jpg"
-description: "Connecting to PostgreSQL via Cloud SQL Proxy"
+image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
+description: "**Download a postgresql cloud sql proxy binary''."
 
 tags: ['connecting', 'postgresql', 'cloud', 'sql', 'proxy']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["DevOps"]
 ---
 
 **Download a postgresql cloud sql proxy binary''

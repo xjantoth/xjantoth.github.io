@@ -4,13 +4,11 @@ date: "2022-01-04T12:47:26+0100"
 lastmod: "2022-01-04T12:47:26+0100"
 draft: false
 author: "Jan Toth"
-description: "Setup Ubuntu Mono font"
+description: "Setup Ubuntu Mono font — practical walkthrough with examples."
 
-image: "/assets/images/blog/linux-1.jpg"
+image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
 tags: ['setup', 'ubuntu', 'mono', 'font']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["DevOps"]
 ---
 
 ```

@@ -1,16 +1,14 @@
 ---
-title: "Destroy terrafrom project -backend-config"
+title: "Destroy Terraform project -backend-config"
 date: "2022-01-07T11:48:59+0100"
 lastmod: "2022-01-07T11:48:59+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "Destroy terrafrom project -backend-config"
+image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=420&fit=crop"
+description: "Terraform: Destroy Terraform project -backend-config — HCL examples and best practices."
 
 tags: ['ml', 'terraform', 'backend', 'aws']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Terraform"]
 ---
 
 ```

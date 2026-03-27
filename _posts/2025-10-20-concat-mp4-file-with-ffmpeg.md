@@ -4,13 +4,11 @@ date: "2022-01-07T11:20:28+0100"
 lastmod: "2022-01-07T11:20:28+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/linux-1.jpg"
-description: "Concat mp4 file with ffmpeg"
+image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
+description: "*Concatenated'' video files (e.g. .mp4) specified in *.txt file ''created'' on the file."
 
 tags: ['concat', 'mp4', 'file', 'ffmpeg']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["DevOps"]
 ---
 
 **Concatenated'' video files (e.g. *.mp4) specified in *.txt file ''created'' on the file

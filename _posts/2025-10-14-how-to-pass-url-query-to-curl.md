@@ -3,10 +3,11 @@ title: How to pass --url-query to curl
 date: 2024-06-10T13:50:44+0200
 lastmod: 2024-06-10T13:50:44+0200
 draft: false
-description: How to pass --url-query to curl
-image: https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2020/07/curl.jpg
+description: "This is a nice way how to multiline query parameters when using curl."
+image: "https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2020/07/curl.jpg"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse', 'curl']
+categories: ["Linux"]
 ---
 
 This is a nice way how to multiline query parameters when using `curl`

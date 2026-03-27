@@ -3,10 +3,11 @@ title: "CKS Reduce Attack Surface"
 date: 2022-06-12T20:58:37+0200
 lastmod: 2022-06-12T20:58:37+0200
 draft: false
-description: "CKS Reduce Attack Surface"
-image: "/assets/images/blog/linux-1.jpg"
+description: "CKS exam topic: Reduce Attack Surface — concepts, configuration, and practice exercises."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'attack', 'surface']
+categories: ["Kubernetes"]
 ---
 
 ##### Overview

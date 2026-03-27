@@ -4,13 +4,11 @@ date: "2022-01-06T14:48:22+0100"
 lastmod: "2022-01-06T14:48:22+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/ssh-1.png"
-description: "Remove tiddlywiki backup files from websupport"
+image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=420&fit=crop"
+description: "Take an advantage of ''regular expressions''."
 
 tags: ['ssh', 'tiddlywiki']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Networking"]
 ---
 
 ```

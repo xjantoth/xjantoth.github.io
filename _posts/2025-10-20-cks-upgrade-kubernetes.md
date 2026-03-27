@@ -3,10 +3,11 @@ title: "CKS upgrade kubernetes"
 date: 2022-04-26T10:53:27+0200
 lastmod: 2022-04-26T10:53:27+0200
 draft: false
-description: "CKS upgrade kubernetes"
-image: "/assets/images/blog/linux-1.jpg"
+description: "Upgrade Master Node procedure."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'upgrade', 'kubernetes']
+categories: ["Kubernetes"]
 ---
 
 ```

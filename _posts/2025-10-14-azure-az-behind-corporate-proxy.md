@@ -3,10 +3,11 @@ title: Azure az behind corporate proxy
 date: 2024-03-05T08:53:16+0100
 lastmod: 2024-03-05T08:53:16+0100
 draft: false
-description: Azure az behind corporate proxy
-image: "/assets/images/blog/linux-1.jpg"
+description: "Url that solves that problem with being behind corporate proxy."
+image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse']
+categories: ["Linux"]
 ---
 
 ## Url that solves that problem with being behind corporate proxy

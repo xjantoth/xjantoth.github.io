@@ -4,13 +4,11 @@ date: 2022-01-17T10:14:38+01:00
 lastmod: 2022-01-17T10:14:46+01:00
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "Kubernetes network policies"
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
+description: "Here is an example of network policies."
 
 tags: ['kubernetes', 'network', 'policies']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Kubernetes"]
 ---
 
 

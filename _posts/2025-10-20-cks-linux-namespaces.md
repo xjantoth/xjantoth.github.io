@@ -4,13 +4,11 @@ date: 2022-01-14T13:38:26+01:00
 lastmod: 2022-01-14T13:38:33+01:00
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "Linux Namespaces"
+image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=420&fit=crop"
+description: "**Namespaces isolates processess**."
 
 tags: ['linux', 'namespaces']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Linux"]
 ---
 
 ### **Namespaces isolates processess**

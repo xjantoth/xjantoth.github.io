@@ -3,10 +3,11 @@ title: "How to count numbers from pdf"
 date: 2022-02-09T13:17:15+0100
 lastmod: 2022-02-09T13:17:15+0100
 draft: false
-description: "How to count numbers from pdf"
-image: "/assets/images/blog/linux-1.jpg"
+description: "It is possible to extract pdf text and get some valuable information out of it."
+image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['pdf']
+categories: ["Linux"]
 ---
 
 

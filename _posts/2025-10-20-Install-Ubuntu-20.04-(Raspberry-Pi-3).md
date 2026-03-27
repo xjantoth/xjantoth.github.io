@@ -4,13 +4,11 @@ date: "2022-01-07T11:48:59+0100"
 lastmod: "2022-01-07T11:48:59+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "Install Ubuntu 20.04 (Raspberry Pi 3)"
+image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=420&fit=crop"
+description: "Install Ubuntu at Raspberry Pi 3."
 
 tags: ['ml', 'ubuntu', 'raspberry']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Raspberry Pi"]
 ---
 
 ##  Install Ubuntu at Raspberry Pi 3

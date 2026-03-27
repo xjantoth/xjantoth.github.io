@@ -3,10 +3,11 @@ title: How to use regexp with jq
 date: 2024-06-17T13:54:17+0200
 lastmod: 2024-06-17T13:54:17+0200
 draft: false
-description: How to use regexp with jq
-image: "/assets/images/blog/linux-1.jpg"
+description: "How to use regexp within jq when selecting documents."
+image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse', 'jq', 'regexp']
+categories: ["Linux"]
 ---
 
 How to use regexp within `jq` when selecting documents

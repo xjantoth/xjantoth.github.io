@@ -2,10 +2,11 @@
 title: How to deduplicate elements using jq
 date: 2024-06-05T14:54:14+0200
 lastmod: 2024-06-05T14:54:14+0200
-description: How to deduplicate elements using jq
-image: https://miro.medium.com/v2/0*sV8pi5txXJiFOJfJ.png
+description: "Practical guide: how to deduplicate elements using jq."
+image: "https://miro.medium.com/v2/0*sV8pi5txXJiFOJfJ.png"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse', 'jq']
+categories: ["Linux"]
 ---
 
 ## Input file

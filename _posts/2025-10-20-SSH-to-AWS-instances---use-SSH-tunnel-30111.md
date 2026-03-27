@@ -4,13 +4,11 @@ date: "2022-01-06T14:48:22+0100"
 lastmod: "2022-01-06T14:48:22+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/ssh-1.png"
-description: "SSH to AWS instances - use SSH tunnel 30111"
+image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=420&fit=crop"
+description: "How to ''SSH'' and open a tunnel for port 30111."
 
 tags: ['ssh', 'aws', 'tunnel']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["AWS"]
 ---
 
 How to ''SSH'' and open a tunnel for port 30111

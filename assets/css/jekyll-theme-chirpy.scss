@@ -1,0 +1,149 @@
+---
+---
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == "production" -%}
+  .bundle
+{%- endif -%}
+';
+
+/* ===== Landing Page Styles ===== */
+
+#hero {
+  padding: 2rem 0 1rem;
+  border-bottom: 1px solid var(--main-border-color);
+}
+
+.hero-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--avatar-border-color, var(--main-border-color));
+}
+
+.hero-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.hero-tagline {
+  font-size: 1.15rem;
+  color: var(--text-muted-color);
+  font-weight: 500;
+}
+
+.hero-description {
+  max-width: 600px;
+  margin: 0.75rem auto 0;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.section-heading {
+  color: var(--heading-color);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+/* Service Cards */
+.service-card {
+  background: var(--card-bg);
+  border: 1px solid var(--main-border-color);
+  border-radius: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-body p {
+    color: var(--text-muted-color);
+    font-size: 0.9rem;
+  }
+
+  h3 {
+    color: var(--heading-color);
+  }
+}
+
+.service-icon {
+  color: var(--link-color);
+}
+
+/* Certification Badges */
+.cert-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.25rem;
+  background: var(--card-bg);
+  border: 2px solid var(--link-color);
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--link-color);
+  letter-spacing: 0.5px;
+}
+
+/* Stats */
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-muted-color);
+}
+
+/* Tech Tags */
+.tech-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  margin: 0.25rem;
+  background: var(--card-bg);
+  border: 1px solid var(--main-border-color);
+  border-radius: 1rem;
+  font-size: 0.82rem;
+  color: var(--text-color);
+  white-space: nowrap;
+}
+
+/* Contact Card */
+.contact-card {
+  background: var(--card-bg);
+  border: 1px solid var(--main-border-color);
+  border-radius: 0.75rem;
+
+  p {
+    color: var(--text-muted-color);
+  }
+}
+
+/* Button Overrides for Landing Page */
+.landing-section {
+  .btn-primary {
+    background-color: var(--link-color);
+    border-color: var(--link-color);
+    color: #fff;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+  }
+
+  .btn-outline-primary {
+    color: var(--link-color);
+    border-color: var(--link-color);
+
+    &:hover {
+      background-color: var(--link-color);
+      color: #fff;
+    }
+  }
+}

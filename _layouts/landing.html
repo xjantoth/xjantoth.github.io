@@ -1,0 +1,131 @@
+---
+layout: default
+---
+
+<!-- Hero Section -->
+<section id="hero" class="landing-section text-center mb-5">
+  <div class="hero-content">
+    <h1 class="hero-title">Devopsinuse</h1>
+    <p class="hero-tagline">Senior DevOps Consultant &amp; Kubernetes Expert</p>
+    <p class="hero-description">
+      6+ years helping teams ship faster with Kubernetes, Terraform, and cloud-native infrastructure.
+      Certified CKA, CKAD &amp; CKS. Trusted by 62,400+ Udemy students worldwide.
+    </p>
+    <div class="hero-cta mt-4">
+      <a href="{{ '/about/' | relative_url }}" class="btn btn-primary me-2">Get in Touch</a>
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn-outline-primary">Read the Blog</a>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="landing-section mb-5">
+  <h2 class="section-heading text-center mb-4">Services</h2>
+  <div class="row g-4">
+    <div class="col-12 col-md-6">
+      <div class="card service-card h-100">
+        <div class="card-body text-center">
+          <i class="fas fa-dharmachakra fa-2x mb-3 service-icon"></i>
+          <h3 class="h5">Kubernetes Engineering</h3>
+          <p>Production-grade EKS, AKS, GKE &amp; K3S clusters. Architecture design, RBAC, network policies, and security hardening.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card service-card h-100">
+        <div class="card-body text-center">
+          <i class="fas fa-cubes fa-2x mb-3 service-icon"></i>
+          <h3 class="h5">Infrastructure as Code</h3>
+          <p>Terraform modules for AWS &amp; GCP multi-account environments. State management, drift detection, and CI-driven workflows.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card service-card h-100">
+        <div class="card-body text-center">
+          <i class="fas fa-code-branch fa-2x mb-3 service-icon"></i>
+          <h3 class="h5">CI/CD Pipelines</h3>
+          <p>GitLab CI, GitHub Actions, and ArgoCD. OIDC-based deployments, automated testing, and GitOps workflows.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card service-card h-100">
+        <div class="card-body text-center">
+          <i class="fas fa-cloud fa-2x mb-3 service-icon"></i>
+          <h3 class="h5">Cloud Architecture</h3>
+          <p>AWS &amp; GCP multi-account strategy, landing zones, cost optimization, and cloud migration planning.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Credentials & Social Proof Section -->
+<section id="credentials" class="landing-section mb-5">
+  <h2 class="section-heading text-center mb-4">Credentials &amp; Experience</h2>
+
+  <div class="row g-3 justify-content-center mb-4">
+    <div class="col-auto">
+      <div class="cert-badge">
+        <i class="fas fa-certificate"></i> CKA
+      </div>
+    </div>
+    <div class="col-auto">
+      <div class="cert-badge">
+        <i class="fas fa-certificate"></i> CKAD
+      </div>
+    </div>
+    <div class="col-auto">
+      <div class="cert-badge">
+        <i class="fas fa-certificate"></i> CKS
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3 justify-content-center text-center mb-4">
+    <div class="col-12 col-sm-4">
+      <div class="stat-number">62,400+</div>
+      <div class="stat-label">Udemy Students</div>
+    </div>
+    <div class="col-12 col-sm-4">
+      <div class="stat-number">4.5</div>
+      <div class="stat-label">Course Rating</div>
+    </div>
+    <div class="col-12 col-sm-4">
+      <div class="stat-number">6+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    {% assign techs = "Kubernetes,Terraform,AWS,GCP,Helm,Docker,Python,Ansible,Prometheus,ArgoCD,GitLab CI,GitHub Actions,Linux,Bash" | split: "," %}
+    {% for tech in techs %}
+      <span class="tech-tag">{{ tech }}</span>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Contact CTA Section -->
+<section id="contact" class="landing-section mb-4">
+  <div class="card contact-card">
+    <div class="card-body text-center py-4">
+      <h2 class="section-heading mb-3">Let's Work Together</h2>
+      <p class="mb-4">Looking for expert DevOps consulting? Let's discuss how I can help your team.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="mailto:{{ site.social.email }}" class="btn btn-primary">
+          <i class="fas fa-envelope me-1"></i> Email
+        </a>
+        <a href="https://www.linkedin.com/in/jan-toth/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+          <i class="fab fa-linkedin me-1"></i> LinkedIn
+        </a>
+        <a href="https://github.com/{{ site.github.username }}?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+          <i class="fab fa-github me-1"></i> GitHub
+        </a>
+        <a href="https://www.udemy.com/user/jan-toth/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+          <i class="fas fa-graduation-cap me-1"></i> Udemy
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

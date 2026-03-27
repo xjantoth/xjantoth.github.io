@@ -3,10 +3,11 @@ title: "Protect Kubernetes node metadata"
 date: 2022-02-21T13:54:39+0100
 lastmod: 2022-02-21T13:54:39+0100
 draft: false
-description: "Protect Kubernetes node metadata"
-image: "/assets/images/blog/linux-1.jpg"
+description: "Deny all traffic to google's metadata server."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['kubernetes', 'node', 'metadata']
+categories: ["Kubernetes"]
 ---
 
 ###### Deny all traffic to google's metadata server

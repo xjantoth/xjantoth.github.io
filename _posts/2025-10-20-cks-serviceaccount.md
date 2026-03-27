@@ -3,10 +3,11 @@ title: "CKS serviceaccount"
 date: 2022-03-07T12:57:03+0100
 lastmod: 2022-03-07T12:57:03+0100
 draft: false
-description: "CKS serviceaccount"
-image: "/assets/images/blog/linux-1.jpg"
+description: "SesrviceAccount (SA) are namespaces SA \"default\" in every namespace automatically mounted to a pod can be used to talk to Kubernetes API."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'serviceaccount']
+categories: ["Kubernetes"]
 ---
 
 * SesrviceAccount (SA) are namespaces

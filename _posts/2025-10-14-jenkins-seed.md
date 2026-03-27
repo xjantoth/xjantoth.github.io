@@ -3,10 +3,11 @@ title: "How to Jenkins seed files"
 date: 2022-03-15T08:59:30+0100
 lastmod: 2022-03-15T08:59:30+0100
 draft: false
-description: "Jenkins seed"
-image: "/assets/images/blog/linux-1.jpg"
+description: "Basic Seed job that creates a definitions for other jobs."
+image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['jenkins', 'seed']
+categories: ["DevOps"]
 ---
 
 

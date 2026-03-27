@@ -3,10 +3,11 @@ title: Oneliner to compare software versions
 date: 2024-03-04T14:41:24+0100
 lastmod: 2024-03-04T14:41:24+0100
 draft: false
-description: Oneliner to compare software versions for Vault on Github
-image: "/assets/images/blog/linux-1.jpg"
+description: "Oneliner to compare software versions — practical walkthrough with examples."
+image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse']
+categories: ["Linux"]
 ---
 
 ```bash

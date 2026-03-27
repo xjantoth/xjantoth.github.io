@@ -4,13 +4,11 @@ date: 2022-01-13T15:17:08+01:00
 lastmod: 2022-01-13T15:17:16+01:00
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "Check SSL certificate validity"
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
+description: "There are many SSL certificates used by different Kubenretes components."
 
 tags: ['kubernetes', 'ssl', 'certificates']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Kubernetes"]
 ---
 
 

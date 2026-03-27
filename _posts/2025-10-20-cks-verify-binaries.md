@@ -3,10 +3,11 @@ title: "Verify binaries"
 date: 2022-02-22T15:26:23+0100
 lastmod: 2022-02-22T15:26:23+0100
 draft: false
-description: "Verify binaries"
-image: "/assets/images/blog/linux-1.jpg"
+description: "One has to compare the binary version which is currently running at the Kubernetes master and later on find out the PID of kubelet process. At the very end - simply run."
+image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['binaries']
+categories: ["DevOps"]
 ---
 
 One has to compare the binary version which is currently running at the Kubernetes master and later on find out the PID of kubelet process.

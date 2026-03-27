@@ -4,13 +4,11 @@ date: 2022-02-21T13:16:34+01:00
 lastmod: 2022-02-21T13:16:38+01:00
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "Ingress"
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
+description: "Services in Kubernetes."
 
 tags: ['kubernetes', 'ingress']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Kubernetes"]
 ---
 
 ###### Services in Kubernetes

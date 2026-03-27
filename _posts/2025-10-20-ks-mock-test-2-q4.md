@@ -4,13 +4,11 @@ date: "2022-01-06T14:53:42+0100"
 lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "CKS Mock test 2 - Q4"
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
+description: "**4. A pod in the sahara namespace has generated alerts that a shell was opened inside the container."
 
 tags: ['cks', 'mock', 'q4']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Kubernetes"]
 ---
 
 **4. A pod in the sahara namespace has generated alerts that a shell was opened inside the container.

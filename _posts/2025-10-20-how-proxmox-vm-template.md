@@ -3,10 +3,11 @@ title: How to create a clonable proxmox Ubuntu VM
 date: 2024-10-04T14:41:24+0100
 lastmod: 2024-10-04T14:41:24+0100
 draft: false
-description: How to create a clonable proxmox Ubuntu VM
+description: "Referece: https://github.com/caiocampoos/homelab-k8s/blob/main/vm-templates/ubuntu-22.04/ubuntu-22.04.sh."
 image: "https://www.codeschoepfer.de/wp-content/uploads/2024/05/proxmox-blog-960_480.jpg"
 author: "Jan Toth"
 tags: ['bash', 'proxmox', 'kvm', 'clone', 'devopsinuse']
+categories: ["Linux"]
 ---
 
 Referece: https://github.com/caiocampoos/homelab-k8s/blob/main/vm-templates/ubuntu-22.04/ubuntu-22.04.sh

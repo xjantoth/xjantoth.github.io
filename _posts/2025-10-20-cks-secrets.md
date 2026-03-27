@@ -3,10 +3,11 @@ title: "CKS secrets"
 date: 2022-04-29T11:29:02+0200
 lastmod: 2022-04-29T11:29:02+0200
 draft: false
-description: "CKS secrets"
-image: "/assets/images/blog/linux-1.jpg"
+description: "Check if you can access ETCD at master node."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'secrets']
+categories: ["Kubernetes"]
 ---
 
 

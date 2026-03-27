@@ -4,13 +4,11 @@ date: "2022-01-04T13:36:26+0100"
 lastmod: "2022-01-04T13:36:26+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/aws-1.jpg"
-description: "Delete AWS ENI via cmd"
+image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=420&fit=crop"
+description: "AWS: Delete AWS ENI via cmd — setup and configuration guide."
 
 tags: ['aws', 'eni', 'cmd']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["AWS"]
 ---
 
 ```

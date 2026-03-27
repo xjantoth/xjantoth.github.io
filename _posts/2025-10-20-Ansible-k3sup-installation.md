@@ -4,13 +4,11 @@ date: "2022-01-07T11:48:59+0100"
 lastmod: "2022-01-07T11:48:59+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "Ansible k3sup installation"
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
+description: "Setup DD WRT /etc/hosts."
 
 tags: ['ml', 'ansible', 'k3s', 'k3sup', 'wrt']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Kubernetes"]
 ---
 
 ##  Setup DD WRT /etc/hosts

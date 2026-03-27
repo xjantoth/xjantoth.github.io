@@ -4,13 +4,11 @@ date: 2022-06-05T21:30:20+02:00
 lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "CKS Trivy and Clair - Vulnerability Scanner for Containers and other Artifacts"
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
+description: "There are Clair and Trivy."
 
 tags: ['cks', 'trivy', 'clair', 'vulnerability', 'scanner', 'containers', 'other', 'artifacts']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Kubernetes"]
 ---
 
 ![Image](/assets/images/blog/iv-1.png)

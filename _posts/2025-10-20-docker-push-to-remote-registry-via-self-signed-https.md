@@ -4,13 +4,11 @@ date: "2022-01-04T12:47:26+0100"
 lastmod: "2022-01-04T12:47:26+0100"
 draft: false
 author: "Jan Toth"
-description: "Docker push to remote registry via self signed https"
+description: "''CA (Certificate Authority)''  to your local and copy/paste it to a proper location."
 
-image: "/assets/images/blog/linux-1.jpg"
+image: "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=800&h=420&fit=crop"
 tags: ['docker', 'to', 'remote', 'registry', 'self', 'signed', 'ssl', 'certificate']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Docker"]
 ---
 
 1. ''CA (Certificate Authority)''  to your local and copy/paste it to a proper location

@@ -3,10 +3,11 @@ title: "How to recover keyvault"
 date: 2022-02-09T11:04:38+0100
 lastmod: 2022-02-09T11:04:38+0100
 draft: false
-description: "How to recover keyvault"
-image: "/assets/images/blog/linux-1.jpg"
+description: "A simple way how to recover Azrue keyvault if needed."
+image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['azure', 'keyvault']
+categories: ["Azure"]
 ---
 
 A simple way how to recover Azrue keyvault if needed

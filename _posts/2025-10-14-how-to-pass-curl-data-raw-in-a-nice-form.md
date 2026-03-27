@@ -3,10 +3,11 @@ title: How to create resource in Bitbucket via curl and Ansible
 date: 2024-07-25T09:39:30+0200
 lastmod: 2024-07-25T09:39:30+0200
 draft: false
-description: How to create resource in Bitbucket via curl and Ansible
-image: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4sLbHPgMQ6s1WLgCB-6JUcjlftThBFl-OdQ&s
+description: "There are some situation when one can have credentials to some web page that does not have API properly exposed and TOKEN can not be used. However, when trying to do."
+image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4sLbHPgMQ6s1WLgCB-6JUcjlftThBFl-OdQ&s"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse', 'curl', 'ansible']
+categories: ["Automation"]
 ---
 
 There are some situation when one can have credentials to some web page that does not have API properly exposed and TOKEN can not be used.
