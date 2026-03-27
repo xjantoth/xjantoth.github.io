@@ -4,13 +4,11 @@ date: "2022-01-04T12:47:26+0100"
 lastmod: "2022-01-04T12:47:26+0100"
 draft: false
 author: "Jan Toth"
-description: "cryptsetup"
+description: "Practical guide: how to use cryptsetup while installing archlinux."
 
-image: "/assets/images/blog/linux-1.jpg"
+image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=420&fit=crop"
 tags: ['to', 'cryptsetup', 'installing', 'archlinux']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Linux"]
 ---
 
 Kriskoviny

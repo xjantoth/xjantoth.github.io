@@ -3,10 +3,11 @@ title: "CKS Immutability of containers at runtime"
 date: 2022-06-09T10:34:54+0200
 lastmod: 2022-06-09T10:34:54+0200
 draft: false
-description: "CKS Immutability of containers at runtime"
-image: "/assets/images/blog/linux-1.jpg"
+description: "Advanced deployment methods easy rollback more reliability better security (on container level)."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'immutability', 'containers', 'runtime']
+categories: ["Kubernetes"]
 ---
 
 * advanced deployment methods

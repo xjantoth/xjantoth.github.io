@@ -3,10 +3,11 @@ title: How to use Google AppScript for docs templating at presonal Google Drive
 date: 2024-02-23T18:44:45+0100
 lastmod: 2024-02-23T18:44:45+0100
 draft: false
-description: How to use Google AppScript for docs templating at presonal Google Drive
-image: "/assets/images/blog/linux-1.jpg"
+description: "I have recently had a requirement to create write quite a bit of letters. Each letter must have a recepepient address as well as sender address. I thought to myself that."
+image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse', 'appscript', 'docs']
+categories: ["Linux"]
 ---
 
 I have recently had a requirement to create write quite a bit of letters. Each letter must have a recepepient

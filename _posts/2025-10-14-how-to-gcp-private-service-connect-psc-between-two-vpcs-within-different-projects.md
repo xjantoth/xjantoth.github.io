@@ -3,10 +3,11 @@ title: How to GCP Private Service Connect PSC between two VPCs within different 
 date: 2024-05-17T20:08:32+0200
 lastmod: 2024-05-17T20:08:32+0200
 draft: false
-description: How to GCP Private Service Connect PSC between two VPCs within different projects
-image: "/assets/images/blog/linux-1.jpg"
+description: "Create 2 new GCP Projects in Free Tier Account."
+image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse', 'gcp', 'psc']
+categories: ["GCP"]
 ---
 
 

@@ -3,10 +3,11 @@ title: "How to use jq as professional"
 date: 2024-02-21T15:00:30+0100
 lastmod: 2024-02-21T15:00:30+0100
 draft: false
-description: "How to use jq as PRO"
-image: "/assets/images/blog/linux-1.jpg"
+description: "Practical guide: how to use jq as professional."
+image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['jq', 'bash']
+categories: ["Linux"]
 ---
 
 ```bash

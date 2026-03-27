@@ -4,13 +4,11 @@ date: 2022-06-03T14:25:17+02:00
 lastmod: 2022-01-24T15:03:56+01:00
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "Open Policy Agent - Gatekeeper"
+image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
+description: "OPA is not Kubenretes specific general purpose policy engine An admission controller is a piece of code that intercepts requests to the Kubernetes API server prior to."
 
 tags: ['opa', 'gatekeeper']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["DevOps"]
 ---
 
 

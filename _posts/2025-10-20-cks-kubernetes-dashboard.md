@@ -4,13 +4,11 @@ date: 2022-02-21T13:43:50+01:00
 lastmod: 2022-02-21T13:43:43+01:00
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "Kubernetes dashboard"
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
+description: "Kubernetes: Kubernetes dashboard — configuration and practical examples."
 
 tags: ['kubernetes', 'dashboard']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Kubernetes"]
 ---
 
 ###### Kubectl proxy

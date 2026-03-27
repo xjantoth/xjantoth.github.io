@@ -4,13 +4,11 @@ date: 2022-06-05T18:22:00+02:00
 lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "CKS Kubesec - Security risk analysis for Kubernetes resources"
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
+description: "Static Analysis manual approach kubesec OPA Conftest."
 
 tags: ['cks', 'kubesec', 'security', 'risk', 'analysis', 'kubernetes', 'resources']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Kubernetes"]
 ---
 
 ##### Static Analysis

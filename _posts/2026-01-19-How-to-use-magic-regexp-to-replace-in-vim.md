@@ -3,10 +3,11 @@ title: "How to use magic regexp to replace in vim"
 date: 2026-01-19T11:57:07:+0100
 lastmod: 2026-01-19T11:57:07:+0100
 draft: false
-description: "How to use magic regexp to replace in vim"
+description: "I have an input string and I would like to take first column and transfer it in a way that the value behind = sign would be the same as the key but lowercased and."
 image: "https://i.ytimg.com/vi/YUw1xk82980/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBSJXX-TBEA6uAZg8hLGFgOYk32_g"
 author: "Jan Toth"
 tags: ["sed", "magic", "regexp", "vim"]
+categories: ["Linux"]
 ---
 
 I have an input string and I would like to take first column and transfer it in a way that the value behind = sign would be

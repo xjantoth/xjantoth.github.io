@@ -3,10 +3,11 @@ title: "CKS run kubernetes with cri-o"
 date: 2022-06-28T13:33:39+0200
 lastmod: 2022-06-28T13:33:39+0200
 draft: false
-description: "CKS run kubernetes with cri-o"
-image: "/assets/images/blog/linux-1.jpg"
+description: "How to run Kubernetes with cri-o."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'kubernetes']
+categories: ["Kubernetes"]
 ---
 
 

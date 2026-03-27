@@ -3,10 +3,11 @@ title: GCP PCA certification notes
 date: 2024-04-24T11:15:06+0200
 lastmod: 2024-04-24T11:15:06+0200
 draft: false
-description: GCP PCA certification notes
-image: "/assets/images/blog/linux-1.jpg"
+description: "Using multiple gcloud configurations/profile."
+image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['bash', 'gcp', 'gcloud', 'devopsinuse']
+categories: ["GCP"]
 ---
 
 # Using multiple gcloud configurations/profile

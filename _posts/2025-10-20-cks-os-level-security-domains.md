@@ -3,10 +3,11 @@ title: "CKS OS Level Security Domains"
 date: 2022-05-24T19:22:09+0200
 lastmod: 2022-05-24T19:22:09+0200
 draft: false
-description: "CKS OS Level Security Domains"
-image: "/assets/images/blog/linux-1.jpg"
+description: "Define privilege and access control for Pod/Container."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'os', 'level', 'security', 'domains']
+categories: ["Kubernetes"]
 ---
 
 ###### Define privilege and access control for Pod/Container

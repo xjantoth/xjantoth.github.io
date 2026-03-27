@@ -4,13 +4,11 @@ date: "2022-01-06T14:48:22+0100"
 lastmod: "2022-01-06T14:48:22+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/ssh-1.png"
-description: "Generate SSH kyes for websupport gitlab"
+image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&h=420&fit=crop"
+description: "Please setup ''~/.ssh/config'' file."
 
 tags: ['ssh', 'genrerate', 'keys', 'gitlab', 'ssh config']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["CI/CD"]
 ---
 
 ```

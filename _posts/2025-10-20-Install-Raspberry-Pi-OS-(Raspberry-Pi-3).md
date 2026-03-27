@@ -4,13 +4,11 @@ date: "2022-01-07T11:48:59+0100"
 lastmod: "2022-01-07T11:48:59+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "Install Raspberry Pi OS (Raspberry Pi 3)"
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
+description: "Https://www.raspberrypi.org/documentation/installation/installing-images/linux.md."
 
 tags: ['ml', 'raspberry', 'k3s', 'os']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Kubernetes"]
 ---
 
 https://www.raspberrypi.org/documentation/installation/installing-images/linux.md

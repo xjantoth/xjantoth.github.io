@@ -3,10 +3,11 @@ title: "Drone CICD on Rancher Desktop MAC Kubernetes"
 date: 2022-10-25T22:25:36+0200
 lastmod: 2022-10-25T22:25:36+0200
 draft: false
-description: "Drone CICD on Rancher Desktop MAC Kubernetes"
-image: "/assets/images/blog/linux-1.jpg"
+description: "Drone CICD at Rancher on Desktop at Mac."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['drone', 'cicd', 'rancher', 'desktop', 'mac', 'kubernetes']
+categories: ["Kubernetes"]
 ---
 
 

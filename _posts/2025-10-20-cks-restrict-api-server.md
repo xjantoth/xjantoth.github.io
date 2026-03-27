@@ -3,10 +3,11 @@ title: "CKS Restrict API server"
 date: 2022-04-05T14:14:34+0200
 lastmod: 2022-04-05T14:14:34+0200
 draft: false
-description: "CKS Restrict API server"
-image: "/assets/images/blog/linux-1.jpg"
+description: "There is an flag when starting `kube-aoiserver` called."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'api', 'server']
+categories: ["Kubernetes"]
 ---
 
 #### There is an flag when starting `kube-aoiserver` called:

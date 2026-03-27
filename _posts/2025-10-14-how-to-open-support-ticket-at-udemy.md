@@ -4,13 +4,11 @@ date: "2022-01-07T12:06:22+0100"
 lastmod: "2022-01-07T12:06:22+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "How to open support ticket at Udemy"
+image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=420&fit=crop"
+description: "Please use link below."
 
 tags: ['udemy']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Teaching"]
 ---
 
 Please use link below:

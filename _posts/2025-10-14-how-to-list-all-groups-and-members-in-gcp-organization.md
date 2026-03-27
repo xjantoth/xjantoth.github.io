@@ -3,10 +3,11 @@ title: How to list all groups and members in GCP organization
 date: 2024-11-14T11:41:11+0100
 lastmod: 2024-11-14T11:41:11+0100
 draft: false
-description: How to list all groups and members in GCP organization
-image: "/assets/images/blog/linux-1.jpg"
+description: "Practical guide: how to list all groups and members in GCP organization."
+image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse', 'gcloud', 'gcp']
+categories: ["GCP"]
 ---
 
 ```bash

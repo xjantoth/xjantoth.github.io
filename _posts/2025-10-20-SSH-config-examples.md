@@ -4,13 +4,11 @@ date: "2022-01-06T14:48:22+0100"
 lastmod: "2022-01-06T14:48:22+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/ssh-1.png"
-description: "SSH config examples"
+image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=420&fit=crop"
+description: "SSH config examples — practical walkthrough with examples."
 
 tags: ['ssh', 'config']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Networking"]
 ---
 
 ```

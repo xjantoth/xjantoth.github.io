@@ -3,10 +3,11 @@ title: "cks-benchmakring.md"
 date: 2022-02-22T10:15:12+0100
 lastmod: 2022-02-22T10:15:12+0100
 draft: false
-description: "cks-benchmakring.md"
-image: "/assets/images/blog/linux-1.jpg"
+description: "CSI Kubernetes Benchmark 1.6.0 (at the time)."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'benchmarking']
+categories: ["Kubernetes"]
 ---
 
 ## CSI Kubernetes Benchmark 1.6.0 (at the time)

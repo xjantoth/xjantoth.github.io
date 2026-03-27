@@ -4,13 +4,11 @@ date: 2022-06-10T20:19:12+02:00
 lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "CKS Kernel Hardening Tools"
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
+description: "Requirements for Apparmor."
 
 tags: ['cks', 'kernel', 'hardening', 'tools']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Kubernetes"]
 ---
 
 ##### Requirements for Apparmor

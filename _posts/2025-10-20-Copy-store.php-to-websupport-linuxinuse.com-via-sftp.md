@@ -4,13 +4,11 @@ date: "2022-01-06T14:48:22+0100"
 lastmod: "2022-01-06T14:48:22+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/ssh-1.png"
-description: "Copy store.php to websupport linuxinuse.com via sftp"
+image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=420&fit=crop"
+description: "Copy store.php to websupport linuxinuse.com via sftp — practical walkthrough with examples."
 
 tags: ['ssh', 'websupport']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Networking"]
 ---
 
 ```

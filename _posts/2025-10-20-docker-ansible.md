@@ -4,13 +4,11 @@ date: "2022-01-07T11:48:59+0100"
 lastmod: "2022-01-07T11:48:59+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "docker ansible"
+image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&h=420&fit=crop"
+description: "Docker ansible — practical walkthrough with examples."
 
 tags: ['ml', 'docket', 'ansible']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Automation"]
 ---
 
 ```

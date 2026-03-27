@@ -4,13 +4,11 @@ date: "2022-01-07T11:48:59+0100"
 lastmod: "2022-01-07T11:48:59+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "Nvidia Jetson installation"
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
+description: "Download SD card image https://developer.download.nvidia.com/assets/embedded/downloads/jetson-nano-4gb-jp441-sd-card-image/jetson-nano-4gb-jp441-sd-card-image.zip."
 
 tags: ['ml', 'k3s', 'raspberry', 'gpu', 'nvidia', 'jetson']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Kubernetes"]
 ---
 
 ##  Download SD card image

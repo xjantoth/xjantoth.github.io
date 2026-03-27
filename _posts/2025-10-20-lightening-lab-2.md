@@ -1,16 +1,14 @@
 ---
-title: "Lightening lab 2"
+title: "Lightning Lab 2"
 date: "2022-01-06T14:53:42+0100"
 lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "Lightening lab 2"
+image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
+description: "Lightning Lab 2 — practical walkthrough with examples."
 
 tags: ['lightening', 'lab']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["DevOps"]
 ---
 
 **Commands'':

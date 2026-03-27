@@ -4,13 +4,11 @@ date: "2022-01-07T11:48:59+0100"
 lastmod: "2022-01-07T11:48:59+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "IPSec Tunnel"
+image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=420&fit=crop"
+description: "Set route via ipsec tunnel node."
 
 tags: ['ml', 'ipsec', 'tunnel']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Machine Learning"]
 ---
 
 ```py

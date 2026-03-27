@@ -3,10 +3,11 @@ title: My Tmux setup
 date: 2024-03-16T19:08:02+0100
 lastmod: 2024-03-16T19:08:02+0100
 draft: false
-description: My Tmux setup
-image: "/assets/images/blog/linux-1.jpg"
+description: "I have been using tmux for quite a while now. Despite the fact that, I sometimes felt weird because of all the other colleagues use VSCODE I never thought of coming back."
+image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse']
+categories: ["Linux"]
 ---
 
 I have been using `tmux` for quite a while now. Despite the fact that, I sometimes felt weird because of all the other colleagues use VSCODE

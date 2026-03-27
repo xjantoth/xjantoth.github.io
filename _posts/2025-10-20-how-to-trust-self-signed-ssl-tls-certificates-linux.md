@@ -4,13 +4,11 @@ date: "2022-01-04T12:47:26+0100"
 lastmod: "2022-01-04T12:47:26+0100"
 draft: false
 author: "Jan Toth"
-description: "cryptsetup"
+description: "How to enable system wide trust for the private Docker registry: create the symlink."
 
-image: "/assets/images/blog/linux-1.jpg"
+image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=420&fit=crop"
 tags: ['ssl', 'tls', 'certificates', 'linux']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Networking"]
 ---
 
 How to enable system wide trust for the private Docker registry:

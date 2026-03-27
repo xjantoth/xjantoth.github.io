@@ -3,10 +3,11 @@ title: "CKS container runtimes"
 date: 2022-05-18T11:41:55+0200
 lastmod: 2022-05-18T11:41:55+0200
 draft: false
-description: "CKS container runtimes"
-image: "/assets/images/blog/container-1.png"
+description: "CKS exam topic: container runtimes — concepts, configuration, and practice exercises."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'container', 'runtimes']
+categories: ["Kubernetes"]
 ---
 
 ![Image](/assets/images/blog/container-1.png)

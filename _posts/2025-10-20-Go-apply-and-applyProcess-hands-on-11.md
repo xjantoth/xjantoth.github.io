@@ -4,13 +4,11 @@ date: "2022-01-06T14:23:31+0100"
 lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/go-1.jpg"
-description: "Go apply and applyProcess hands on 11"
+image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
+description: "Go programming: Go apply and applyProcess hands on 11 with working code examples."
 
 tags: ['go', 'and', 'applyprocess', 'hands']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Go"]
 ---
 
 ```go

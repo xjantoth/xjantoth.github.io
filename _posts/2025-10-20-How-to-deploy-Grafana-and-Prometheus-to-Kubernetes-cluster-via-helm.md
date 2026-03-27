@@ -4,13 +4,11 @@ date: "2021-12-30T16:09:28+0100"
 lastmod: "2021-12-30T16:09:28+0100"
 draft: false
 author: "Jan Toth"
-description: "Kubernetes cluster (home)"
-image: "/assets/images/blog/raspberrypi/raspberrypi.png"
+description: "**Deploy K3S at Raspberry Pi 4''."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 
 tags: ['raspberry', 'grafana', 'prometheus', 'helm', 'deployment']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Kubernetes"]
 ---
 
 **Deploy K3S at Raspberry Pi 4''

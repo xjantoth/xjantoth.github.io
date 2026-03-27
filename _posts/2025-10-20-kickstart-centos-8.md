@@ -4,13 +4,11 @@ date: "2022-01-07T11:16:43+0100"
 lastmod: "2022-01-07T11:16:43+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/linux-1.jpg"
-description: "kickstart Centos 8"
+image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
+description: "**Centos 8 ISO location''."
 
 tags: ['kickstart', 'centos']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["DevOps"]
 ---
 
 **Centos 8 ISO location''

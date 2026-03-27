@@ -4,13 +4,11 @@ date: "2022-01-06T15:00:26+0100"
 lastmod: "2022-01-06T15:00:26+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/gcp-1.jpg"
-description: "Google cloud pipeline example"
+image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=420&fit=crop"
+description: "Google cloud pipeline example — practical walkthrough with examples."
 
 tags: ['google', 'cloud', 'pipeline', 'example']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["GCP"]
 ---
 
 **cloudbuild.yaml''

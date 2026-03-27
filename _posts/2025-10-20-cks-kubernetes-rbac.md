@@ -3,10 +3,11 @@ title: "Kubernetes RBAC"
 date: 2022-02-24T10:35:03+0100
 lastmod: 2022-02-24T10:35:03+0100
 draft: false
-description: "Kubernetes RBAC"
-image: "/assets/images/blog/linux-1.jpg"
+description: "There are namespaced and non namespaced resources in Kubernetes."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['kubernetes', 'rbac']
+categories: ["Kubernetes"]
 ---
 
 There are namespaced and non namespaced resources in Kubernetes.

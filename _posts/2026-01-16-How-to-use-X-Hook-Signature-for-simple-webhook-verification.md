@@ -3,10 +3,11 @@ title: "How to use X-Hook-Signature for simple webhook verification"
 date: 2026-01-16T15:51:17:+0100
 lastmod: 2026-01-16T15:51:17:+0100
 draft: false
-description: "How to use X-Hook-Signature for simple webhook verification"
-image: "/assets/images/blog/linux-1.jpg"
+description: "How to use X-Hook-Signature when writing Python web server."
+image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: []
+categories: ["DevOps"]
 ---
 
 

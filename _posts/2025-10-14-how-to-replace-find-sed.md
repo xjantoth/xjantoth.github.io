@@ -3,10 +3,11 @@ title: "How to replace text in lots of file via sed and find"
 date: 2024-02-21T15:00:30+0100
 lastmod: 2024-02-21T15:00:30+0100
 draft: false
-description: "How to replace text in lots of file via sed and find"
-image: "/assets/images/blog/linux-1.jpg"
+description: "I have recently decided to change the way how my code blocks look like at this blog. This was rather straightforward change. I needed to exchange \"``bash\" to \"``\"."
+image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['sed', 'bash']
+categories: ["Linux"]
 ---
 
 

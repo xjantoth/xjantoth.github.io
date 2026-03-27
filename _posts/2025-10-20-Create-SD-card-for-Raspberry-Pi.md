@@ -4,13 +4,11 @@ date: "2021-12-30T16:09:28+0100"
 lastmod: "2021-12-30T16:09:28+0100"
 draft: false
 author: "Jan Toth"
-description: "Create SD card for Raspberry Pi"
-image: "/assets/images/blog/raspberrypi/raspberrypi.png"
+description: "Create SD card for Raspberry Pi — practical walkthrough with examples."
+image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=420&fit=crop"
 
 tags: ['raspberry', 'sd', 'card']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Raspberry Pi"]
 ---
 
 ```

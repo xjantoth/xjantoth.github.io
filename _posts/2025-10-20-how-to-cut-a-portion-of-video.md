@@ -4,13 +4,11 @@ date: "2022-01-07T11:20:28+0100"
 lastmod: "2022-01-07T11:20:28+0100"
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/linux-1.jpg"
-description: "How to cut a portion of video"
+image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
+description: "Practical guide: how to cut a portion of video."
 
 tags: ['cut', 'portion', 'video']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["DevOps"]
 ---
 
 ```

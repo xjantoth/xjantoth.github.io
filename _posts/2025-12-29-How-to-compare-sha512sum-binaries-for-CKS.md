@@ -3,10 +3,11 @@ title: "How to compare sha512sum binaries for CKS"
 date: 2025-12-29T17:31:29:+0100
 lastmod: 2025-12-29T17:31:29:+0100
 draft: false
-description: "How to compare sha512sum binaries for CKS"
-image: "/assets/images/blog/linux-1.jpg"
+description: "CKS exam topic: How to compare sha512sum binaries for CKS — concepts, configuration, and practice exercises."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ["cks", "sha512sum", "vim", "sed"]
+categories: ["Kubernetes"]
 ---
 
 ```bash

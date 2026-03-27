@@ -4,10 +4,11 @@ title: Ansible Bitbucket
 date: 2024-10-04T20:14:27+0200
 lastmod: 2024-10-04T20:14:27+0200
 draft: false
-description: Ansible Bitbucket
-image: https://miro.medium.com/v2/0*sV8pi5txXJiFOJfJ.png 
+description: "Ansible Bitbucket — practical walkthrough with examples."
+image: "https://miro.medium.com/v2/0*sV8pi5txXJiFOJfJ.png"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse']
+categories: ["Linux"]
 ---
 
 

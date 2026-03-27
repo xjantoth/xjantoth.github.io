@@ -4,13 +4,11 @@ date: 2022-01-14T14:30:55+01:00
 lastmod: 2022-01-14T14:31:00+01:00
 draft: false
 author: "Jan Toth"
-image: "/assets/images/blog/kubernetes-cert-1.png"
-description: "CKS setup Scaleway kubernetes cluster at Ubuntu 18.04"
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
+description: "Create SSH key pair to be used for Kubernetes master and node machine."
 
 tags: ['cks', 'setup', 'scaleway', 'kubernetes', 'cluster', 'ubuntu']
-categories: ["tiddlywiki"]
-
-hiddenFromSearch: false
+categories: ["Kubernetes"]
 ---
 
 

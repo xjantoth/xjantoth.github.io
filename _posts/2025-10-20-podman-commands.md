@@ -3,10 +3,11 @@ title: "Podman commands"
 date: 2022-07-26T12:29:09+0200
 lastmod: 2022-07-26T12:29:09+0200
 draft: false
-description: "Podman commands"
-image: "/assets/images/blog/linux-1.jpg"
+description: "Assuming there are more containers running in a single Podman `pod`."
+image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['podman', 'commands']
+categories: ["Kubernetes"]
 ---
 
 ##### Assuming there are more containers running in a single Podman `pod`
