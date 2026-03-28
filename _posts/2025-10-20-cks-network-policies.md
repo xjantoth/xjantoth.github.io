@@ -5,7 +5,7 @@ lastmod: 2022-01-17T10:14:46+01:00
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Here is an example of network policies."
+description: "Kubernetes NetworkPolicy examples covering default deny, frontend-to-backend rules, cross-namespace access to Cassandra, and DNS egress policies."
 
 tags: ['kubernetes', 'network', 'policies']
 categories: ["Kubernetes"]
@@ -17,7 +17,9 @@ Here is an example of network policies
 
 ![Image](/assets/images/blog/np-1.png)
 
-```
+First, remove the master taint so pods can be scheduled on the control plane node. Then create two pods (frontend and backend) and expose them as services.
+
+```bash
 k taint node scw-k8s-cks node-role.kubernetes.io/master-
 k run frontend --image=nginx
 k run backend --image=nginx
@@ -26,11 +28,13 @@ k expose  pod frontend --port 80
 k expose  pod backend --port 80
 k get svc
 ```
-If pods has more "network policies" - all of them will be merged.
+If a pod has multiple network policies applied, all of them will be merged.
 
 #### Default deny network policy
 
-```
+This policy blocks all ingress and egress traffic for every pod in the default namespace. After applying it, pods can no longer communicate with each other.
+
+```yaml
 root@scw-k8s-cks:~# cat default-deny.yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -53,9 +57,9 @@ root@scw-k8s-cks:~# k exec backend -- curl frontend
 ![Image](/assets/images/blog/np-2.png)
 
 
-There are two pods currently running at your cluster
+There are two pods currently running in your cluster.
 
-```
+```bash
 root@scw-k8s-cks:~# k get pods
 NAME       READY   STATUS    RESTARTS   AGE
 backend    1/1     Running   0          4h27m
@@ -113,9 +117,11 @@ spec:
       port: 80
 ```
 
-### Now check wheter we can connect from frontend -> backend
+### Now check whether we can connect from frontend -> backend
 
-```
+Verify that the frontend pod can reach the backend by curling its IP address directly. The connection should succeed because we created matching egress and ingress policies.
+
+```bash
 root@scw-k8s-cks:~# k get pods -o wide
 NAME       READY   STATUS    RESTARTS   AGE   IP          NODE          NOMINATED NODE   READINESS GATES
 backend    1/1     Running   0          23h   10.32.0.5   scw-k8s-cks   <none>           <none>
@@ -129,9 +135,11 @@ root@scw-k8s-cks:~# k exec -it frontend -- curl 10.32.0.5
 </html>
 ```
 
-### Please notice that a direction from backend -> frontend does not work (as it suppose to be)
+### Please notice that a direction from backend -> frontend does not work (as it is supposed to be)
 
-```
+Since we only created an egress policy from frontend to backend and an ingress policy allowing frontend into backend, the reverse direction (backend to frontend) is blocked and will time out.
+
+```bash
 root@scw-k8s-cks:~# k exec -it backend -- curl 10.32.0.4
 ...
 # times out ...
@@ -142,7 +150,9 @@ root@scw-k8s-cks:~# k exec -it backend -- curl 10.32.0.4
 
 ![Image](/assets/images/blog/np-3.png)
 
-```
+Create a dedicated namespace for Cassandra, label it appropriately, expose the pod as a service, and verify the pod IP address for later connectivity tests.
+
+```bash
 root@scw-k8s-cks:~# k create namespace namespace-cassandra
 namespace/namespace-cassandra created
 
@@ -173,8 +183,10 @@ cassandra   1/1     Running   0          30m   10.32.0.6   scw-k8s-cks   <none> 
 
 ##### Create one more policy
 
-```
-iroot@scw-k8s-cks:~# cat backend-to-cassandra.yaml
+This egress policy allows the backend pod in the default namespace to send traffic to any pod in the namespace labeled `ns: cassandra` on TCP port 80.
+
+```yaml
+root@scw-k8s-cks:~# cat backend-to-cassandra.yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -200,8 +212,9 @@ k create -f backend-to-cassandra.yaml
 ```
 ##### Check connection from backend to Cassandra
 
+Test that the backend pod can now reach the Cassandra pod in the other namespace over HTTP.
 
-```
+```bash
 root@scw-k8s-cks:~# k exec backend -- curl http://10.32.0.6
 <!DOCTYPE html>
 <html>
@@ -214,7 +227,9 @@ root@scw-k8s-cks:~#
 
 ##### Make it more complex - create default deny in namespace-cassandra to block all traffic
 
-```
+Apply a default deny policy in the cassandra namespace to block all ingress and egress. This will break the previously working connection from backend to cassandra until a new ingress rule is added.
+
+```yaml
 root@scw-k8s-cks:~# cat default-deny-cassandra.yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -230,9 +245,9 @@ spec:
 k create -f default-deny-cassandra.yaml
 ```
 
-Now, connection between backend and cassandra does not work anymore.
+Now, the connection between backend and cassandra does not work anymore.
 
-```
+```bash
 root@scw-k8s-cks:~# k exec backend -- curl http://10.32.0.6
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -240,8 +255,9 @@ root@scw-k8s-cks:~# k exec backend -- curl http://10.32.0.6
   0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0^C
 ```
 
+Label the default namespace and create an ingress policy in the cassandra namespace to allow traffic from the default namespace. This restores connectivity from backend to cassandra.
 
-```
+```yaml
 # Create a new label on default namespace
 root@scw-k8s-cks:~# k label namespaces default ns=default
 namespace/default labeled
@@ -271,7 +287,9 @@ k create -f from-backend-to-cassandra.yaml
 
 ##### Check the connection now from backend to cassandra
 
-```
+Confirm that the backend pod can once again reach the cassandra pod now that the ingress rule is in place.
+
+```bash
 root@scw-k8s-cks:~# k exec backend -- curl http://10.32.0.6
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -291,7 +309,9 @@ root@scw-k8s-cks:~# k exec backend -- curl http://10.32.0.6
 
 ##### Allow DNS 53 from default namespace
 
-```
+This policy denies all egress and ingress by default but explicitly allows DNS traffic (TCP and UDP port 53) so that pod DNS resolution continues to work.
+
+```yaml
 cat <<EOF > allow-dns-np.yaml
 ---
 apiVersion: networking.k8s.io/v1
@@ -318,7 +338,7 @@ EOF
 We need a new default-deny NetworkPolicy named deny-out for all outgoing traffic of these Pods.
 It should still allow DNS traffic on port 53 TCP and UDP.
 
-```
+```yaml
 cat np.yaml
 ---
 apiVersion: networking.k8s.io/v1

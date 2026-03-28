@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go create file on server with working code examples."
+description: "How to handle file uploads in Go by reading a multipart form file and saving it to the server filesystem."
 
 tags: ['go', 'file', 'server']
 categories: ["Go"]
 ---
+
+This Go program implements a file upload server. When a user submits a file via a multipart form POST, the handler reads the uploaded file content, displays it in the browser, and saves a copy to the `user/` directory on the server. The template renders an upload form on GET and shows the file contents on POST.
 
 ```go
 

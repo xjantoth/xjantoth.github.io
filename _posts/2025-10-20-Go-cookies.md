@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go cookies with working code examples."
+description: "How to set, read, and expire HTTP cookies in a Go web server using the net/http package."
 
 tags: ['go', 'cookies']
 categories: ["Go"]
 ---
+
+This Go program demonstrates full cookie lifecycle management in an HTTP server. It provides routes to set multiple cookies (including a visit counter), read all cookies from the request, and expire a specific cookie by setting its `MaxAge` to -1. The server uses `http.SetCookie` to write cookies and `r.Cookies()` to read them back.
 
 ```go
 package main

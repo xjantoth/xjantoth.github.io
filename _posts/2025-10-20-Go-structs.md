@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go structs with working code examples."
+description: "Working with structs in Go including struct definitions, anonymous structs, struct embedding, and struct tags for reflection."
 
 tags: ['go', 'structs']
 categories: ["Go"]
 ---
+
+This example covers several aspects of Go structs: defining a named struct with exported fields, creating anonymous (inline) structs, embedding one struct inside another for composition, and using struct tags with the `reflect` package. Struct embedding in Go provides a form of inheritance where the embedded struct's fields are promoted to the outer struct.
 
 ```go
 package main

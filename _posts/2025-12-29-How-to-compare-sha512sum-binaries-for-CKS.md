@@ -10,6 +10,8 @@ tags: ["cks", "sha512sum", "vim", "sed"]
 categories: ["Kubernetes"]
 ---
 
+During the CKS exam, you may need to verify the integrity of Kubernetes binaries by comparing their SHA-512 checksums against known good values. The following technique uses a Vim magic regex substitution to transform a list of binary names and their expected checksums into runnable `diff` commands that compare the expected checksum with the actual checksum of the binary on disk.
+
 ```bash
 vim file.txt
 ...

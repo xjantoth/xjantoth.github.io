@@ -10,10 +10,11 @@ tags: ['bash', 'devopsinuse', 'curl']
 categories: ["Linux"]
 ---
 
-This is a nice way how to multiline query parameters when using `curl`
+This is a nice way to pass multiline query parameters when using `curl`.
 
+The `--url-query` flag (available in curl 7.87+) lets you add query parameters individually, making long URLs much more readable. Each parameter is automatically URL-encoded and appended to the request URL.
 
-```
+```bash
 curl "https://example.cloud/drms/whatever/rest/deployrequests" \
 --url-query "deployFromDate=10.06.2023" \
 --url-query "deployToDate=10.06.2024" \

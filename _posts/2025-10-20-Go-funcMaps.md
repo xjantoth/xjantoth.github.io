@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go funcMaps with working code examples."
+description: "How to use template.FuncMap in Go to register custom functions (like string uppercasing and trimming) for use inside Go templates."
 
 tags: ['go', 'funcmaps']
 categories: ["Go"]
 ---
+
+This program demonstrates `template.FuncMap` in Go, which allows you to register custom functions and make them available inside templates. Here, two functions are registered: `uc` for uppercasing strings (using `strings.ToUpper`) and `ft` for extracting the first three characters. These can then be called directly in `.gohtml` template files using the `{{uc .Name}}` or `{{ft .Motto}}` syntax.
 
 ```go
 package main

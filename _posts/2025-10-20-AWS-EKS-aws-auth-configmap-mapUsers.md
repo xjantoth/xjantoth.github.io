@@ -5,21 +5,25 @@ lastmod: "2022-01-07T11:30:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Take a backup of ''aws-auth'' config map in ''kube-system'' namespace."
+description: "How to manage the aws-auth ConfigMap in EKS to grant IAM users access to the Kubernetes cluster, including backup, editing, and verification steps."
 
 tags: ['kubernetes', 'aws', 'eks']
 categories: ["Kubernetes"]
 ---
 
-##  Take a backup of ''aws-auth'' config map in ''kube-system'' namespace
+## Take a backup of the aws-auth ConfigMap in kube-system namespace
 
-```
+Before making any changes to the `aws-auth` ConfigMap, always take a backup. This ConfigMap controls which IAM roles and users can access the EKS cluster.
+
+```bash
 kubectl get cm aws-auth -n kube-system -o yaml > aws-auth.yaml
 ```
 
-##  Create file ''aws-auth.yaml'' with proper AWS users
+## Create the aws-auth.yaml file with proper AWS users
 
-```
+The following command creates an `aws-auth` ConfigMap that maps IAM roles (for node groups) and IAM users to Kubernetes RBAC groups. This allows specific AWS users to authenticate to the EKS cluster.
+
+```yaml
 cat > aws-auth.yaml <<'EOF'
 apiVersion: v1
 data:
@@ -52,9 +56,11 @@ EOF
 kubectl apply -f  aws-auth.yaml
 ```
 
-##  Update your local ''KUBECONFIG'' file
+## Update your local KUBECONFIG file
 
-```
+After updating the `aws-auth` ConfigMap, refresh your local kubeconfig so that kubectl uses the correct AWS profile and cluster endpoint.
+
+```bash
 unset KUBECONFIG
 export AWS_PROFILE=test-user-ml
 aws eks --region us-west-2  update-kubeconfig --name x-ml-eks --profile test-user-ml

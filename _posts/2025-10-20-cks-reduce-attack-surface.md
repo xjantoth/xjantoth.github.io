@@ -12,19 +12,16 @@ categories: ["Kubernetes"]
 
 ##### Overview
 
-* only purpose (remove unneceassary services)
+* only purpose (remove unnecessary services)
 * node recycling (should be ephemeral, created from images)
 * ubuntu, centos
 
 ![Image](/assets/images/blog/aa-1.png)
 
+Use the following `systemctl` commands to identify running services on a node. These are useful for auditing which services are active and determining whether any unnecessary services should be stopped or disabled.
 
-
-```
+```bash
 systemctl list-units | grep <service-name>
 systemctl list-units --type=service | grep <service-name>
 systemctl list-units --type=service --state=running | grep <service-name>
-
-
-
 ```

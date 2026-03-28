@@ -3,14 +3,14 @@ title: How to create a clonable proxmox Ubuntu VM
 date: 2024-10-04T14:41:24+0100
 lastmod: 2024-10-04T14:41:24+0100
 draft: false
-description: "Referece: https://github.com/caiocampoos/homelab-k8s/blob/main/vm-templates/ubuntu-22.04/ubuntu-22.04.sh."
+description: "How to create a clonable Proxmox Ubuntu VM template using cloud images, cloud-init, and qemu-guest-agent for automated provisioning."
 image: "https://www.codeschoepfer.de/wp-content/uploads/2024/05/proxmox-blog-960_480.jpg"
 author: "Jan Toth"
 tags: ['bash', 'proxmox', 'kvm', 'clone', 'devopsinuse']
 categories: ["Linux"]
 ---
 
-Referece: https://github.com/caiocampoos/homelab-k8s/blob/main/vm-templates/ubuntu-22.04/ubuntu-22.04.sh
+Reference: https://github.com/caiocampoos/homelab-k8s/blob/main/vm-templates/ubuntu-22.04/ubuntu-22.04.sh
 
 ISO: https://old-releases.ubuntu.com/releases/24.04/SHA256SUMS
 
@@ -18,7 +18,9 @@ Cloud images: http://cloud-images.ubuntu.com/releases/jammy/release/
 
 # Configure and create Proxmox template with Packer
 
-```
+If you prefer using Packer, configure the Proxmox API credentials in a variables file. The API token must have sufficient permissions to create VMs and templates.
+
+```hcl
 vim template-creds.pkr.hcl
 
 ...
@@ -30,6 +32,8 @@ proxmox_api_token_secret = "ea0a6743-126c-48b2-a704-a223b36017a4"
 
 
 ```
+
+The following shell script automates the creation of a Proxmox VM template from an Ubuntu cloud image. It downloads the cloud image, installs the QEMU guest agent, resizes the disk, creates and configures a VM with cloud-init, and finally converts it into a clonable template.
 
 ```bash
 #!/bin/sh

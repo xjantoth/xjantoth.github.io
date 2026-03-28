@@ -3,7 +3,7 @@ title: How to GCP Private Service Connect PSC between two VPCs within different 
 date: 2024-05-17T20:08:32+0200
 lastmod: 2024-05-17T20:08:32+0200
 draft: false
-description: "Create 2 new GCP Projects in Free Tier Account."
+description: "Step-by-step guide to setting up GCP Private Service Connect (PSC) between two VPCs in different projects, including Terraform code and verification."
 image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse', 'gcp', 'psc']
@@ -14,8 +14,9 @@ categories: ["GCP"]
 ![Image](/assets/images/blog/psc.drawio.png)
 ### Create 2 new GCP Projects in Free Tier Account
 
+Start by creating the consumer and producer projects. These will host the two VPCs that will be connected via Private Service Connect.
 
-```
+```bash
 gcloud projects create consumer-cmd --name="consumer-cmd" --enable-cloud-apis
 gcloud projects create producer-cmd --name="producer-cmd" --enable-cloud-apis
 
@@ -31,7 +32,9 @@ producer-cmd       producer-cmd    699309020362
 
 ### Check billing account
 
-```
+Verify that your billing account is active and linked. You will need billing enabled on both projects to use compute resources.
+
+```bash
 gcloud alpha billing accounts list --format json
 [
   {
@@ -47,7 +50,9 @@ gcloud alpha billing accounts list --format json
 
 ### Startup script debugging
 
-```
+If a VM startup script fails, you can view its logs and re-run it for debugging purposes.
+
+```bash
 # The correct answer (by now) is to use journalctl:
 sudo journalctl -u google-startup-scripts.service
 
@@ -59,9 +64,9 @@ sudo google_metadata_script_runner --script-type startup
 
 I have not found an option to enable compute API other than via GCP Console web interface.
 
-Later on
+Later on, enable the Network Services API in both projects and set up application default credentials for Terraform.
 
-```
+```bash
 gcloud services enable networkservices.googleapis.com --project consumer-cmd
 gcloud services enable networkservices.googleapis.com --project producer-cmd
 
@@ -73,7 +78,9 @@ export GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/application_default_crede
 
 ### Terraform code
 
-```
+The following Terraform configuration creates the full PSC setup: consumer and producer VPCs, subnets, firewall rules, an instance group with Apache behind an internal load balancer, a PSC service attachment on the producer side, and a PSC endpoint on the consumer side.
+
+```hcl
 terraform {
   required_version = ">= 1.6.6"
   required_providers {
@@ -190,7 +197,7 @@ output "ssh" {
 
 
 # .................................................................................
-# Procucer section
+# Producer section
 # .................................................................................
 
 resource "google_compute_network" "producer" {
@@ -377,7 +384,7 @@ resource "google_compute_region_backend_service" "default" {
   }
 }
 
-# Private Service Connect - Procucer site
+# Private Service Connect - Producer side
 # !!! this resource will be created in "Private Service Connect" > "PUBLISHED SERVICES" as expected
 # the keyword "attachment" is rather misleading for me in terraform resource name!
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_service_attachment
@@ -433,16 +440,16 @@ output "mig" {
 
 ```
 
-### Apply terrafrom code
+### Apply Terraform code
 
-```
+```bash
 terraform apply
-# Connect to consumer VM from wher we will test connection to producer project procuder vpc
+# Connect to consumer VM from where we will test the connection to the producer project's producer VPC
 ssh -i assessment user@34.159.3.56
 
 ```
 
->  Private Service Connect - Procucer site
+>  Private Service Connect - Producer side
 > this resource will be created in "Private Service Connect" > "PUBLISHED SERVICES" as expected
 the keyword "attachment" is rather misleading for me in terraform resource name!
 https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_service_attachment
@@ -466,6 +473,3 @@ Video: https://www.youtube.com/watch?v=PUxvJJeSrIc
 
 
 
-## Links:
-
-202405172005

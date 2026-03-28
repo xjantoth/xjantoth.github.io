@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go StripPrefix() cumbersome one hands on 9 with working code examples."
+description: "Hands-on example of using http.StripPrefix with http.FileServer in Go to serve CSS and image assets alongside HTML templates."
 
 tags: ['go', 'cumbersome', 'one', 'hands']
 categories: ["Go"]
 ---
+
+This hands-on example demonstrates serving static assets (CSS and images) alongside Go HTML templates using `http.StripPrefix` and `http.FileServer`. The template is parsed at initialization time using `template.Must`. The `/public/` URL prefix is stripped so that the file server can locate assets in the `hands-on-09/public` directory. The directory structure and HTML template are shown below the Go code.
 
 ```go
 package main

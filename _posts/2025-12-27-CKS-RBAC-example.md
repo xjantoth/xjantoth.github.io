@@ -3,15 +3,17 @@ title: "CKS RBAC example"
 date: 2025-12-27T20:25:14:+0100
 lastmod: 2025-12-27T20:25:14:+0100
 draft: false
-description: "CKS exam topic: RBAC example — concepts, configuration, and practice exercises."
+description: "CKS exam topic: RBAC example showing ClusterRole, ClusterRoleBinding, Role, and RoleBinding for certificate signing request approval."
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ["cks", "rbac", "csr"]
 categories: ["Kubernetes"]
 ---
 
+This example demonstrates a Kubernetes RBAC setup for the CKS exam. It creates a ClusterRole with permissions to approve CertificateSigningRequests, a ClusterRoleBinding to associate it with a ServiceAccount, and a namespace-scoped Role and RoleBinding for reading ConfigMaps.
+
 ```bash
-cat cr.yaml 
+cat cr.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:

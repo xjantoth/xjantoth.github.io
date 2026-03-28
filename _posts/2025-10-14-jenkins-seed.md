@@ -3,7 +3,7 @@ title: "How to Jenkins seed files"
 date: 2022-03-15T08:59:30+0100
 lastmod: 2022-03-15T08:59:30+0100
 draft: false
-description: "Basic Seed job that creates a definitions for other jobs."
+description: "Basic Jenkins seed job that creates pipeline definitions for other jobs, including a Jenkinsfile example with Terraform stages."
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['jenkins', 'seed']
@@ -11,14 +11,16 @@ categories: ["DevOps"]
 ---
 
 
-```
+Start a Jenkins container with a pre-configured seed job. The seed job definition (`initial.xml`) and the Jenkins Configuration as Code file are mounted as volumes.
+
+```bash
 sudo nerdctl run --name jenkins -p 8080:8080 -v $PWD/initial.xml:/var/jenkins_home/jobs/seed/config.xml -v $PWD/controller-configuration-jobDSL-orig.yaml:/var/jenkins.yaml -d --env JENKINS_ADMIN_PASSWORD=password jenkins:jobdsl-blog-2
 
 ```
 
-Basic Seed job that creates a definitions for other jobs
+Basic Seed job that creates definitions for other jobs. The Job DSL script below defines two pipeline jobs: one for Terraform Enterprise and one for build/deploy, each pointing to a different Jenkinsfile in the same repository.
 
-```
+```groovy
 pipelineJob("${SEED_PROJECT}-${SEED_BRANCH}-tf-enterprise") {
     description "Terraform enterprise the ${BRANCH} branch."
     // because stash notifier will not work
@@ -90,11 +92,9 @@ pipelineJob("${SEED_PROJECT}-${SEED_BRANCH}-builddeploy") {
 }
 ```
 
-An example of `Jenkinsfile`
+An example of a `Jenkinsfile` that runs Terraform init, validate, plan, and apply stages with Azure credentials injected from Jenkins credentials store. The apply stage requires manual approval before proceeding.
 
-
-
-```
+```groovy
 
 pipeline {
     agent any

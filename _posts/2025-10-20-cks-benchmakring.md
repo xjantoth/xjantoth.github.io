@@ -1,19 +1,19 @@
 ---
-title: "cks-benchmakring.md"
+title: "CKS Benchmarking"
 date: 2022-02-22T10:15:12+0100
 lastmod: 2022-02-22T10:15:12+0100
 draft: false
-description: "CSI Kubernetes Benchmark 1.6.0 (at the time)."
+description: "How to use CIS Kubernetes Benchmark and Aqua Security kube-bench to audit and improve cluster security."
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'benchmarking']
 categories: ["Kubernetes"]
 ---
 
-## CSI Kubernetes Benchmark 1.6.0 (at the time)
+## CIS Kubernetes Benchmark 1.6.0 (at the time)
 
-Make sure to check CSI vs. current Kubernetes version
-You have got some recommendations to improve Kubenretes cluster security
+Make sure to check the CIS benchmark version against your current Kubernetes version.
+You will get recommendations to improve Kubernetes cluster security.
 
 ## Aquasecurity Kubebench
 

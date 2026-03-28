@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go switch statement with working code examples."
+description: "Comprehensive examples of Go switch statements including simple switches, multi-value cases, initializer syntax, tagless switches, type switches, and early exit with break."
 
 tags: ['go', 'switch', 'statement']
 categories: ["Go"]
 ---
+
+This example demonstrates the various forms of Go's switch statement. It covers simple value-based switches, cases with multiple values, initializer syntax (tag syntax), tagless switches that evaluate boolean conditions, type switches using interfaces, and exiting a matched case early with `break`. Unlike many other languages, Go's switch cases do not fall through by default.
 
 ```go
 package main

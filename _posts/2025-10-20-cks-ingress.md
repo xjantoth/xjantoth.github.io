@@ -5,7 +5,7 @@ lastmod: 2022-02-21T13:16:38+01:00
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Services in Kubernetes."
+description: "How to configure Kubernetes Ingress resources with NGINX, including TLS termination with self-signed certificates."
 
 tags: ['kubernetes', 'ingress']
 categories: ["Kubernetes"]
@@ -19,13 +19,16 @@ categories: ["Kubernetes"]
 
 ###### Deploy Nginx ingress controller
 
-```
+Deploy the NGINX Ingress Controller to your cluster. This creates the necessary Deployment, Service, and RBAC resources in the `ingress-nginx` namespace.
+
+```bash
 # Install NGINX Ingress
 kubectl apply -f https://raw.githubusercontent.com/killer-sh/cks-course-environment/master/course-content/cluster-setup/secure-ingress/nginx-ingress-controller.yaml
 ```
 
+Create two test pods and expose them as ClusterIP services so the Ingress can route traffic to them.
 
-```
+```bash
 # Create two different pods in your cluster
 k run nginx1 --image=nginx:alpine
 k run httpd1 --image=httpd
@@ -67,7 +70,9 @@ EOF
 
 ####### Test connection
 
-```
+Verify the services are created and test the Ingress routing by curling the NodePort endpoints.
+
+```bash
 k get svc
 hugo % k get svc
 NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
@@ -89,8 +94,9 @@ curl http://127.0.0.1:31500/service2
 ###### Secure Nginx Ingress with Self Signed Certificate
 
 
-```
+Generate a self-signed TLS certificate and store it as a Kubernetes secret. Then create an Ingress resource that uses TLS termination with the secret.
 
+```bash
 # generate cert & key
 openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
 
@@ -152,13 +158,7 @@ curl -kv  https://secure-ingress.com:31209/service1 --resolve secure-ingress.com
 
 ```
 
-
-# Complete Example
-https://github.com/killer-sh/cks-course-environment/tree/master/course-content/cluster-setup/secure-ingress
-
-# K8s Ingress Docs
-https://kubernetes.io/docs/concepts/services-networking/ingress
-```
+For a complete example, see the [CKS course secure-ingress repository](https://github.com/killer-sh/cks-course-environment/tree/master/course-content/cluster-setup/secure-ingress). Also refer to the official [Kubernetes Ingress documentation](https://kubernetes.io/docs/concepts/services-networking/ingress).
 
 ######  Ingress object can't be created by kubectl
 
@@ -214,8 +214,8 @@ status:
   loadBalancer: {}
 ```
 
-##  !!! Ingress ''cannot'' refer to a service in ''different'' namespace ###
-* as such it is important to create ''an ingress'' in the same namespace as the ''service'' resides
+## Ingress cannot refer to a service in a different namespace
+* As such, it is important to create an Ingress in the same namespace as the service resides.
 
 ```yaml
 cat ing.yaml
@@ -289,14 +289,14 @@ spec:
 
 ###### Generate SSL certificate and create a kubernetes secret
 
-```
+```bash
 openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
 kubectl  create  secret tls secure-ingress --cert cert.pem --key key.pem
 ```
 
-Create ''Kubernetes Ingress'' specification
+Create a Kubernetes Ingress specification with TLS enabled.
 
-```
+```yaml
 cat ingress.yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -329,14 +329,14 @@ spec:
               number: 80
 ```
 
-Adjust ''/etc/hosts''
+Adjust `/etc/hosts` to resolve the Ingress hostname locally.
 
-```
+```bash
 echo -e "35.198.101.56 secure-ingress.com" >> /etc/hosts
 ```
 
-**Check apps'' via curl
+Check the applications via curl.
 
-```
+```bash
 curl https://secure-ingress.com:30769/service2 -kv
 ```

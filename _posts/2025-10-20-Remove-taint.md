@@ -11,6 +11,8 @@ tags: ['kubernetes', 'taint']
 categories: ["Kubernetes"]
 ---
 
-```
+Use `kubectl taint` with a trailing minus sign (`-`) to remove a specific taint from a node. This is useful when a node has been automatically tainted due to conditions like disk pressure and you want to allow scheduling again.
+
+```bash
 kubectl taint node archlinux node.kubernetes.io/disk-pressure:NoSchedule-
 ```

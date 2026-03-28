@@ -19,7 +19,9 @@ categories: ["Kubernetes"]
 ###### Explore strace
 
 
-```
+The `strace` command traces system calls made by a process. Using the `-cw` flags produces a summary table of all syscalls with wall-clock timing. This is useful for understanding what a binary does at the kernel level.
+
+```bash
 root@scw-k8s:~# strace -cw ls /
 bin   etc         initrd.img.old  lost+found  opt   run   srv  usr      vmlinuz.old
 boot  home        lib             media       proc  sbin  sys  var
@@ -57,11 +59,11 @@ dev   initrd.img  lib64           mnt         root  snap  tmp  vmlinuz
 
 * cloud-native runtime security (CNFC)
 * access (deep kernel tracing built on the Linux kernel)
-* assert (describe security rules against a susyem + default ones, detects unwanted behaviour)
+* assert (describe security rules against a system + default ones, detects unwanted behaviour)
 * action (automated respond to a security violations)
 
 
-```
+```bash
 
 # install falco
 curl -s https://falco.org/repo/falcosecurity-3672BA8F.asc | apt-key add -

@@ -11,6 +11,8 @@ tags: ['lightening', 'lab']
 categories: ["DevOps"]
 ---
 
+This collection of Kubernetes manifests covers several CKA Lightning Lab tasks: creating a Deployment with a specific image, defining a NetworkPolicy for ingress traffic, setting up a PersistentVolume and PersistentVolumeClaim, deploying Redis with a ConfigMap, and running a time-check pod with environment variables from a ConfigMap.
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment

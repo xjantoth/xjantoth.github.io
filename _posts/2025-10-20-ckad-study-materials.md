@@ -1,5 +1,5 @@
 ---
-title: "ckad study materials"
+title: "CKAD Study Materials"
 date: "2022-01-06T14:53:42+0100"
 lastmod: "2022-01-06T14:53:42+0100"
 draft: false

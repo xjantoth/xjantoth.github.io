@@ -11,9 +11,9 @@ tags: ['to', 'cryptsetup', 'installing', 'archlinux']
 categories: ["Linux"]
 ---
 
-Kriskoviny
+The following walkthrough covers a full Arch Linux installation with LUKS disk encryption and BTRFS subvolumes. It starts from booting the Arch ISO and covers partitioning, encrypting partitions with `cryptsetup`, creating filesystems, installing the base system, configuring GRUB with cryptodisk support, and finalizing the setup.
 
-```
+```bash
 # boot arch iso and set root passwd
 passwd
 systemctl start sshd
@@ -87,8 +87,9 @@ sync
 reboot
 ```
 
+These additional commands demonstrate common `cryptsetup` operations on an NVMe drive, including benchmarking encryption performance, formatting and opening LUKS partitions, inspecting raw device data, and removing encryption from a partition.
 
-```
+```bash
 sudo cfdisk /dev/nvme0n1
 sudo cryptsetup benchmark
 sudo cryptsetup -v luksFormat /dev/nvme0n1p5

@@ -5,41 +5,41 @@ lastmod: 2022-01-14T14:31:00+01:00
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Create SSH key pair to be used for Kubernetes master and node machine."
+description: "Step-by-step guide to setting up a Kubernetes cluster on Scaleway with Ubuntu, including SSH key generation, instance creation, and kubeadm initialization."
 
 tags: ['cks', 'setup', 'scaleway', 'kubernetes', 'cluster', 'ubuntu']
 categories: ["Kubernetes"]
 ---
 
 
-Create SSH key pair to be used for Kubernetes master and node machine
+Create an SSH key pair to be used for authenticating to the Kubernetes master and node machines on Scaleway.
 
-```
+```bash
 ssh-keygen -f ~/.ssh/scw-k8s-cks -t rsa -b 4096 -C "toth.janci@gmail.com"
 ```
 
-If you want to create a new instance via command line **scw** binary
+If you want to create a new instance via the command-line **scw** binary, the following command provisions a DEV1-S instance running Ubuntu Focal with a 20GB root volume.
 
-```
+```bash
 scw instance server create type=DEV1-S zone=fr-par-1 image=ubuntu_focal root-volume=l:20G name=scw-k8s-cks ip=new project-id=431d432b-1849-445f-a66b-7d1ccdf5d34a
 ```
 
-SSH to the machine
+SSH to the machine using the previously generated key pair.
 
-```
+```bash
 ssh -i ~/.ssh/scw-k8s-cks  root@51.158.106.182
 ```
 
-Provision Kubernetes master node
+Provision the Kubernetes master node using the CKS course setup script. This script handles installing kubeadm, kubelet, kubectl, and initializing the control plane.
 
-```
+```bash
 bash <(curl -s https://raw.githubusercontent.com/killer-sh/cks-course-environment/master/cluster-setup/latest/install_master.sh)
 ```
 
 
-Start kubenretes cluste manually if Scaleway changes your private IPv4 address after reboot
+Start the Kubernetes cluster manually if Scaleway changes your private IPv4 address after reboot. This script resets kubeadm, kills any processes occupying the required ports, re-initializes the cluster, and installs the Weave network plugin.
 
-```
+```bash
 KUBE_VERSION=1.22.2
 kubeadm reset -f
 

@@ -5,13 +5,15 @@ lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=800&h=420&fit=crop"
-description: "Docker layers — practical walkthrough with examples."
+description: "Multi-stage Dockerfile example: build a Go application in Ubuntu, then copy the binary into a minimal Alpine image with a non-root user."
 
 tags: ['docker', 'layers']
 categories: ["Docker"]
 ---
 
-```
+This multi-stage Dockerfile first builds a Go application in an Ubuntu-based stage, then copies just the compiled binary into a minimal Alpine image. The final stage removes all binaries from `/bin`, creates a non-root user, and runs the application as that user for improved security.
+
+```dockerfile
 cat  Dockerfile
 FROM ubuntu
 ARG DEBIAN_FRONTEND=noninteractive

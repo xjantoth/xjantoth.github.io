@@ -5,19 +5,24 @@ lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Game of Pods - Tyro — practical walkthrough with examples."
+description: "KodeKloud Game of Pods Tyro challenge: configure kubectl contexts, RBAC, and deploy a Jekyll site with persistent storage."
 
 tags: ['game', 'pods', 'tyro']
 categories: ["Kubernetes"]
 ---
 
-```
+Configure kubectl to use the `developer` context with the `drogo` user and the `development` namespace. These commands set and switch the active context for subsequent kubectl operations.
+
+```bash
 kubectl config set-context --current --cluster=kubernetes  --namespace=development --user=drogo
 
 kubectl config use-context developer --cluster=kubernetes  --namespace=development --user=drogo
 kubectl config current-context
 ```
-```
+
+The resulting kubeconfig file shows the cluster, context, and user configuration with client certificate authentication for the `drogo` user.
+
+```yaml
 cat ~/.kube/config
 apiVersion: v1
 clusters:
@@ -55,8 +60,10 @@ users:
     client-key-data: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNS...hVN25LN0xNUkUvRGNPNFJla0VGZEh6SkhVUjB
 ```
 
+The following Kubernetes manifests deploy a Jekyll site with an init container, a PersistentVolume and PersistentVolumeClaim for site storage, RBAC Role and RoleBinding for the `drogo` user, and a NodePort Service to expose the site externally.
+
 ```yaml
- for i in $(ls *.yaml); do echo filename: $i;echo "---" ;cat $i; done
+for i in $(ls *.yaml); do echo filename: $i;echo "---" ;cat $i; done
 filename: pod.yaml
 ---
 apiVersion: v1

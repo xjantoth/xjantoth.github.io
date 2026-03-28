@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go write to file with working code examples."
+description: "How to create and write an HTML file in Go using os.Create, strings.NewReader, and io.Copy."
 
 tags: ['go', 'to', 'file']
 categories: ["Go"]
 ---
+
+This example demonstrates how to write content to a file in Go. It constructs an HTML string using string concatenation, creates a new file with `os.Create`, and then writes the content using `io.Copy` combined with `strings.NewReader`. The `defer` statement ensures the file is properly closed after writing.
 
 ```go
 package main

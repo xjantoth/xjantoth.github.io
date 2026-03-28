@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go templates pipelines with working code examples."
+description: "Using Go template pipelines and custom FuncMap functions for date formatting, math operations, and chaining function calls in templates."
 
 tags: ['go', 'templates', 'pipelines']
 categories: ["Go"]
 ---
+
+This example demonstrates Go template pipelines with custom functions registered via `template.FuncMap`. It defines helper functions for date formatting, doubling a number, computing square roots, and squaring values. These functions are registered on the template engine so they can be called directly within `.gohtml` template files using the pipeline syntax.
 
 ```go
 package main

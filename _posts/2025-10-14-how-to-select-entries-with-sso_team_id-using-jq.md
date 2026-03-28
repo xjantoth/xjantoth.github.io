@@ -15,9 +15,11 @@ categories: ["Linux"]
 How to choose only records that have sso_team_id key defined?
 
 
-###### Input file to process with `jq` and `yq`.
+###### Input file to process with `jq` and `yq`
 
-```
+The following YAML file contains identity definitions where only some entries have the `sso_team_id` key.
+
+```yaml
 
 identities:
   team1:
@@ -53,7 +55,9 @@ identities:
 
 ###### Processing
 
-```
+This `jq` expression iterates over all keys in the `identities` object, builds key-value pairs of identity name to `sso_team_id`, merges them into a single object, and filters out entries where the value is null.
+
+```bash
 yq -o=json eval /tmp/aaa.yaml | jq '.identities | [keys[] as $k | {($k): .[$k].sso_team_id}]  | add | with_entries(select(.value |.!=null))'
 
 {
@@ -62,6 +66,3 @@ yq -o=json eval /tmp/aaa.yaml | jq '.identities | [keys[] as $k | {($k): .[$k].s
 }
 ```
 
-## Links:
-
-202406051206

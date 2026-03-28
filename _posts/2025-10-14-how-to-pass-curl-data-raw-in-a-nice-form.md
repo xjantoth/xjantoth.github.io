@@ -3,14 +3,14 @@ title: How to create resource in Bitbucket via curl and Ansible
 date: 2024-07-25T09:39:30+0200
 lastmod: 2024-07-25T09:39:30+0200
 draft: false
-description: "There are some situation when one can have credentials to some web page that does not have API properly exposed and TOKEN can not be used. However, when trying to do."
+description: "How to create Bitbucket projects and repositories via curl and Ansible, including cookie-based authentication for importing repos when API tokens are not available."
 image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4sLbHPgMQ6s1WLgCB-6JUcjlftThBFl-OdQ&s"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse', 'curl', 'ansible']
 categories: ["Automation"]
 ---
 
-There are some situation when one can have credentials to some web page that does not have API properly exposed and TOKEN can not be used.
+There are some situations when one can have credentials to some web page that does not have an API properly exposed and a TOKEN cannot be used.
 However, when trying to do certain action e.g. import Bitbucket repo from already existing repo - this is doable by `clicking` in `a web browser` using
 username and password. In this particular situation the reference/sample code can be found in variable `SAMPLE_PROJECT_URL`.
 
@@ -27,7 +27,7 @@ export SAMPLE_PROJECT_URL="https://example.net/scm/example-solutions/sample-vali
 export WRITERS="<username1> <username2> ..."
 export ADMINS="<username4> <username5> ..."
 
-echo -e "\n\nCreting a project\n"
+echo -e "\n\nCreating a project\n"
 
 curl -u "${USERNAME}:${PASSWORD}" -k --url "https://bitbucket.url.example/rest/api/latest/projects" \
 --header 'Accept: application/json' \
@@ -51,7 +51,7 @@ curl -u "${USERNAME}:${PASSWORD}" -k --request PUT \
   --url-query "permission=PROJECT_ADMIN"
 
 # ............................................
-# Import/crate new repo with sample code
+# Import/create new repo with sample code
 # ............................................
 
 rm /tmp/cookies.txt
@@ -107,7 +107,9 @@ curl  -k -X PUT \
 
 ## Ansible version
 
-```bash
+The same workflow can be automated with Ansible using the `uri` module. This is the preferred approach for repeatable, idempotent Bitbucket setup in a CI/CD pipeline.
+
+```yaml
 ---
 # .........................................................................
 # 1. Creating Bitbucket project

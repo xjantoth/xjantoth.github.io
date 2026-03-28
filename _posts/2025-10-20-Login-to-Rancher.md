@@ -5,13 +5,15 @@ lastmod: "2022-01-07T11:30:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Kubernetes: Login to Rancher — configuration and practical examples."
+description: "How to authenticate to a Rancher server via the API and log in using the Rancher CLI."
 
 tags: ['kubernetes', 'login', 'rancher']
 categories: ["Kubernetes"]
 ---
 
-```
+The following script authenticates against the Rancher local provider API to obtain an API token, then uses that token to log in via the Rancher CLI. Replace the URL and credentials with your actual Rancher server details.
+
+```bash
 NAME="rancher.web.ui"
 RANCHER_URL="https://$NAME:10443"
 

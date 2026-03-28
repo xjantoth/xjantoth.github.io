@@ -10,6 +10,7 @@ tags: ['bash', 'devopsinuse']
 categories: ["Linux"]
 ---
 
+The following `gcloud` command checks what IAM roles are assigned to a specific user or service account within a GCP project. It flattens the IAM policy bindings and filters by the member's email address, which is useful for auditing permissions.
 
 ```bash
 [arch:tmp ] gcloud projects get-iam-policy <project-name>  \
@@ -23,6 +24,3 @@ roles/serviceusage.serviceUsageAdmin
 
 ```
 
-## Links:
-
-202407191407

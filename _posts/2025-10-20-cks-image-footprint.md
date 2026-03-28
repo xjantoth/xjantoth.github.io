@@ -3,7 +3,7 @@ title: "CKS Image Footprint"
 date: 2022-06-04T13:09:33+0200
 lastmod: 2022-06-04T13:09:33+0200
 draft: false
-description: "Run specific version do not run as root not shell read only filesystem."
+description: "Best practices for reducing Docker image footprint: multi-stage builds, non-root users, shell removal, and read-only filesystems."
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'image', 'footprint']
@@ -12,12 +12,12 @@ categories: ["Kubernetes"]
 
 * run specific version
 * do not run as root
-* not shell
-* read only filesystem
+* no shell
+* read-only filesystem
 
-This would be an ideal example of Dockerfile
+This would be an ideal example of a Dockerfile using a multi-stage build. The first stage compiles a Go application, and the second stage copies only the binary into a minimal Alpine image with a non-root user and no shell binaries.
 
-```
+```dockerfile
 # build container stage 1
 FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND=noninteractive
@@ -40,9 +40,8 @@ CMD ["/home/appuser/app"]
 ![Image](/assets/images/blog/fi-2.png)
 ![Image](/assets/images/blog/fi-3.png)
 
-```
-vim app.go
-...
+```go
+// app.go
 package main
 
 import (
@@ -62,39 +61,31 @@ func main () {
         time.Sleep(1 * time.Second)
     }
 }
-...
-:wq!
 ```
 
 Then write your `Dockerfile` but you will see that this simple app will have rather large docker image ~700MB (overkill).
 
 
-```
-vim Dockerfile
-...
+```dockerfile
 FROM ubuntu
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y golang-go
 COPY app.go .
 RUN CGO_ENABLED=0 go build app.go
 CMD ["./app"]
-...
-:wq!
 ```
 
 Build a docker image
 
 
-```
+```bash
 podman build -t app:latest .
 ```
 
 
-Let's try to lower image size a bit by **multi-stage budild**
+Let's try to lower image size a bit by **multi-stage build**
 
-```
-vim Dockerfile
-...
+```dockerfile
 FROM ubuntu
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y golang-go
@@ -104,6 +95,4 @@ RUN CGO_ENABLED=0 go build app.go
 FROM alpine
 COPY --from=0 /app .
 CMD ["./app"]
-...
-:wq!
 ```

@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go upload file with working code examples."
+description: "How to handle file uploads in Go using r.FormFile, reading the uploaded content, and displaying it in an HTML form."
 
 tags: ['go', 'file']
 categories: ["Go"]
 ---
+
+This example demonstrates handling file uploads in Go. When the server receives a POST request, it extracts the uploaded file using `r.FormFile`, reads its content with `ioutil.ReadAll`, and displays it on the page. The HTML form uses `enctype="multipart/form-data"` which is required for file uploads.
 
 ```go
 package main

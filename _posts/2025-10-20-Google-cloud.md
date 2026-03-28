@@ -5,15 +5,17 @@ lastmod: "2022-01-06T15:00:26+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=420&fit=crop"
-description: "**Terraform in my wadzpay-dev''."
+description: "Working with Google Cloud Platform using gcloud CLI, Terraform, Cloud Run, Memorystore Redis, and VPC connectors."
 
 tags: ['google', 'cloud']
 categories: ["GCP"]
 ---
 
-**Terraform in my wadzpay-dev''
+**Terraform in my wadzpay-dev**
 
-```
+Set the service account credentials and configure the gcloud CLI to use the correct account and project for the wadzpay-dev environment.
+
+```bash
 GOOGLE_APPLICATION_CREDENTIALS=/home/jantoth/.google-cloud-keys/wadzpay-dev-cdb0bf1613d2.json
 gcloud auth list
 gcloud config set account jan.toth@vacuumlabs.com
@@ -21,11 +23,13 @@ gcloud config set project wadzpay-dev
 ```
 
 
-**Terraform in my own account''
+**Terraform in my own account**
 
 https://medium.com/swlh/how-to-deploy-a-cloud-sql-db-with-a-private-ip-only-using-terraform-e184b08eca64
 
-```
+Configure credentials for a personal GCP account, enable required APIs for Terraform, and run the Terraform workflow. The APIs include Compute, IAM, OS Login, Service Networking, and Cloud SQL Admin.
+
+```bash
 GOOGLE_APPLICATION_CREDENTIALS=/home/jantoth/.google-cloud-keys/consummate-atom-309219-0b338646619a.json
 
 gcloud config set account kubernetes.certification@gmail.com
@@ -46,9 +50,11 @@ terraform plan
 
 ```
 
-**Notes:''
+**Notes:**
 
-```
+List and describe Redis instances in a specific GCP region.
+
+```bash
 gcloud config set account kubernetes.certification@gmail.com
 gcloud config set project consummate-atom-309219
 

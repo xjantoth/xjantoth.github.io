@@ -1,15 +1,17 @@
 ---
-title: "MOCK TEST 3 CKA"
+title: "Mock Test 3 - CKA"
 date: "2022-01-06T14:53:42+0100"
 lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "MOCK TEST 3 CKA — practical walkthrough with examples."
+description: "CKA Mock Test 3 solutions covering multi-container pods, security contexts, network policies, and pod tolerations."
 
 tags: ['mock', 'cka']
 categories: ["DevOps"]
 ---
+
+Below are the YAML manifests for CKA Mock Test 3. They include multi-container pods with environment variables, pods with non-root security contexts, network policies for ingress filtering, and pods with tolerations for tainted nodes.
 
 ```yaml
 controlplane $ for i in $(ls *.yaml); do echo -e "$i\n\n"; cat $i; done

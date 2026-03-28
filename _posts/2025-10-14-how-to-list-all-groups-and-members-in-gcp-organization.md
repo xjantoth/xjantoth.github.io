@@ -10,6 +10,8 @@ tags: ['bash', 'devopsinuse', 'gcloud', 'gcp']
 categories: ["GCP"]
 ---
 
+The following script retrieves all Cloud Identity groups from a GCP organization and then lists the members of each group whose name contains "admin". It filters out system accounts (those starting with "sy") to focus on human users. This is useful for auditing administrative access across your GCP organization.
+
 ```bash
 gcloud identity groups search --labels="cloudidentity.googleapis.com/groups.discussion_forum" --organization="111111111111" --page-size=3000 --format=json > groups.json
 

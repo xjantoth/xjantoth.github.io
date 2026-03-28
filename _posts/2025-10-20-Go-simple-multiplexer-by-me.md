@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go simple multiplexer by me with working code examples."
+description: "Building a simple HTTP multiplexer from scratch in Go using raw TCP connections, request parsing, and a switch-based router."
 
 tags: ['go', 'simple', 'multiplexer', 'me']
 categories: ["Go"]
 ---
+
+This example builds a simple HTTP multiplexer from scratch using Go's `net` package. It listens on a TCP port, manually parses the incoming HTTP request to extract the method and URL, and then routes to different response handlers based on the URL path using a switch statement. This is a low-level approach that demonstrates what frameworks like `net/http` do under the hood.
 
 ```go
 package main

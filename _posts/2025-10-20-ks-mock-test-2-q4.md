@@ -5,7 +5,7 @@ lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "**4. A pod in the sahara namespace has generated alerts that a shell was opened inside the container."
+description: "CKS mock test question: customize Falco output format for container shell alerts and persist changes across updates."
 
 tags: ['cks', 'mock', 'q4']
 categories: ["Kubernetes"]
@@ -20,12 +20,15 @@ Make sure to update the rule in such a way that the changes will persists across
 You can refer the falco documentation Here
 **
 
-```
+First, find the original rule in the default Falco rules file so you know which rule to override.
+
+```bash
 vim +/"A shell was spawned in a container with an attached" /etc/falco/falco_rules.yaml
 ```
 
+Then override the rule in the local rules file. Editing `falco_rules.local.yaml` ensures your changes persist across Falco updates, since the default rules file gets replaced on upgrade.
 
-```
+```yaml
 cat  /etc/falco/falco_rules.local.yaml
 #
 # Copyright (C) 2019 The Falco Authors.

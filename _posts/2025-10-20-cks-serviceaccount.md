@@ -3,19 +3,20 @@ title: "CKS serviceaccount"
 date: 2022-03-07T12:57:03+0100
 lastmod: 2022-03-07T12:57:03+0100
 draft: false
-description: "SesrviceAccount (SA) are namespaces SA \"default\" in every namespace automatically mounted to a pod can be used to talk to Kubernetes API."
+description: "Understanding Kubernetes ServiceAccounts, their automatic token mounting, and how to use them to authenticate with the Kubernetes API from within pods."
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'serviceaccount']
 categories: ["Kubernetes"]
 ---
 
-* SesrviceAccount (SA) are namespaces
+* ServiceAccount (SA) are namespaced
 * SA "default" in every namespace automatically mounted to a pod
 * can be used to talk to Kubernetes API
 
+Create a custom ServiceAccount and a pod that uses it. The `serviceAccount` field in the pod spec associates the pod with the newly created ServiceAccount.
 
-```
+```bash
 k create sa accessor
 k run accessor --image=nginx:alpine -o yaml --dry-run=client > accessor.yaml
 
@@ -46,11 +47,9 @@ k create -f accessor.yaml
 ```
 
 
-Let's elaborate a bit on what has been done so far by getting inside of a newly created pod called "accessor"
+Let's elaborate a bit on what has been done so far by getting inside the newly created pod called "accessor". The ServiceAccount token is automatically mounted at `/run/secrets/kubernetes.io/serviceaccount/token`.
 
-
-
-```
+```bash
 # Get inside a pod
 k exec -it accessor -- sh
 
@@ -59,10 +58,9 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IlZPVUZEc3oyNldBeTZmcWpneW53bmNjWUVqNElKV05adGdjbTla
 ```
 
 
-Let's try to call Kubenretes API from inside of a pod
+Let's try to call the Kubernetes API from inside of a pod. Without passing an authentication token, the request is treated as anonymous.
 
-
-```
+```bash
 / # curl https://kubernetes -k
 {
   "kind": "Status",
@@ -76,10 +74,9 @@ Let's try to call Kubenretes API from inside of a pod
 }
 ```
 
-Hmmm, it is forbidden for anonymous user as it can be see above. How about passing a bearer token within a curl request. Give it a try.
+It is forbidden for the anonymous user as shown above. How about passing a bearer token within a curl request? Let's give it a try.
 
-
-```
+```bash
 / # curl https://kubernetes -k -H "Authorization: Bearer $(cat /run/secrets/kubernetes.io/serviceacc
 ount/token)"
 {
@@ -94,10 +91,9 @@ ount/token)"
 }
 ```
 
-Ok, still not much of an success but do not give up and go on
+Still not much of a success, but do not give up. By passing the CA certificate and querying the `/api` endpoint, the request is properly authenticated and returns the API versions.
 
-
-```
+```bash
 / # curl https://kubernetes/api -X GET -H "Authorization: Bearer $(cat /run/secrets/kubernetes.io/se
 rviceaccount/token)" --cacert /run/secrets/kubernetes.io/serviceaccount/ca.crt
 {
@@ -115,10 +111,9 @@ rviceaccount/token)" --cacert /run/secrets/kubernetes.io/serviceaccount/ca.crt
 ```
 
 
-Let's figure out how to get list of all pods running in a default namespace
+Let's figure out how to get a list of all pods running in the default namespace. The ServiceAccount does not yet have the required RBAC permissions, so this request will be denied.
 
-
-```
+```bash
 / # curl https://kubernetes/api/v1/namespaces/default/pods/ -X GET -H "Authorization: Bearer $(cat /
 run/secrets/kubernetes.io/serviceaccount/token)" --cacert /run/secrets/kubernetes.io/serviceaccount/
 ca.crt
@@ -137,10 +132,9 @@ ca.crt
 
 ```
 
-Hmmm it looks like we do not have permissions to list pods at all. We will create role and rolebinding and try it again.
+It looks like we do not have permissions to list pods at all. We will create a Role and RoleBinding to grant the `accessor` ServiceAccount permission to list pods, then try again.
 
-
-```
+```bash
 % k create role pod-reader -n default --verb list --resource pods
 
 % k create rolebinding pod-reader-rb -n default --serviceaccount default:accessor --role pod-reader
@@ -155,12 +149,12 @@ Hmmm it looks like we do not have permissions to list pods at all. We will creat
 
 ```
 
-There is one special option for SesrviceAccount in general called **automountServiceAccountToken**.
+There is one special option for ServiceAccount in general called **automountServiceAccountToken**.
 
-Let's try to disable SesrviceAccount token to be moounted to pod.
+Let's try to disable the ServiceAccount token from being mounted to the pod. Setting `automountServiceAccountToken: false` in the pod spec prevents the token from being injected.
 
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -181,21 +175,18 @@ status: {}
 
 ```
 
-Once configuration above is specified - there is not `/run/secrets` folder present anymore
+Once the configuration above is specified, the `/run/secrets` folder is no longer present in the pod.
 
+Now, let's see if we can delete `secrets` as ServiceAccount **accessor**. The `kubectl auth can-i` command checks permissions without actually performing the action.
 
-Now, let's see if we can delete `secrets` as serviceaccount **accessor**
-
-
-```
+```bash
 k auth can-i delete secrets --as system:serviceaccount:default:accessor
 no
 ```
 
-How about now?
+How about now? After binding the `edit` ClusterRole to the ServiceAccount, it gains the ability to delete secrets.
 
-
-```
+```bash
 k create clusterrolebinding accessor-default
 -edit --clusterrole edit --serviceaccount default:accessor
 clusterrolebinding.rbac.authorization.k8s.io/accessor-default-edit created

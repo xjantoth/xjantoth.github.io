@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go constants with working code examples."
+description: "Working with constants in Go, including typed and untyped constants, the iota enumerator, and scoped constant blocks."
 
 tags: ['go', 'constants']
 categories: ["Go"]
 ---
+
+This program covers Go constants: typed constants with explicit types, untyped constants that can be implicitly converted, and enumerated constants using `iota`. The `iota` keyword auto-increments within a `const` block and resets in each new block. The example also shows how to offset `iota` values and use the blank identifier to discard the first value.
 
 ```go
 func constants()  {

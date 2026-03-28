@@ -3,14 +3,16 @@ title: "How to get PID of the main process in containers to be used for strace"
 date: 2025-12-21T21:49:54:+0100
 lastmod: 2025-12-21T21:49:54:+0100
 draft: false
-description: "Hwo to get PID of the main process in a container used later on to check strace. Needed for CKS Kubernetes certification."
+description: "How to get the PID of the main process in a container to be used for strace. Needed for the CKS Kubernetes certification."
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ["cks", "strace", "kubernetes", "awk", "crictl", "custom-columns"]
 categories: ["Kubernetes"]
 ---
 
-Hwo to get PID of the main process in a container used later on to check strace. Needed for CKS Kubernetes certification.
+How to get the PID of the main process in a container, which can then be used for strace. This is needed for the CKS Kubernetes certification.
+
+The following command retrieves pod metadata including the container ID, then uses `awk` to generate SSH commands that inspect each container with `crictl` and extract the PID via `yq`. This is useful when you need to trace system calls of a specific container process.
 
 ```bash
 kubectl get pod -n team-tulip \
@@ -21,6 +23,8 @@ kubectl get pod -n team-tulip \
     }'
 
 ```
+
+Here is a real-world example showing the output when run against the `kube-system` namespace. The generated commands can be executed directly to obtain the PID of each container's main process.
 
 ```bash
 controlplane:~$ kubectl get pod -n kube-system  -o custom-columns="ID :.status.containerStatuses[0].containerID,P:.metadata.name,N:.spec.nodeName" --no-headers | \ 

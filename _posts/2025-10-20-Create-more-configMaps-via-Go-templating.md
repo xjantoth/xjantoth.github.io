@@ -11,6 +11,8 @@ tags: ['kubernetes', 'go', 'templating', 'configmap']
 categories: ["Kubernetes"]
 ---
 
+The following Helm template snippet uses Go templating to iterate over all JSON files in a `dashboards/` directory and generate a separate Kubernetes ConfigMap for each one. This is commonly used to provision Grafana dashboards automatically via sidecar.
+
 ```go
 {% raw %}
 {{ range $path, $_ :=  .Files.Glob  "dashboards/*.json" }}

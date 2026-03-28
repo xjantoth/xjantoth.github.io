@@ -5,7 +5,7 @@ lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "If you want to pull from a docker registry you need to docker login first."
+description: "Securing the Kubernetes supply chain using image digests, OPA Gatekeeper, and the ImagePolicyWebhook admission controller."
 
 tags: ['cks', 'secure', 'supply', 'chain', 'imagepolicywebhook']
 categories: ["Kubernetes"]
@@ -21,9 +21,9 @@ If you want to **pull from a docker registry** you need to `docker login` first.
 
 ###### Image Digest
 
-List all container registries for all containers running in a cluster
+List all container image references for all containers running in the cluster. This helps you audit which registries and image tags are in use.
 
-```
+```bash
 root@scw-k8s:~# k get pods -A -ojsonpath='{range .items[*]}{.spec.containers[*].image}{"\n"}{end}'
 nginx
 k8s.gcr.io/coredns/coredns:v1.8.6
@@ -36,10 +36,9 @@ k8s.gcr.io/kube-scheduler:v1.23.6
 docker.io/weaveworks/weave-kube:2.8.1 docker.io/weaveworks/weave-npc:2.8.1
 ```
 
-More precisely, we are interested in digest, which references an exact image version (which is much better than using tags)
+More precisely, we are interested in the digest, which references an exact image version (which is much better than using tags since tags are mutable).
 
-
-```
+```bash
 root@scw-k8s:~# k get pods -A -ojsonpath='{range .items[*]}{.status.containerStatuses[*].imageID}{"\n"}{end}'
 
 k8s.gcr.io/coredns/coredns@sha256:5b6ec0d6de9baaf3e92d0f66cd96a25b9edbce8716f5f15dcd1a616b3abd590e
@@ -58,9 +57,9 @@ r
 
 Install OPA Gatekeeper: `kubectl create -f https://raw.githubusercontent.com/killer-sh/cks-course-environment/master/course-content/opa/gatekeeper.yaml`
 
-Create OPA template to restrict allowed container registries
+Create an OPA ConstraintTemplate to restrict allowed container registries. The Rego policy below rejects any image that does not start with an approved registry prefix.
 
-```
+```yaml
 apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
 metadata:
@@ -82,9 +81,9 @@ spec:
         }
 ```
 
-Specify for what kind of resources the `K8sTrustedImages` OPA constraint template will be applied (e.g. pods)
+Specify for what kind of resources the `K8sTrustedImages` OPA constraint template will be applied (e.g. pods).
 
-```
+```yaml
 apiVersion: constraints.gatekeeper.sh/v1beta1
 kind: K8sTrustedImages
 metadata:
@@ -96,10 +95,9 @@ spec:
         kinds: ["Pod"]
 ```
 
-And now test it!
+And now test it! Running a pod with just `nginx` (without the `docker.io/` prefix) will be rejected, while using the fully qualified `docker.io/nginx` name passes the policy check.
 
-
-```
+```bash
 # will not work :)
 controlplane $ k run podx --image=nginx
 Error from server ([pod-trusted-images] not trusted image!): admission webhook "validation.gatekeeper.sh" denied the request: [pod-trusted-images] not trusted image!
@@ -111,7 +109,7 @@ pod/podx created
 ```
 
 
-###### Deploy webhook service (en external service) which will validate image policy so called: ImagePolicyWebhook
+###### Deploy webhook service (an external service) which will validate image policy, known as ImagePolicyWebhook
 
 ![Image](/assets/images/blog/ip-1.png)
 
@@ -242,17 +240,17 @@ spec:
 
 
 
-Test ImagePolicyWebhook
+Test ImagePolicyWebhook. The following command attempts to create a pod, which will be rejected because the external webhook service is not reachable.
 
-```
+```bash
 root@cks-master:/etc/kubernetes/admission# k run test1 --image=nginxError from server (Forbidden): pods "test1" is forbidden: Post "https://external-service:1234/check-image?timeout=30s": dial tcp: lookup external-service on 169.254.169.254:53: no such host
 ```
 
 ###### Task
 
-Convert the existing Deployment crazy-deployment to use the image digest of the current tag instead of the tag.
+Convert the existing Deployment crazy-deployment to use the image digest of the current tag instead of the tag. First, extract the image digest from the running pod status, then update the deployment to reference the image by its digest.
 
-```
+```bash
 k get pod crazy-deployment-77869b449b-286sv -o jsonpath='{.status.containerStatuses[*].imageID}'
 
 k set image deployment crazy-deployment *=docker.io/library/httpd@sha256:c7b8040505e2e63eafc82d37148b687ff488bf6d25fc24c8bf01d71f5b457531

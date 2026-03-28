@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "A number of pods have been created in the delta namespace. Using the trivy tool, which has been installed on the controlplane, identify all the pods that have HIGH or."
+description: "CKS mock test 1 covering AppArmor profiles, seccomp, Trivy vulnerability scanning, and Falco runtime security rules."
 
 tags: ['cks', 'mock']
 categories: ["Kubernetes"]
 ---
+
+The following pod manifest shows how to apply an AppArmor profile annotation to restrict container behavior. The pod uses a custom service account and mounts a host path volume.
 
 ```yaml
 controlplane $ cat 1.yaml
@@ -67,6 +69,7 @@ spec:
       secretName: fe-token-5xxvl
 ```
 
+This second pod manifest demonstrates a pod in the orion namespace that mounts a secret volume for database credentials at a specific path.
 
 ```yaml
 controlplane $ cat 2.yaml
@@ -126,17 +129,19 @@ spec:
 3. A number of pods have been created in the delta namespace. Using the trivy tool, which has been installed on the controlplane, identify all the pods that have HIGH or CRITICAL level vulnerabilities and delete the corresponding pods.
 
 
-Note: Do not modify the objects in anyway other than deleting the ones that have high or critical vulnerabilities.
+Note: Do not modify the objects in any way other than deleting the ones that have high or critical vulnerabilities.
 
-```
+The following commands use `kubectl` JSONPath output to generate Trivy scan commands for each pod's container image. This lets you quickly identify which pods are running vulnerable images.
 
-
+```bash
 k get pods -n delta -ojsonpath='{range .items[*]}{.metadata.name}{" trivy image --severity=HIGH,CRITICAL "}{.spec.containers[*].image}{" | grep Total\n"}{end}' > 3.yaml
 
 
 k get pods -n delta -ojsonpath='{range .items[*]}{" trivy image --severity=HIGH,CRITICAL "}{.spec.containers[*].image}{" | grep Total\n"}{end}' >> 3.yaml
 ```
 
+
+This block copies the seccomp audit profile to the node and creates a pod that uses it. Afterward, you can verify that syscalls are being logged by checking the syslog on the node.
 
 ```yaml
 ssh node01
@@ -170,7 +175,9 @@ ssh node01
 cat /var/log/syslog | grep audit --color
 ```
 
-```
+The following Falco configuration overrides the default "Write below binary dir" rule to change its output format. The custom rule in `falco_rules.local.yaml` will persist across Falco updates.
+
+```yaml
 vim +/"File below a known binary directory opened for writing" /etc/falco/falco_rules.yaml
 
 cat  /etc/falco/falco_rules.local.yaml
@@ -191,7 +198,9 @@ cat  /etc/falco/falco_rules.local.yaml
   tags: [filesystem, mitre_persistence]
 ```
 
-```
+To enable Falco file output for security incident alerts, edit the Falco configuration and set the file output path. After saving, restart the Falco service to apply changes.
+
+```yaml
 vim  /etc/falco/falco.yaml
 ...
 file_output:

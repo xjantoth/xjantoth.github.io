@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go simple TCP server with working code examples."
+description: "A minimal TCP echo server in Go that reads input from clients and echoes it back with a 10-second connection timeout."
 
 tags: ['go', 'simple', 'tcp', 'server']
 categories: ["Go"]
 ---
+
+This example implements a minimal TCP echo server in Go. It listens on port 8080, accepts incoming connections, and for each connection reads input line by line using a `bufio.Scanner`. Each line received is echoed back to the client. The connection has a 10-second deadline after which it times out automatically.
 
 ```go
 package main

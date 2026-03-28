@@ -11,6 +11,8 @@ tags: ['database', 'entries', 'bash', 'alias']
 categories: ["Linux"]
 ---
 
-```
+This bash alias provides a quick shortcut to delete a range of rows from a PostgreSQL table. It connects to the local database using `psql` and executes a `DELETE` statement via a here-string, removing entries with IDs between 1 and 10000.
+
+```bash
 alias delprn='psql "host=127.0.0.1 port=5432 sslmode=disable user=rednetwork password=password" <<< "delete from port_range_networks where id between 1 and 10000;"'
 ```

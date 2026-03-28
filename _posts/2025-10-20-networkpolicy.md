@@ -1,15 +1,17 @@
 ---
-title: "networkPolicy"
+title: "NetworkPolicy"
 date: "2022-01-06T14:53:42+0100"
 lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "networkPolicy — practical walkthrough with examples."
+description: "Kubernetes NetworkPolicy examples for controlling ingress and egress traffic to pods using label selectors and port rules."
 
 tags: ['networkpolicy']
 categories: ["DevOps"]
 ---
+
+The first policy below allows incoming TCP traffic on port 80 to any pod with the label `run: np-test-1` from all sources. The second policy restricts egress from pods labeled `name: internal` to only MySQL (port 3306) and Payroll (port 8080) pods.
 
 ```yaml
 

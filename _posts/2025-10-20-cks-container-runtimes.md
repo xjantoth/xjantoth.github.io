@@ -53,7 +53,7 @@ mprotect(0x7f6e56b89000, 4096, PROT_READ) = 0
 
 Katacontainers create a very lightweight VM with a separate kernel (quite different than a traditional containers)
 Strong separation layer!
-Using QEUM as default (needs virtualization, like neasted virtualisztion)
+Using QEMU as default (needs virtualization, like nested virtualization)
 
 ![Image](/assets/images/blog/container-6.png)
 
@@ -71,7 +71,9 @@ Using QEUM as default (needs virtualization, like neasted virtualisztion)
 ![Image](/assets/images/blog/container-8.png)
 
 
-```
+The following script installs gVisor (runsc) and configures containerd to use it as an alternative container runtime. gVisor intercepts application syscalls and provides an additional isolation layer without requiring a full VM.
+
+```bash
 #!/usr/bin/env bash
 # IF THIS FAILS then you can try to change the URL= further down from specific to the latest release
 # https://gvisor.dev/docs/user_guide/install
@@ -148,7 +150,7 @@ systemctl restart containerd
 Then you can create a `runtimeClass` and pod using that particular runtimeClass
 
 
-```
+```yaml
 apiVersion: node.k8s.io/v1
 kind: RuntimeClass
 metadata:
@@ -158,7 +160,7 @@ handler: runsc
 
 Create a pod itself
 
-```
+```yaml
 ---
 apiVersion: v1
 kind: Pod

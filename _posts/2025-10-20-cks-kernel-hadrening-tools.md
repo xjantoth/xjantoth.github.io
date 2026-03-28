@@ -5,7 +5,7 @@ lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Requirements for Apparmor."
+description: "Kubernetes kernel hardening with AppArmor and Seccomp profiles, including setup, Docker usage, and pod-level configuration."
 
 tags: ['cks', 'kernel', 'hardening', 'tools']
 categories: ["Kubernetes"]
@@ -28,8 +28,10 @@ categories: ["Kubernetes"]
 
 ###### Create a simple Apparmor profile for curl
 
-```
-# Install neceassary packages
+Install the AppArmor utilities and use `aa-genprof` to generate a new profile for the `curl` binary. The profile will initially be in complain mode and can be refined based on observed behavior.
+
+```bash
+# Install necessary packages
 apt-get install apparmor
 apt-get install apparmor-utils # important!
 aa-status
@@ -40,7 +42,7 @@ aa-genprof curl
 
 Edit a profile according your needs
 
-```
+```text
 cat  /etc/apparmor.d/usr.bin.curl
 # Last Modified: Tue Apr 13 20:23:56 2021
 #include <tunables/global>
@@ -60,7 +62,7 @@ It is very unlikely to write your own apparmor profile during an exam but one ha
 * how to load a new apparmor profile
 * how to use it in Kubernetes pod
 
-```
+```bash
 # load newly defined profile
 apparmor_parser /etc/apparmor.d/docker-nginx
 
@@ -72,9 +74,11 @@ apparmor_parser -R /etc/apparmor.d/some-profile
 
 
 
-###### Hwo to use apparmor with Docker
+###### How to use AppArmor with Docker
 
-```
+You can run containers with the default AppArmor profile or a custom one using the `--security-opt` flag. The custom profile restricts what the container process can do at the kernel level.
+
+```bash
 # default AppArmor profile
  docker run --security-opt apparmor=docker-default nginx
 Unable to find image 'nginx:latest' locally
@@ -108,7 +112,7 @@ Status: Downloaded newer image for nginx:latest
 ![Image](/assets/images/blog/kh-5.png)
 
 
-```
+```yaml
 root@scw-k8s-cmdx:~# cat secure.yaml
 apiVersion: v1
 kind: Pod
@@ -146,14 +150,14 @@ status: {}
 ###### Download seccomp profile:
 
 
-```
+```bash
 wget https://raw.githubusercontent.com/killer-sh/cks-course-environment/master/course-content/system-hardening/kernel-hardening-tools/seccomp/profile-docker-nginx.json
 ```
 
 ###### Use this profile with docker
 
 
-```
+```bash
 root@scw-k8s-cmdx:~# docker run --name=hmm-with-seccomp --security-opt seccomp=profile-docker-nginx.json nginx
 /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
 /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
@@ -166,12 +170,12 @@ root@scw-k8s-cmdx:~# docker run --name=hmm-with-seccomp --security-opt seccomp=p
 ...
 ```
 
-###### How about if you simply remove `write` premissions from file: `profile-docker-nginx.json`
+###### How about if you simply remove `write` permissions from file: `profile-docker-nginx.json`
 
 ![Image](/assets/images/blog/kh-10.png)
 
 ###### Container will not start because of missing `write` syscall
-```
+```bash
 root@scw-k8s-cmdx:~# docker run --name=removed-write-seccomp --security-opt seccomp=profile-docker-nginx.json nginx
 docker: Error response from daemon: OCI runtime start failed: cannot start an already running container: unknown.
 ERRO[0001] error waiting for container: context canceled
@@ -181,7 +185,7 @@ ERRO[0001] error waiting for container: context canceled
 ##### How to create Seccomp profile in Kubernetes for kubelet
 
 
-```
+```bash
 root@scw-k8s-cmdx:~# mkdir  /var/lib/kubelet/seccomp
 root@scw-k8s-cmdx:~# cp profile-docker-nginx.json /var/lib/kubelet/seccomp/
 
@@ -190,7 +194,7 @@ root@scw-k8s-cmdx:~# cp profile-docker-nginx.json /var/lib/kubelet/seccomp/
 ###### Generate a pod according a documentation
 
 
-```
+```yaml
 root@scw-k8s-cmdx:~# cat seccomp.yaml
 apiVersion: v1
 kind: Pod
@@ -217,7 +221,7 @@ status: {}
 ###### Now if you run it - you will see it fails
 
 
-```
+```bash
 root@scw-k8s-cmdx:~# k describe pod nginx
 Name:         nginx
 Namespace:    default
@@ -231,7 +235,7 @@ r
 ###### We need to create a subfolder under seccomp folder in kubelet location
 
 
-```
+```bash
 root@scw-k8s-cmdx:~# mkdir /var/lib/kubelet/seccomp/profiles
 root@scw-k8s-cmdx:~# mv /var/lib/kubelet/seccomp/profile-docker-nginx.json /var/lib/kubelet/seccomp/profiles/
 

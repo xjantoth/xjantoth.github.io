@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go using DefaultMux with nil with working code examples."
+description: "Using Go's DefaultServeMux by passing nil to http.ListenAndServe and registering custom handler types with http.Handle."
 
 tags: ['go', 'using', 'defaultmux', 'nil']
 categories: ["Go"]
 ---
+
+This example demonstrates how to use Go's `DefaultServeMux` by passing `nil` as the handler to `http.ListenAndServe`. Two custom types (`pageDog` and `pageCat`) implement the `http.Handler` interface via the `ServeHTTP` method. These handlers are registered with `http.Handle` on the default mux, which routes requests based on URL path patterns.
 
 ```go
 package main

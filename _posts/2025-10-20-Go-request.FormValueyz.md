@@ -1,15 +1,17 @@
 ---
-title: "Go request.FormValue('xyz')"
+title: "Go request.FormValue(\"xyz\")"
 date: "2022-01-06T14:23:31+0100"
 lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go request.FormValue('xyz') with working code examples."
+description: "How to use request.FormValue in Go to retrieve form data submitted via POST and GET methods."
 
 tags: ['go']
 categories: ["Go"]
 ---
+
+This example shows how to use `r.FormValue()` in Go to extract query parameters and form data from HTTP requests. The handler function creates an HTML page with two forms: one using POST and one using GET, demonstrating both submission methods.
 
 ```go
 package main

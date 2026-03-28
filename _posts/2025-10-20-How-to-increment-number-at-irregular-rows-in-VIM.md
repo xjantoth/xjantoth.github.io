@@ -11,7 +11,9 @@ tags: ['vim', 'increment', 'rows']
 categories: ["Linux"]
 ---
 
-```
+Suppose you have a JSON structure with repeated `_iteration` fields that all have the same value (e.g. `0`), and you need to renumber them sequentially. Here is the initial state:
+
+```json
 [{
     "payload": {
         "data": {
@@ -35,14 +37,17 @@ categories: ["Linux"]
 
 ```
 
+The following Vim command uses `:g` (global) to find every line containing `_iteration`, then substitutes the first number on that line with an auto-incrementing counter. The variable `c` starts at 1 and increases by 1 after each replacement.
 
-```
+```vim
 :let c=1 | g/_iteration/ s/\d\+/\=c/ | let c+=1
 ```
 
-**Result''
+**Result**
 
-```
+After running the command, every `_iteration` value is replaced with a unique sequential number:
+
+```json
 [{
     "payload": {
         "data": {

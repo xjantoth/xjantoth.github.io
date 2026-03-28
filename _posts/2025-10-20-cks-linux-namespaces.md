@@ -5,23 +5,23 @@ lastmod: 2022-01-14T13:38:33+01:00
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=420&fit=crop"
-description: "**Namespaces isolates processess**."
+description: "How Linux namespaces and cgroups provide process isolation and resource control, forming the foundation of container technology."
 
 tags: ['linux', 'namespaces']
 categories: ["Linux"]
 ---
 
-### **Namespaces isolates processess**
+### **Namespaces isolate processes**
 
 - **restricts what processes can see**.
 
 * PID namespace:
-    - isolates processess from each other
+    - isolates processes from each other
     - one process cannot see others
     - process ID 10 can exist multiple times, once in every namespace
 
 * Mount namespace:
-    - resticts access to filesystem
+    - restricts access to filesystem
 
 * Network namespace:
     - separates network traffic
@@ -30,7 +30,7 @@ categories: ["Linux"]
     - user 0 can exist in every namespace and all of them are different
 
 ### **Cgroups**
-- resticts the resource usage of processes (RAM, disk, CPU)
+- restricts the resource usage of processes (RAM, disk, CPU)
 
 
 
@@ -45,9 +45,11 @@ Take a look at some container tools:
 ![Image](/assets/images/blog/container-tools.png)
 
 
-### Check how process in containers can be islolated from each other.
+### Check how processes in containers can be isolated from each other
 
-```
+The following example shows how containers have their own PID namespace by default. When you start two containers, each sees only its own processes. By using the `--pid=container:c1` flag, you can share the PID namespace between containers, allowing one to see the other's processes.
+
+```bash
 docker run --name c1 -d ubuntu sh -c 'sleep 1d'
 docker run --name c2 -d ubuntu sh -c 'sleep 999d'
 docker exec c1 ps aux

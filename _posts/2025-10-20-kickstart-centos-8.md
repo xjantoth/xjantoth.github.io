@@ -1,27 +1,29 @@
 ---
-title: "kickstart Centos 8"
+title: "Kickstart CentOS 8"
 date: "2022-01-07T11:16:43+0100"
 lastmod: "2022-01-07T11:16:43+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "**Centos 8 ISO location''."
+description: "Automated CentOS 8 installation using kickstart files with virt-install, including network configuration, Kubernetes, and Docker setup."
 
 tags: ['kickstart', 'centos']
 categories: ["DevOps"]
 ---
 
-**Centos 8 ISO location''
+**CentOS 8 ISO location**
 
-```
+Download the CentOS 8 DVD ISO image from a mirror. This ISO will be used as the installation source for the virtual machine.
 
+```bash
 wget http://merlin.fit.vutbr.cz/mirrors/centos/8.2.2004/isos/x86_64/CentOS-8.2.2004-x86_64-dvd1.iso
 ```
 
-**Run this command''
+**Run this command**
 
-```
+Use `virt-install` to create a new KVM virtual machine with the kickstart file injected into the initrd. This automates the entire CentOS installation without manual interaction.
 
+```bash
 export KS="k8s-1-210"
 export ISO="CentOS-8.2.2004-x86_64-dvd1.iso"
 
@@ -40,9 +42,11 @@ sudo virt-install --name $KS \
 
 ```
 
-**Example'' file: ''ks_k8s-1-210.cfg''
+**Example file: ks_k8s-1-210.cfg**
 
-```
+This kickstart configuration file automates the CentOS 8 installation. It sets up partitioning, network with a static IP, SSH keys, and installs Docker and Kubernetes packages.
+
+```bash
 # Install OS instead of upgrade
 install
 # Use network installation

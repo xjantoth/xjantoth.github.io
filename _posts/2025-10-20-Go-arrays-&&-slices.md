@@ -1,15 +1,17 @@
 ---
-title: "Go arrays <TITLE><TITLE> slices"
+title: "Go arrays and slices"
 date: "2022-01-06T14:23:31+0100"
 lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go arrays <TITLE><TITLE> slices with working code examples."
+description: "Learn the difference between arrays and slices in Go, including declaration, slicing, the make function, and append operations."
 
 tags: ['go', 'arrays', 'slices']
 categories: ["Go"]
 ---
+
+This program demonstrates the key differences between arrays and slices in Go. Arrays have a fixed size defined at compile time, while slices are dynamically-sized views into underlying arrays. The example covers array declaration, slice operations, the `make()` function for pre-allocating capacity, and the `append()` function for growing slices.
 
 ```go
 package main

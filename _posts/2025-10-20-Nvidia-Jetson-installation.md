@@ -5,7 +5,7 @@ lastmod: "2022-01-07T11:48:59+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Download SD card image https://developer.download.nvidia.com/assets/embedded/downloads/jetson-nano-4gb-jp441-sd-card-image/jetson-nano-4gb-jp441-sd-card-image.zip."
+description: "Step-by-step guide for setting up an NVIDIA Jetson Nano, including SD card flashing, Docker nvidia runtime configuration, and running TensorFlow with GPU support."
 
 tags: ['ml', 'k3s', 'raspberry', 'gpu', 'nvidia', 'jetson']
 categories: ["Kubernetes"]
@@ -16,14 +16,18 @@ https://developer.download.nvidia.com/assets/embedded/downloads/jetson-nano-4gb-
 
 ##  Create SD card for NVIDIA Jetson Nano
 
+This command extracts the downloaded zip image and writes it directly to the SD card device using `dd`. Make sure to replace `/dev/mmcblk0` with the correct device path for your SD card.
+
 ```sh
 unzip -p  ~/Downloads/jetson-nano-4gb-jp441-sd-card-image.zip | sudo /bin/dd of=/dev/mmcblk0  bs=1M status=progress
 ```
 
 
-##  update docker runtime
+##  Update Docker runtime
 
-```
+To enable GPU access for Docker containers on the Jetson, you need to set the NVIDIA runtime as the default Docker runtime. Back up the existing configuration, then update `daemon.json` and restart Docker.
+
+```bash
 sudo cp /etc/docker/daemon.json  /etc/docker/daemon.json.orig
 ubuntu@k3s-jetson-1:~$
 ubuntu@k3s-jetson-1:~$
@@ -46,9 +50,11 @@ Default Runtime: nvidia
 
 ```
 
-##  try to run docker docntainer with tensorflow
+##  Try to run a Docker container with TensorFlow
 
-```
+Verify that the GPU is accessible by running the official NVIDIA L4T TensorFlow container. This command starts an interactive Python session where you can confirm TensorFlow detects the GPU.
+
+```bash
 sudo docker run -it --rm --runtime nvidia --network host nvcr.io/nvidia/l4t-tensorflow:r32.4.3-tf2.2-py3 python3
 
 Python 3.6.9 (default, Apr 18 2020, 01:56:04)
@@ -86,9 +92,10 @@ coreClock: 0.9216GHz coreCount: 1 deviceMemorySize: 3.87GiB deviceMemoryBandwidt
 
 ```
 
+You can also deploy a TensorFlow pod on a K3s cluster running on the Jetson. The following YAML defines a simple pod that keeps running so you can exec into it for interactive GPU testing.
 
-```
- cat pod.yaml
+```yaml
+cat pod.yaml
 apiVersion: v1
 kind: Pod
 metadata:

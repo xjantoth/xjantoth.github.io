@@ -1,19 +1,21 @@
 ---
-title: "RuntimeClass GAdvisor and  Kata containers"
+title: "RuntimeClass gVisor and Kata containers"
 date: "2022-01-06T14:53:42+0100"
 lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=800&h=420&fit=crop"
-description: "**Prepare runtimeClass yaml specification''."
+description: "How to configure Kubernetes RuntimeClass resources for gVisor and Kata containers to run workloads in sandboxed runtimes."
 
 tags: ['runtimeclass', 'gadvisor', 'kata', 'containers']
 categories: ["Docker"]
 ---
 
-**Prepare runtimeClass yaml specification''
+## Prepare runtimeClass YAML specification
 
-```
+First, list the existing RuntimeClasses available in the cluster to see what container runtimes are already configured. Then create a YAML file that defines a new RuntimeClass pointing to the desired handler.
+
+```bash
 k get runtimeclasses.node.k8s.io -A
 NAME              HANDLER        AGE
 gvisor            runsc          2m58s
@@ -29,9 +31,12 @@ metadata:
 handler: runsc  # The name of the corresponding CRI configuration
 :wq!
 ```
-**Create a custom runtimeClass by using kubectl command''
 
-```
+## Create a custom runtimeClass by using kubectl command
+
+Apply the YAML file to create the new RuntimeClass, then verify that it appears alongside the existing ones.
+
+```bash
 # apply this file
 k create -f  runtimeclass.yaml
 runtimeclass.node.k8s.io/secure-runtime created
@@ -43,7 +48,10 @@ gvisor            runsc          7m25s
 kata-containers   kata-runtime   7m24s
 secure-runtime    runsc          2m48s
 ```
-**Create a pod using secure-runtime runtimeClass''
+
+## Create a pod using secure-runtime runtimeClass
+
+To use the new RuntimeClass, set the `runtimeClassName` field in the pod spec. This ensures the pod runs using the gVisor (runsc) sandboxed runtime instead of the default container runtime.
 
 ```yaml
 # create a pod using secure-runtime runtimeclass

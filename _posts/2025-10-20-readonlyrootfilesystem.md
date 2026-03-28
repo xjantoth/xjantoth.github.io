@@ -11,11 +11,15 @@ tags: ['readonlyrootfilesystem']
 categories: ["DevOps"]
 ---
 
-```
+First, delete any existing pod and recreate it from the manifest. The `--grace-period 0 --force` flags ensure immediate deletion.
+
+```bash
 root@cks-master:~# k delete  po immutable --grace-period 0 --force
 
 root@cks-master:~# k create  -f immutable.yaml
 ```
+
+The pod spec below sets `readOnlyRootFilesystem: true` to prevent any writes to the container filesystem. An `emptyDir` volume is mounted at the log directory so Apache can still write its logs.
 
 ```yaml
 cat immutable.yaml

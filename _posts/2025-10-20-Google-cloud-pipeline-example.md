@@ -11,7 +11,9 @@ tags: ['google', 'cloud', 'pipeline', 'example']
 categories: ["GCP"]
 ---
 
-**cloudbuild.yaml''
+**cloudbuild.yaml**
+
+This Google Cloud Build pipeline configuration builds a Docker image from a Gradle project, pushes it to Google Container Registry (GCR), and deploys it to Cloud Run. The Docker image tag is extracted from the `build.gradle.kts` file and passed between build steps using a workspace file.
 
 ```yaml
 steps:

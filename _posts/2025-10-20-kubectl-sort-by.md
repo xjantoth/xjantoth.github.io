@@ -12,6 +12,8 @@ tags: ['kubernetes', 'by']
 categories: ["Kubernetes"]
 ---
 
-```
+Use the `--sort-by` flag with a JSONPath expression to sort kubectl output by any field. This example sorts pods in the `prod` namespace by the node they are scheduled on.
+
+```bash
 kubectl get pods -o wide -n prod --sort-by=.spec.nodeName
 ```

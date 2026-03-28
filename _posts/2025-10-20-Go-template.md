@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "**More advanced examples''."
+description: "Working with Go templates including ParseGlob, ExecuteTemplate, passing structs and slices to templates, and rendering nested data structures."
 
 tags: ['go', 'template']
 categories: ["Go"]
 ---
+
+The first example shows the basics of Go template initialization using `template.ParseGlob` and executing a named template with `ExecuteTemplate`.
 
 ```go
 package main
@@ -45,7 +47,9 @@ func main()  {
 
 ```
 
-**More advanced examples''
+**More advanced examples**
+
+This more advanced example defines multiple structs (`kernelMember`, `car`, `item`) and passes slices, maps, and nested data structures to various Go templates. It demonstrates how to iterate over data in templates using different `.gohtml` files.
 
 ```go
 package main
@@ -167,4 +171,4 @@ func main()  {
 
 }
 
-```'
+```

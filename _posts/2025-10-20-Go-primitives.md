@@ -11,6 +11,8 @@ tags: ['go', 'primitives']
 categories: ["Go"]
 ---
 
+This example demonstrates Go's primitive data types including booleans, signed and unsigned integers, floating-point numbers, complex numbers, and strings. It also covers basic arithmetic, bitwise operations, and bit shifting.
+
 ```go
 // Primitives
 

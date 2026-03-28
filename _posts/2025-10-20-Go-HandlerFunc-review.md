@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go HandlerFunc() review with working code examples."
+description: "A review of Go's http.HandlerFunc adapter, showing how to use it with http.Handle to register handler functions and render templates."
 
 tags: ['go', 'review']
 categories: ["Go"]
 ---
+
+This example revisits `http.HandlerFunc` in Go. Instead of using `http.HandleFunc` (which accepts a plain function), this program wraps handler functions with `http.HandlerFunc(dogs)` and passes them to `http.Handle`. The handlers render HTML templates using `tpl.ExecuteTemplate`, demonstrating how to combine template rendering with the Handler interface pattern.
 
 ```go
 package main

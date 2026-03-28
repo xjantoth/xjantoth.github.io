@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Multi-Container Pods — practical walkthrough with examples."
+description: "Kubernetes multi-container pod example using a sidecar pattern with a Filebeat log collector alongside an event simulator application."
 
 tags: ['pods']
 categories: ["Kubernetes"]
 ---
+
+This manifest demonstrates the sidecar container pattern. The main `app` container generates events and writes logs to a shared volume. The `sidecar` container runs Filebeat to collect and forward those logs. Both containers mount the same `log-volume` to share data.
 
 ```yaml
 apiVersion: v1

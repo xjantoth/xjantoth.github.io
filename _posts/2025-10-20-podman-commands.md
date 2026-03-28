@@ -12,24 +12,27 @@ categories: ["Kubernetes"]
 
 ##### Assuming there are more containers running in a single Podman `pod`
 
-* some backend service 9011
-* phpMyAmdin at port 80 (interpreted by Apache2 inside container)
+* some backend service on port 9011
+* phpMyAdmin at port 80 (interpreted by Apache2 inside container)
 
+This command creates a phpMyAdmin container inside an existing Podman pod. The `PMA_ABSOLUTE_URI` environment variable tells phpMyAdmin the base URL it is served from, which is needed when running behind a reverse proxy.
 
-```
+```bash
 podman create --restart=always --pod=some-pod-name --name=phpmyadmin -e PMA_ABSOLUTE_URI="https://some.subdomain.com/insight/" phpmyadmin/phpmyadmin:5.2.0
 ```
 
-Debugging via `tcpdump` container
+You can attach a tcpdump container to the same pod for network debugging. Since all containers in a Podman pod share the same network namespace, tcpdump will see all traffic.
 
-```
+```bash
 podman run  --restart=always -it --pod=some-pod-name --name=tcpdump --entrypoint=/bin/sh kaazing/tcpdump
 
 ```
 
-##### Useful Nginx snippet to proxy to phpMyAmdin
+##### Useful Nginx snippet to proxy to phpMyAdmin
 
-```
+This Nginx server block proxies API requests to a backend service and serves a frontend SPA from static files. The `/insight/` location block reverse-proxies requests to the phpMyAdmin container running on port 80 within the same pod.
+
+```nginx
 server {
     listen       8091;
     server_name some.subdomain.com;

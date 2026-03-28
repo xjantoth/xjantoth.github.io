@@ -11,7 +11,9 @@ tags: ['resourcequota']
 categories: ["DevOps"]
 ---
 
-```
+Use `kubectl create quota` with `--dry-run=client -o yaml` to generate a ResourceQuota manifest without applying it. This is useful for reviewing or customizing the quota before creating it in the cluster.
+
+```yaml
 kubectl create quota myrq --hard=cpu=1,memory=1G,pods=2 -o yaml --dry-run=client
 apiVersion: v1
 kind: ResourceQuota

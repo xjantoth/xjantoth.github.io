@@ -5,16 +5,18 @@ lastmod: 2022-01-13T15:17:16+01:00
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "There are many SSL certificates used by different Kubenretes components."
+description: "Overview of SSL certificates used by Kubernetes components, including how to inspect, renew, and verify certificate expiration."
 
 tags: ['kubernetes', 'ssl', 'certificates']
 categories: ["Kubernetes"]
 ---
 
 
-There are many SSL certificates used by different Kubenretes components.
+There are many SSL certificates used by different Kubernetes components.
 
-```
+The following listing shows all the PKI certificates and keys used by a kubeadm-based Kubernetes cluster. These include the API server, etcd, front-proxy, and service account signing keys.
+
+```bash
 ls /etc/kubernetes/pki/ -l
 total 60
 -rw-r--r-- 1 root root 1155 Jan 13 13:06 apiserver-etcd-client.crt
@@ -34,9 +36,9 @@ drwxr-xr-x 2 root root 4096 Jan 13 13:06 etcd
 -rw------- 1 root root  451 Jan 13 13:06 sa.pub
 ```
 
-Please notic this files within /etc/kubernetes folder
+Please notice these files within the `/etc/kubernetes` folder. Each kubeconfig file embeds or references certificates for its respective component.
 
-```
+```bash
 root@scw-k8s-cks:~# ls /etc/kubernetes/ -l
 total 36
 -rw------- 1 root root 5635 Jan 13 13:06 admin.conf
@@ -48,9 +50,11 @@ drwxr-xr-x 3 root root 4096 Jan 13 13:06 pki
 
 ```
 
-**Check client/server kubelet certificates''
+**Check client/server kubelet certificates**
 
-```
+Use `openssl x509` to inspect the kubelet server and client certificates. This is useful for verifying certificate validity and understanding the certificate chain.
+
+```bash
 # Check client/server kubelet certificates
 
 # server
@@ -60,7 +64,7 @@ openssl x509 -noout -text -in /var/lib/kubelet/pki/kubelet.crt
 openssl x509 -noout -text -in /var/lib/kubelet/pki/kubelet-client-current.pem
 ```
 
-```go
+```bash
 # renew certificate
 kubeadm certs renew  apiserver
 

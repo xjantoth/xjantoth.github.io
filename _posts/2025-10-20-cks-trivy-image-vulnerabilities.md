@@ -5,7 +5,7 @@ lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "There are Clair and Trivy."
+description: "Using Trivy and Clair to scan container images for vulnerabilities, including installation, usage examples, and scanning deployments for specific CVEs."
 
 tags: ['cks', 'trivy', 'clair', 'vulnerability', 'scanner', 'containers', 'other', 'artifacts']
 categories: ["Kubernetes"]
@@ -17,34 +17,36 @@ categories: ["Kubernetes"]
 
 ##### There are Clair and Trivy
 
-1. `trivy` (run one command - very convinient)
+1. `trivy` (run one command - very convenient)
     - open source
     - easy to run
 
 2. `clair`
     - open source
     - static analysis of vulnerabilities in application containers
-    - ingest vulnerability metadata froma configured set of sources
+    - ingest vulnerability metadata from a configured set of sources
     - provides API
 
 ###### How to install trivy
 
-```
+Download the Trivy binary from GitHub releases, extract it, and move it to your PATH. After installation, running `trivy` without arguments displays the help menu.
+
+```bash
 wget https://github.com/aquasecurity/trivy/releases/download/v0.17.2/trivy_0.17.2_Linux-64bit.tar.gz
 tar -xvzf trivy_0.17.2_Linux-64bit.tar.gz
 mv trivy /usr/bin/
 trivy
 ```
 
-Example of usage
+Scan a container image for HIGH severity vulnerabilities and save the results to a file.
 
-```
+```bash
 trivy image --severity HIGH python:3.6.12-alpine3.11 > /root/python.txt
 ```
 
-Scan tarball
+Scan a container image saved as a tarball and output results in JSON format.
 
-```
+```bash
 trivy image --format  json -i alpine.tar > /root/alpine.json
 root@controlplane:~# cat /root/alpine.json
 root@controlplane:~# cat !$
@@ -59,11 +61,13 @@ cat /root/alpine.json
   }
 ```
 
-###### How to run trivy as docker image
+###### How to run trivy as a Docker image
 
-source: https://github.com/aquasecurity/trivy#docker
+Source: https://github.com/aquasecurity/trivy#docker
 
-```
+You can run Trivy directly as a Docker container without installing it locally. The container pulls the vulnerability database on first run.
+
+```bash
 docker run ghcr.io/aquasecurity/trivy:latest image nginx:latest
 Unable to find image 'ghcr.io/aquasecurity/trivy:latest' locally
 latest: Pulling from aquasecurity/trivy
@@ -102,10 +106,9 @@ Total: 138 (UNKNOWN: 0, LOW: 93, MEDIUM: 21, HIGH: 18, CRITICAL: 6)
 
 ##### Challenge
 
-Scan images in Namespaces applications and infra for the vulnerabilities CVE-2021-28831 and CVE-2016-9841 .
-Scale those Deployments containing any of these down to 0 .
+Scan images in the `applications` and `infra` namespaces for the vulnerabilities CVE-2021-28831 and CVE-2016-9841. Scale those Deployments containing any of these vulnerabilities down to 0 replicas.
 
-```
+```bash
 trivy  image  $(k get deployments.apps -n applications web1 -ojsonpath='{.spec.template.spec.containers[*].image}') | grep -E "CVE-2021-28831|CVE-2016-9841"
 trivy  image  $(k get deployments.apps -n applications web2 -ojsonpath='{.spec.template.spec.containers[*].image}') | grep -E "CVE-2021-28831|CVE-2016-9841"
 trivy  image  $(k get deployments.apps -n infra inf-hjk -ojsonpath='{.spec.template.spec.containers[*].image}') | grep -E "CVE-2021-28831|CVE-2016-9841"

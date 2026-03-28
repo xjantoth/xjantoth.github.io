@@ -5,15 +5,17 @@ lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Lightning Lab - CKA — practical walkthrough with examples."
+description: "CKA Lightning Lab walkthrough covering PVC provisioning, cluster upgrades, etcd backup, and deployment rollouts."
 
 tags: ['lightening', 'lab', 'cka']
 categories: ["DevOps"]
 ---
 
-Some other notes
+## Persistent Volume Claims and MySQL Deployment
 
-```
+The following output shows the PVC bound to a PersistentVolume and the MySQL deployment starting up. This is a common CKA task that tests your ability to create storage resources and wire them into a deployment.
+
+```bash
 kubectl  get pvc
 NAME          STATUS   VOLUME     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 alpha-claim   Bound    alpha-pv   1Gi        RWO            slow           4s
@@ -109,7 +111,11 @@ spec:
           claimName: alpha-claim
 ```
 
-```
+## Kubernetes Controlplane and Node Upgrade
+
+These commands walk through upgrading a Kubernetes cluster from one version to another. You first upgrade kubeadm, then apply the upgrade on the controlplane, drain the node, upgrade kubelet and kubectl, and finally uncordon the node. The same process is repeated on worker nodes.
+
+```bash
 # Update K8s controlplane
 apt update
 apt-cache madison kubeadm
@@ -149,6 +155,10 @@ kubectl  exec -it -n admin1401  secret-1401 -- sh
 
 kubectl  get deploy -n admin2406 -o custom-columns=DEPLOYMENT:.metadata.name,CONTAINER_IMAGE:.spec.template.spec.containers[*].image,READY_REPLICAS:.spec.replicas,NAMESPACE:.metadata.namespace --sort-by=.metadata.name > /opt/admin2406_data
 ```
+
+## YAML Manifests Used in the Lab
+
+Below are the YAML manifests referenced in the lab tasks, including a secret-mounting pod and PVC/PV definitions.
 
 ```yaml
 for i in $(ls *.yaml); do echo -e "$i\n\n"; cat $i; done
