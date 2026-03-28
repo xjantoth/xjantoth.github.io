@@ -11,8 +11,10 @@ tags: ['access', "google's", 'metadata']
 categories: ["DevOps"]
 ---
 
-Access Google's metadata
+## Access Google's metadata
 
-```perl
+The following command queries the Google Cloud instance metadata server to retrieve the instance ID. This is useful when running on GCE VMs and you need to programmatically identify the current instance. The `Metadata-Flavor: Google` header is required by the metadata server.
+
+```bash
 curl http://metadata.google.internal/computeMetadata/v1/instance/id -H "Metadata-Flavor: Google"
 ```

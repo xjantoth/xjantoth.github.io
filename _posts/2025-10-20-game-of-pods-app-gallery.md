@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Game of Pods - App Gallery — practical walkthrough with examples."
+description: "KodeKloud Game of Pods App Gallery challenge: deploy an Iron Gallery app with MariaDB, Ingress, and a NetworkPolicy."
 
 tags: ['game', 'pods', 'app', 'gallery']
 categories: ["Kubernetes"]
 ---
+
+This solution to the "Game of Pods - App Gallery" challenge deploys an Iron Gallery application backed by a MariaDB database, with an Ingress for external access and a NetworkPolicy restricting database traffic to only the gallery pods on port 3306.
 
 ```yaml
 for i in $(ls *.yaml); do echo filename: $i;echo "---" ;cat $i; done

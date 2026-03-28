@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go serving files with StripPrefix() hands on with working code examples."
+description: "Hands-on example of using http.StripPrefix with http.FileServer in Go to serve static files from a subdirectory."
 
 tags: ['go', 'files', 'hands']
 categories: ["Go"]
 ---
+
+This example demonstrates how to use `http.StripPrefix` together with `http.FileServer` to serve static assets (images) from a local directory. The `/resources/` URL prefix is stripped before looking up files in the `starting-files/public` directory. The root path renders an HTML template that references the images using the `/resources/` prefix.
 
 ```go
 package main

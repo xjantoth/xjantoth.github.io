@@ -5,11 +5,13 @@ lastmod: "2022-01-07T11:48:59+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=420&fit=crop"
-description: "Ansible debug variables — practical walkthrough with examples."
+description: "How to use the Ansible debug module to inspect all available variables, including environment, group names, groups, and host variables."
 
-tags: ['ml']
-categories: ["Machine Learning"]
+tags: ['ansible', 'debug', 'variables']
+categories: ["DevOps"]
 ---
+
+The following Ansible task prints out all available variable categories in a single debug output. This is helpful when troubleshooting playbooks or exploring what data is available at runtime. It collects module variables, environment variables, group names, groups, and host variables and formats them as JSON.
 
 ```yaml
 - name: xyz

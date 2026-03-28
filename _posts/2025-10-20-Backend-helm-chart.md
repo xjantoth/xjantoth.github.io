@@ -4,18 +4,17 @@ date: "2021-12-30T16:09:28+0100"
 lastmod: "2021-12-30T16:09:28+0100"
 draft: false
 author: "Jan Toth"
-description: "Sed -E \ -e 's/^(description:).*/description:  Raspberry Pi Backend helm chart/' \ -e 's/^(appVersion:).*/description:  0.0.1 /' \ -e '$a  \ndependencies: 
-- name: postgresql 
-  version."
+description: "Step-by-step guide to building a backend Helm chart for Kubernetes with PostgreSQL dependency, secrets management, and health probes."
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 
 tags: ['raspberry', 'helm', 'backend', 'k8s']
 categories: ["Kubernetes"]
 ---
 
-```bash
-
 ## Do some fancy replacements
+
+The following `sed` command modifies `backend/Chart.yaml` to set the chart description, app version, and add a PostgreSQL dependency from the Bitnami Helm repository.
+
 ```bash
 sed -E \
 -e 's/^(description:).*/\1 Raspberry Pi Backend helm chart/' \
@@ -25,6 +24,8 @@ sed -E \
 ```
 
 ## Add helm chart registry
+
+After adding the Bitnami Helm repository and updating chart dependencies, the next `sed` command configures `backend/values.yaml` with container port, database connection environment variables stored as secrets, liveness/readiness probes, and the container image reference.
 
 ```bash
 helm repo list

@@ -3,22 +3,22 @@ title: "How to run n8s on locally on Apple containers Mac"
 date: 2025-10-21T11:10:11:+0200
 lastmod: 2025-10-21T11:10:11:+0200
 draft: false
-description: "Apple has recently inctroduced their own container solution. I have decided to test it and start n8s. This is what an official github n8n instruction says."
+description: "Apple has recently introduced their own container solution. I have decided to test it and start n8n. This is what the official GitHub n8n instruction says."
 image: "https://i.ytimg.com/vi/YUw1xk82980/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBSJXX-TBEA6uAZg8hLGFgOYk32_g"
 author: "Jan Toth"
 tags: ['mac', 'containers', 'n8s']
 categories: ["Docker"]
 ---
 
-Apple has recently inctroduced their own container solution. I have decided to test it and start n8s. 
-This is what an official github n8n instruction says
+Apple has recently introduced their own container solution. I have decided to test it and start n8n.
+This is what the official GitHub n8n instruction says.
 
 ```bash
 docker volume create n8n_data
 docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n
 ```
 
-However, I have decided to test it with containers command that I installed at my MAC.
+However, I have decided to test it with the `container` command that I installed on my Mac. The Apple container runtime uses a slightly different CLI, and it does not support the `-v` volume mount flag in the same way as Docker.
 
 ```bash
 brew install container
@@ -37,4 +37,4 @@ Starting migration WebhookModel1592445003908
 ...
 ```
 
-And, what can I say, ... it works as charm!
+And, what can I say -- it works like a charm!

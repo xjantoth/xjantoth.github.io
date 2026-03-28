@@ -5,13 +5,15 @@ lastmod: "2022-01-06T14:48:22+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=420&fit=crop"
-description: "SSH config examples — practical walkthrough with examples."
+description: "Practical examples for configuring SSH clients, including jump hosts, agent forwarding, and per-host identity files."
 
 tags: ['ssh', 'config']
 categories: ["Networking"]
 ---
 
-```
+The SSH config file (`~/.ssh/config`) allows you to define per-host connection settings such as identity files, jump proxies, and agent forwarding. Below are several common patterns including AWS CodeCommit access, bastion/jump host setups, and GitLab SSH key configuration.
+
+```ssh-config
 
 vim ~/.ssh/config
 ...

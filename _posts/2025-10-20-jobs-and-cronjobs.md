@@ -13,6 +13,8 @@ categories: ["DevOps"]
 
 ##  Job
 
+The following example creates a Kubernetes Job using `kubectl` with a dry-run to generate the YAML manifest, then customizes it with parallelism and completions settings.
+
 ```yaml
 # Create job skeleton
 kubectl  create job throw-dice-job --image=kodekloud/throw-dice --dry-run=client -o yaml > job.yaml
@@ -40,6 +42,8 @@ status: {}
 ```
 
 ##  CronJob
+
+A CronJob runs a Job on a recurring schedule defined with standard cron syntax. This example creates a CronJob that runs daily at 21:30.
 
 ```yaml
 kubectl  create cronjob throw-dice-cron-job --image=kodekloud/throw-dice --schedule="30 21 * * *"

@@ -11,9 +11,11 @@ tags: ['lightening', 'lab']
 categories: ["DevOps"]
 ---
 
-**Commands'':
+**Commands:**
 
-```
+This loop prints the contents of all YAML files in the current directory, prefixed with the filename, which is useful for reviewing multiple manifests at once.
+
+```bash
 controlplane $ for i in $(ls *.yaml); do echo filename: $i;echo "---" ;cat $i; done
 ```
 
@@ -160,8 +162,9 @@ spec:
   restartPolicy: Never
 ```
 
+The following command history shows the step-by-step process of solving each Lightning Lab 2 task: exporting pod YAML, creating CronJobs, deploying pods with secrets, setting up Ingress routing, and extracting container logs.
 
-```
+```bash
 kubectl  get pod -n dev1401       nginx1401  -o yaml > 2.yaml
 vim 2.yaml
 kubectl  delete pod -n dev1401       nginx1401

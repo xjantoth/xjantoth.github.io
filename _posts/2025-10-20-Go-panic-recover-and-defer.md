@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go panic() recover() and defer() with working code examples."
+description: "How to use panic, recover, and defer in Go for error handling, including recovering from panics in deferred functions."
 
 tags: ['go']
 categories: ["Go"]
 ---
+
+This program covers Go's panic, recover, and defer mechanisms. A `panic` immediately stops the current function and begins unwinding the stack. A `defer` statement schedules a function to run just before the surrounding function returns, even during a panic. The `recover` function, when called inside a deferred function, captures the panic value and allows the program to continue running instead of crashing.
 
 ```go
 package main
@@ -81,4 +83,4 @@ func main() {
 	xdeferIsExecutedBeforePanic()
 	fmt.Printf("end\n")
 }
-``
+```

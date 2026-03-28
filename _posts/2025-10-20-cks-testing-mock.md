@@ -11,7 +11,10 @@ categories: ["Kubernetes"]
 ---
 
 ##### kube-apiserver manifest with PodSecurityPolicy, ImagePolicyWebhook, Auditing
-```
+
+This is a complete kube-apiserver static pod manifest that includes admission plugins for PodSecurityPolicy and ImagePolicyWebhook, along with audit logging configuration. Note the volume mounts for the audit policy and log files.
+
+```yaml
 cat /etc/kubernetes/manifests/kube-apiserver.yaml
 apiVersion: v1
 kind: Pod
@@ -155,8 +158,9 @@ status: {}
 
 ##### Example of PodSecurityPolicy
 
+The following PodSecurityPolicy prevents pods from running in privileged mode while allowing flexibility for SELinux, supplemental groups, run-as-user, and filesystem groups.
 
-```
+```yaml
 cat 3.yaml
 ---
 apiVersion: policy/v1beta1
@@ -184,7 +188,9 @@ spec:
 
 #### History
 
-```
+The following is a shell history log showing various troubleshooting and configuration steps performed during a CKS mock exam, including kubelet configuration, kube-bench, kubesec scanning, and RBAC setup.
+
+```bash
 vim /var/lib/kubelet/config.yaml
 systemctl daemon-reload
 systemctl restart kubelet
@@ -215,15 +221,15 @@ k delete  pods -n alpha triton
 
 ##### Enable ImagePolicyWebhook
 
-Important line in `kube-apiserver` manifest
+Important line in `kube-apiserver` manifest:
 
-
-```
+```yaml
 - --enable-admission-plugins=NodeRestriction,PodSecurityPolicy,ImagePolicyWebhook
 ```
 
+The AdmissionConfiguration file specifies the ImagePolicyWebhook settings, and the kubeConfigFile points to the webhook configuration that defines the external image validation service endpoint.
 
-```
+```yaml
 # AdmissionConfiguration
 cat /etc/kubernetes/pki/admission_configuration.yaml
 apiVersion: apiserver.config.k8s.io/v1
@@ -283,7 +289,7 @@ internal-site restricted?
 
 pod running?
 
-```
+```yaml
 cat 1.yaml
 apiVersion: v1
 kind: Pod
@@ -343,7 +349,7 @@ pod secured?
 secret mounted as read-only?
 existing secret extracted to file?
 
-```
+```yaml
  cat 2.yaml
 apiVersion: v1
 kind: Pod
@@ -411,7 +417,7 @@ vulnerable pods deleted?
 non-vulnerable pods running?
 
 
-```
+```bash
    53  k get pods -n delta -ojsonpath='{range .items[*]}{.metadata.name}{": trivy --severity=CRITICAL i "}{.spec.containers[*].image}{"\n"}{end}'
    54  k get pods -n delta -ojsonpath='{range .items[*]}{"trivy --severity=CRITICAL i "}{.spec.containers[*].image}{" | grep -i Total"}{"\n"}{end}'
    55  trivy --severity=CRITICAL i kodekloud/webapp-delayed-start | grep -i Total
@@ -431,7 +437,7 @@ audit-nginx uses the right image?
 pod running?
 pod uses the correct seccomp profile?
 
-```
+```yaml
 cat 4.yaml
 apiVersion: v1
 kind: Pod
@@ -465,7 +471,7 @@ Network Policy applied on the correct pods?
 Incoming traffic allowed from pods in prod-yx13cs namespace?
 Incoming traffic allowed from pods with label backend=prod-x12cs ?
 
-```
+```yaml
 cat 1.yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -502,7 +508,7 @@ app1 ingress allowed?
 app2 ingress allowed?
 app3 ingress not allowed?
 
-```
+```yaml
 cat 2.yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -548,7 +554,7 @@ Secure the pod in such a way that the secret token is no longer mounted on this 
 Pod created with cluster-view service account?
 secret token not mounted in the pod?
 
-```
+```yaml
 cat 3.yaml
 apiVersion: v1
 kind: Pod
@@ -575,13 +581,15 @@ ALERT timestamp of the event without nanoseconds,User ID,the container id,the co
 Make sure to update the rule in such a way that the changes will persists across Falco updates.
 You can refer the falco documentation Here
 
-```
+```bash
 journalctl -f -u falco | grep -i sahara
 vim "+:set hlsearch" "+/A shell was spawned in a container with an attached terminal" /etc/falco/falco_rules.yaml
 ```
 
-```
-<cat  /etc/falco/falco_rules.local.yaml
+Override the default Falco rule in the local rules file to customize the output format. This ensures the changes persist across Falco updates.
+
+```yaml
+cat  /etc/falco/falco_rules.local.yaml
 #
 # Or override/append to any rule, macro, or list from the Default Rules
 - rule: Terminal shell in container
@@ -609,7 +617,7 @@ martin has unrestricted access to all pods in dev-a ?
 martin has unrestricted access to all pods in dev-b ?
 martin can only list and get pods in dev-z ?
 
-```
+```bash
  k describe role dev-user-access -n dev-z
 Name:         dev-user-access
 Labels:       <none>
@@ -641,7 +649,7 @@ PolicyRule:
 Edit role in `dev-z` namespace to be able to `get` and `list` only
 
 
-```
+```yaml
 k get role -n dev-z dev-user-access -o yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -672,7 +680,7 @@ rules:
 Test:
 
 
-```
+```bash
 root@controlplane:/# k auth can-i --as martin create pod -n dev-a
 yes
 root@controlplane:/# k auth can-i --as martin create pod -n dev-z
@@ -692,7 +700,7 @@ port 8088 free ?
 associated service stopped and disabled?
 associated package removed?
 
-```
+```bash
   65  ss -tunlp | grep 8088
    66  ps -ef | grep 30388
    67  systemctl status lshttpd.service
@@ -720,7 +728,7 @@ pod uses the correct seccomp profile?
 seccomp profile allows 'read' and 'write' syscalls?
 
 
-```
+```yaml
 cat /root/CKS/omega-app.yaml
 apiVersion: v1
 kind: Pod
@@ -764,7 +772,7 @@ pod definition file fixed?
 report generated at /root/CKS/kubesec-report.txt ?
 
 
-```
+```yaml
 cat /root/CKS/simple-pod.yaml
 apiVersion: v1
 kind: Pod
@@ -802,6 +810,6 @@ gcr.io/google-containers/nginx
 bitnami/nginx:latest
 
 
-```
+```bash
 for i in nginx nginx:1.19 nginx:1.17 nginx:1.20 gcr.io/google-containers/nginx bitnami/nginx:latest; do echo "trivy --severity=CRITICAL  i $i | grep -i Total # $i" ; done
 ```

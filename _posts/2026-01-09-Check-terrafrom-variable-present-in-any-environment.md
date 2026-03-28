@@ -3,15 +3,16 @@ title: "Check Terraform variable present in any environment"
 date: 2026-01-09T10:45:30:+0100
 lastmod: 2026-01-09T10:45:30:+0100
 draft: false
-description: "Check Terraform variable present in any environment — practical walkthrough with examples."
+description: "How to conditionally include a Terraform module only when a specific variable is present, using the can() function and for_each."
 image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: []
 categories: ["Terraform"]
 ---
 
+This Terraform snippet shows how to conditionally instantiate a module only when a particular variable is defined and non-null. The `can()` function safely checks whether `var.wizz_settings` exists, and the `for_each` expression ensures the module block is only created when the required fields are present.
 
-```bash
+```hcl
 module "wiz" {
   source  = "localterraform.com/modules/wizz/gcp"
   version = "0.1.1"

@@ -4,14 +4,14 @@ title: Ansible Bitbucket
 date: 2024-10-04T20:14:27+0200
 lastmod: 2024-10-04T20:14:27+0200
 draft: false
-description: "Ansible Bitbucket — practical walkthrough with examples."
+description: "How to automate Bitbucket project and repository creation, including permissions management, using Ansible URI module."
 image: "https://miro.medium.com/v2/0*sV8pi5txXJiFOJfJ.png"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse']
 categories: ["Linux"]
 ---
 
-
+The following Ansible playbook automates common Bitbucket administration tasks. It reads a YAML definition file, creates a Bitbucket project, grants group-level permissions, imports a repository from a sample project URL, and assigns user-level permissions. This is useful when onboarding new projects where you need repeatable, automated Bitbucket setup.
 
 ```yaml
 
@@ -46,7 +46,6 @@ categories: ["Linux"]
 # .........................................................................
 # 2. Granting PROJECT_ADMIN to ed pas horizon group at Bitbucket project level
 # .........................................................................
-  helloo world.
 - name: Grant permissions to ed pas horizon
   uri:
     url: "{{ BITBUCKET_URL }}/rest/api/latest/projects/{{ feed.vcs_project }}/permissions/groups?name={{ HORZION_GROUP | urlencode }}&permission=PROJECT_ADMIN"

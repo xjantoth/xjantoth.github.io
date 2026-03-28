@@ -11,7 +11,9 @@ tags: ['kubernetes', 'apache', 'spark', 'helm']
 categories: ["Kubernetes"]
 ---
 
-```
+The following command installs Apache Spark on Kubernetes using the Bitnami Helm chart. The `master.webPort` is set to 8081 to avoid conflicts with other services that may use port 80. After installation, you can access the Spark master UI and submit jobs to the cluster.
+
+```bash
 helm3 install spark \
   --set master.webPort=8081 bitnami/spark
 NAME: spark

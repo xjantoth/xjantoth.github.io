@@ -10,6 +10,7 @@ tags: []
 categories: ["Kubernetes"]
 ---
 
+To ensure a pod runs exclusively on the control plane node, you need two things: a toleration for the control plane taint (so the scheduler does not reject it) and a node affinity rule that requires the `node-role.kubernetes.io/control-plane` label to be present. The combination guarantees the pod is both allowed and required to land on the control plane.
 
 ```yaml
 apiVersion: v1

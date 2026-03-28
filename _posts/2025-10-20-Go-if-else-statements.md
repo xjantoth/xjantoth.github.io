@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go if else statements with working code examples."
+description: "How to use if-else statements in Go, including the comma-ok idiom for map lookups and floating-point comparison techniques."
 
 tags: ['go', 'else', 'statements']
 categories: ["Go"]
 ---
+
+This program demonstrates Go's if-else control flow. It covers the initializer syntax for if statements (using the comma-ok pattern to check if a map key exists), chained if-else-if blocks for range validation, and a floating-point comparison technique using `math.Abs` to check near-equality despite rounding errors.
 
 ```go
 package main

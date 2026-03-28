@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go functions with working code examples."
+description: "Comprehensive guide to Go functions covering basic parameters, pointers, variadic arguments, multiple return values, error handling, and anonymous functions."
 
 tags: ['go', 'functions']
 categories: ["Go"]
 ---
+
+This program covers the full range of Go function features. It starts with basic function parameters, then demonstrates pointer parameters that allow functions to modify the caller's variables. It also shows variadic parameters (accepting a variable number of arguments), multiple return values, error handling with the `error` type, and anonymous (lambda) functions both inline and assigned to variables.
 
 ```go
 package main

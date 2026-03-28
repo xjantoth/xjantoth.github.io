@@ -3,7 +3,7 @@ title: My Tmux setup
 date: 2024-03-16T19:08:02+0100
 lastmod: 2024-03-16T19:08:02+0100
 draft: false
-description: "I have been using tmux for quite a while now. Despite the fact that, I sometimes felt weird because of all the other colleagues use VSCODE I never thought of coming back."
+description: "A practical tmux workflow that auto-creates named windows for each git repository, splits panes for editing, and uses fzf for fast window switching."
 image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse']
@@ -11,24 +11,24 @@ categories: ["Linux"]
 ---
 
 I have been using `tmux` for quite a while now. Despite the fact that, I sometimes felt weird because of all the other colleagues use VSCODE
-I never thought of coming back to one of these fameous IDEs. I did not configure my tmux in crazy way however, I like taking the most of it.
-Whenever I created a new window (Ctrl+A+c) I immediatelly named it accordingly (Ctrl+A+,). This approach worked quite well for me but I soon figured that
-it was not consistent at all. When under time preassure, I often ended up with many unnamed windows e.g [~zsh]. I kept using these incorrectly named windows and soon after ... I could not figure out what is where.
+I never thought of coming back to one of these famous IDEs. I did not configure my tmux in crazy way however, I like taking the most of it.
+Whenever I created a new window (Ctrl+A+c) I immediately named it accordingly (Ctrl+A+,). This approach worked quite well for me but I soon figured that
+it was not consistent at all. When under time pressure, I often ended up with many unnamed windows e.g [~zsh]. I kept using these incorrectly named windows and soon after ... I could not figure out what is where.
 
 
 I had a very specific solution to this problem thus, I had no idea how to implement it correctly and I simply did not pay enough attention to this.
 
-At some point, I have said that it has been enough. Surprisengly I found a very solid solution for myself.
+At some point, I have said that it has been enough. Surprisingly I found a very solid solution for myself.
 
-The general idea is thatall of my work git repositories are stored in `~/Documents/work/`.
+The general idea is that all of my work git repositories are stored in `~/Documents/work/`.
 
 Whenever I needed to create a new window and jump into a folder I used.
 
-```
+```bash
 ff='cd ~/Documents/work/$(cd ~/Documents/work && ls -d */  | fzf)'
 ```
 
-It worked as charm but I always had to do one additional step. This was renaming of a current window using (Ctrl+A+,). And this was my pain point. I wanted to come up with a name very fast and soon I ended up with very inconsistent naming convention. Not only naming convention was a problem. When switching among windows, I used famous (Ctrl+A+w) that give a user nice overview thus it requires either using arrows up/down to find a proper window (git repo) or hitting `/` and typing some string to match a target.
+It worked like a charm but I always had to do one additional step. This was renaming of a current window using (Ctrl+A+,). And this was my pain point. I wanted to come up with a name very fast and soon I ended up with very inconsistent naming convention. Not only naming convention was a problem. When switching among windows, I used famous (Ctrl+A+w) that give a user nice overview but it requires either using arrows up/down to find a proper window (git repo) or hitting `/` and typing some string to match a target.
 
 
 What is the solution then ?
@@ -46,14 +46,14 @@ How to start?
 
 It is obvious that I had to start a new `tmux` session first.
 
-```
+```bash
 # opens up a new tmux session and detaches off
 tmux new-session -s "mac" -n work -d
 ```
 
 Then I figured that I have to `enumerate` windows if I want to create them in already existing `tmux` session. Since this is `bash` - there is probably nothing easier than `$(ls -d */ | nl -s:)`. Now I got git repos in following format:
 
-```
+```text
     ...
     52:terraform-xyz-test/
     53:terraform-xyz-abs/

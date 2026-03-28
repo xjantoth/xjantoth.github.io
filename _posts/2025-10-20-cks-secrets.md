@@ -3,16 +3,16 @@ title: "CKS secrets"
 date: 2022-04-29T11:29:02+0200
 lastmod: 2022-04-29T11:29:02+0200
 draft: false
-description: "Check if you can access ETCD at master node."
+description: "Working with Kubernetes secrets, ETCD encryption at rest, and secret rotation procedures."
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['cks', 'secrets']
 categories: ["Kubernetes"]
 ---
 
+The following example creates two Kubernetes secrets and a pod that consumes them -- one as an environment variable and the other as a mounted volume. This demonstrates both ways of making secrets available to containers.
 
-```
-
+```yaml
 k create secret generic secret1 --from-literal=jano=jano
 k create secret generic secret2 --from-literal=toth=toth
 
@@ -56,9 +56,10 @@ pod    1/1     Running   0          2d1h
 
 ###### Check if you can access ETCD at master node
 
+To connect to ETCD directly, you need the TLS certificates used by the kube-apiserver. Extract these paths from the kube-apiserver manifest and use them with `etcdctl` to verify the ETCD endpoint health.
 
-```
-# Determine TSL components for a connection string
+```bash
+# Determine TLS components for a connection string
 root@scw-k8s:~# cat /etc/kubernetes/manifests/kube-apiserver.yaml  | grep etcd
     - --etcd-cafile=/etc/kubernetes/pki/etcd/ca.crt
     - --etcd-certfile=/etc/kubernetes/pki/apiserver-etcd-client.crt
@@ -78,8 +79,9 @@ endpoint health
 
 ###### Let's try to get some data from ETCD
 
+You can read raw data directly from ETCD using `etcdctl get`. This allows you to see how Kubernetes stores pods and secrets internally. Note that secrets stored without encryption are visible in plain text.
 
-```
+```bash
 # Retrieve information about a pod called "pod" in a default namespace
 ETCDCTL=3 etcdctl \
 --cacert=/etc/kubernetes/pki/etcd/ca.crt \
@@ -95,10 +97,12 @@ ETCDCTL=3 etcdctl \
 get /registry/secrets/default/secret1
 ```
 
-###### Encrypt ETCD secrets via API server at REST
+###### Encrypt ETCD secrets via API server at rest
 
-```
-# Create folder etcd and touch file encryption-configuration.yaml with a following content
+To enable encryption at rest for secrets stored in ETCD, create an EncryptionConfiguration file and configure the kube-apiserver to use it. This ensures that newly created secrets are encrypted before being written to ETCD.
+
+```bash
+# Create folder etcd and touch file encryption-configuration.yaml with the following content
 head -c 32 /dev/urandom | base64
 
 mkdir /etc/kubernetes/etcd
@@ -156,8 +160,9 @@ root@scw-k8s:~# mv  /tmp/kube-apiserver.yaml /etc/kubernetes/manifests/kube-apis
 
 ###### Verifying that data is encrypted
 
+After enabling encryption, create a new secret and then read it directly from ETCD to verify that the data is stored in encrypted form rather than plain text.
 
-```
+```bash
 kubectl create secret generic secret1 -n default --from-literal=mykey=mydata
 
 # Verify
@@ -179,8 +184,9 @@ k8s:enc:aescbc:v1:key1:W@\ve=2믔%DF٘OBւ̐'~Ym?jH9T%!!,<SkQ܌58DȺys
 
 ###### Ensure all Secrets are encrypted
 
+To encrypt all previously existing secrets, re-write them by piping the output of `kubectl get secrets` back through `kubectl replace`. This forces each secret to be re-encrypted using the new encryption configuration.
 
-```
+```bash
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 
 # Now even secret1 (previously unencrypted) is now encrypted
@@ -213,9 +219,9 @@ Changing a Secret without incurring downtime requires a multi-step operation, es
 
 ###### Decrypting all data
 
-Notice that identity is now placed before aescbc
+Notice that identity is now placed before aescbc. By placing the `identity` provider first, new writes will be stored unencrypted while existing encrypted data can still be read using the `aescbc` key.
 
-```
+```yaml
 vim /etc/kubernetes/etcd/encryption-configuration.yaml
 
 ...
@@ -244,8 +250,7 @@ root@scw-k8s:~# mv  /etc/kubernetes/manifests/kube-apiserver.yaml /tmp/
 
 All secrets are still encrypted at this time!
 
-
-```
+```bash
 # Now even secret1 (previously unencrypted) is now encrypted
 ETCDCTL=3 etcdctl \
 --cacert=/etc/kubernetes/pki/etcd/ca.crt \
@@ -262,14 +267,13 @@ Vc]d]&ǀ#IpKV$&p_9Q|Mۉ<S:/~Miy?%BEB
 
 Then run the following command to force decrypt all Secrets:
 
-```
+```bash
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
 
-All secrets has been decrepted
+All secrets have been decrypted.
 
-
-```
+```bash
 ETCDCTL=3 etcdctl \
 --cacert=/etc/kubernetes/pki/etcd/ca.crt \
 --key=/etc/kubernetes/pki/apiserver-etcd-client.key \
@@ -290,8 +294,9 @@ janojanoOpaque"
 
 ###### Filter out all secrets within default namespace of type Opaque
 
+Use `jsonpath` to filter secrets by type. The following command lists only secrets of type `Opaque` in the current namespace, displaying their kind, name, namespace, and type.
 
-```
+```bash
 root@scw-k8s:~# kubectl get secret -o=jsonpath='{range .items[?(@.type=="Opaque")]}{.kind} {.metadata.name} {.metadata.namespace} {.type}{"\n"}{end}'
 Secret secret1 default Opaque
 Secret secret2 default Opaque
@@ -299,8 +304,9 @@ Secret secret3 default Opaque
 
 ```
 
+The following example creates secrets from a literal value and from a file, then configures a pod to consume them as an environment variable and a volume mount respectively.
 
-```
+```yaml
 # Create secrets
 k create secret generic sec-a1 --from-literal=jano=miso -n ns-secure
 k create secret generic sec-a2 --from-file=/etc/hosts -n ns-secure

@@ -5,7 +5,7 @@ lastmod: "2022-01-07T11:30:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Adjust your /etc/hosts file."
+description: "Step-by-step guide to deploying K3S with Rancher UI, including Nginx Ingress, TLS certificate generation, and Longhorn storage setup."
 
 tags: ['kubernetes', 'rancher', 'ui', 'k3s']
 categories: ["Kubernetes"]
@@ -13,7 +13,9 @@ categories: ["Kubernetes"]
 
 ##  Adjust your /etc/hosts file
 
-```
+Add a hostname entry for your local machine so that the Rancher UI can be accessed by name instead of IP address.
+
+```bash
 # Adjust your /etc/hosts file
 cat /etc/hosts
 ...
@@ -22,10 +24,12 @@ cat /etc/hosts
 :wq!
 ```
 
-##  Deploy K3S cluster yo tour local
-##
-```
-# Deploy K3S cluster yo tour local
+##  Deploy K3S cluster to your local machine
+
+Install K3S with etcd as the datastore and without the default Traefik ingress controller, since we will deploy Nginx Ingress separately.
+
+```bash
+# Deploy K3S cluster to your local machine
 curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--datastore-endpoint etcd --no-deploy traefik" sh -s -
 
 sudo chmod  755 /etc/rancher/k3s/k3s.yaml
@@ -34,7 +38,9 @@ kubectl get pods -A
 
 ##  Deploy Nginx Ingress Controller
 
-```
+Install the Nginx Ingress Controller via Helm with NodePort service type. The HTTPS NodePort is set to 30111, which will be used to access Rancher.
+
+```bash
 # Deploy Nginx Ingress Controller
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 helm repo update
@@ -46,7 +52,9 @@ helm install nginx stable/nginx-ingress  \
 
 ##  Rancher with certificates generation
 
-```
+Generate a self-signed CA and a server certificate for the Rancher hostname. The script creates the CA key and certificate, then generates a server key and certificate signed by that CA. Finally, the certificates are stored as Kubernetes secrets in the `cattle-system` namespace.
+
+```bash
 mkdir -p /home/jantoth/etc/pki/tls/private
 mkdir -p /home/jantoth/etc/pki/tls/certs
 

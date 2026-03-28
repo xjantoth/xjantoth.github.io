@@ -1,14 +1,16 @@
 ---
-title: "How to use jq as professional"
+title: "How to use jq as a professional"
 date: 2024-02-21T15:00:30+0100
 lastmod: 2024-02-21T15:00:30+0100
 draft: false
-description: "Practical guide: how to use jq as professional."
+description: "Advanced jq example that parses a Terraform Cloud API response to extract run details including branch, commit info, and status timestamps."
 image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['jq', 'bash']
 categories: ["Linux"]
 ---
+
+This advanced `jq` expression parses the Terraform Cloud API response (JSON:API format) to extract run metadata. It cross-references the `included` objects by ID to resolve nested relationships between runs, configuration versions, and ingress attributes, pulling out branch names, commit details, and status timestamps into a flat structure.
 
 ```bash
 curl -s \

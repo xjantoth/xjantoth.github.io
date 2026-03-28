@@ -11,6 +11,8 @@ tags: ['vim', 'postman', 'tests']
 categories: ["Linux"]
 ---
 
+This Vim function generates a JSON array of Postman test cases by iterating over a list of field names and test values. It creates every combination of name and value, producing objects with query parameters, expected HTTP response codes, and descriptions. This is useful for quickly scaffolding negative/boundary tests for API endpoints.
+
 ```vim
 function! CreateTest()
   let a = 0

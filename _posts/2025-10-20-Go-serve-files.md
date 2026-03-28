@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go serve files with working code examples."
+description: "How to serve static files in Go using http.ServeFile, io.Copy, and http.ServeContent, with examples for serving images from the local filesystem and the internet."
 
 tags: ['go', 'serve', 'files']
 categories: ["Go"]
 ---
+
+This example demonstrates three different ways to serve files in Go: using `io.Copy`, `http.ServeContent`, and `http.ServeFile`. The server registers handlers for the root path (which renders an HTML image tag), a direct image route, and a route that serves an image referenced from the internet.
 
 ```go
 package main

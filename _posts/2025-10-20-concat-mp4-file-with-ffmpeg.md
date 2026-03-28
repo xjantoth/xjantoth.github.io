@@ -5,25 +5,25 @@ lastmod: "2022-01-07T11:20:28+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "*Concatenated'' video files (e.g. .mp4) specified in *.txt file ''created'' on the file."
+description: "How to concatenate multiple MP4 video files using ffmpeg with a text-based file list and a bash loop."
 
 tags: ['concat', 'mp4', 'file', 'ffmpeg']
 categories: ["DevOps"]
 ---
 
-**Concatenated'' video files (e.g. *.mp4) specified in *.txt file ''created'' on the file
+Concatenate video files (e.g. MP4) specified in a text file using ffmpeg's concat demuxer.
 
-Example: If you got *.mp4 files starting from: 1 to 46
+Example: If you have MP4 files numbered from 1 to 46, each text file references a sound intro, the rendered segment, and a sound outro.
 
-
-```
+```text
 file sound.mp4
 file 46-Con-xyz-rendered.mp4
 file sound.mp4
 ```
 
+This loop iterates over all 46 files, generates a text file listing the sound and rendered segments, and uses `ffmpeg -f concat` to concatenate them into a final MP4 file.
 
-```
+```bash
 for i in {1..46}; do
     file=$(echo ${i}-*-rendered.mp4);
     touch ${file};

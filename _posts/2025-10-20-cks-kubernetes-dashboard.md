@@ -5,7 +5,7 @@ lastmod: 2022-02-21T13:43:43+01:00
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Kubernetes: Kubernetes dashboard — configuration and practical examples."
+description: "How to install and configure the Kubernetes dashboard, including SSH tunneling, token retrieval, and enabling insecure HTTP access."
 
 tags: ['kubernetes', 'dashboard']
 categories: ["Kubernetes"]
@@ -25,28 +25,31 @@ categories: ["Kubernetes"]
 ![Image](/assets/images/blog/dashboard-2.png)
 
 
-###### Install kubenretes dashboard
+###### Install Kubernetes dashboard
 
+Deploy the Kubernetes dashboard using the official recommended manifest. This creates the dashboard Deployment, Service, and required RBAC resources in the `kubernetes-dashboard` namespace.
 
-```
+```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.0/aio/deploy/recommended.yaml
 ```
 
 ###### Create **SSH** tunnel to cks-master
 
-```
+```bash
 ssh -i  ~/.ssh/google_compute_engine -L8001:127.0.0.1:8001 jantoth@35.198.101.56
 ```
 ###### Find a **token** belonging to kubernetes-dashboard **serviceaccount**
 
-```
+```bash
 kubectl  get secret kubernetes-dashboard-token-c7j68 -n kubernetes-dashboard  -ojsonpath='{.data.token}' | base64 -d
 ```
 
 ###### How to enable insecure HTTP at kubernetes dashboard
 
 
-```
+To enable insecure HTTP access, edit the dashboard Deployment to disable auto-generated certificates and add the `--insecure-port=9090` flag. You also need to update the Service to match the new port.
+
+```yaml
 hugo % k edit deployments.apps -n kubernetes-dashboard kubernetes-dashboard
 deployment.apps/kubernetes-dashboard edited
 

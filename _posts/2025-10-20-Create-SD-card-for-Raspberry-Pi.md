@@ -11,8 +11,9 @@ tags: ['raspberry', 'sd', 'card']
 categories: ["Raspberry Pi"]
 ---
 
-```
+First, use `lsblk` to identify the correct block device for your SD card. Then pipe the unzipped Raspberry Pi OS image directly to `dd` to write it to the card. Make sure you select the right device to avoid overwriting your system drive.
 
+```bash
 lsblk -p
 NAME                      MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
 /dev/mmcblk0              179:0    0  14.5G  0 disk

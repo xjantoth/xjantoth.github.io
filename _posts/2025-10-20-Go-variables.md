@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go variables with working code examples."
+description: "Understanding Go variable declarations, type conversions between int and float32, and converting integers to strings with strconv."
 
 tags: ['go', 'variables']
 categories: ["Go"]
 ---
+
+This example shows how to declare variables in Go using both the `var` keyword and the short declaration operator `:=`. It also demonstrates package-level variable blocks, type conversion between `int` and `float32`, and converting an integer to a string using `strconv.Itoa`. Note that in Go, declared but unused variables cause a compile error.
 
 ```go
 package main

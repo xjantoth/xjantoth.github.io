@@ -5,7 +5,7 @@ lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Static Analysis manual approach kubesec OPA Conftest."
+description: "How to use Kubesec and OPA Conftest for static security analysis of Kubernetes resources and Dockerfiles."
 
 tags: ['cks', 'kubesec', 'security', 'risk', 'analysis', 'kubernetes', 'resources']
 categories: ["Kubernetes"]
@@ -35,7 +35,9 @@ categories: ["Kubernetes"]
 - opinionated (fixed set of rules - security best practices)
 - runs as (binary, docker container, kubectl plugin, admission controller)
 
-```
+Download and install the kubesec binary. Kubesec performs opinionated security risk analysis of Kubernetes resource manifests against a fixed set of best-practice rules.
+
+```bash
 wget https://github.com/controlplaneio/kubesec/releases/download/v2.11.0/kubesec_linux_amd64.tar.gz
 tar -xvzf kubesec_linux_amd64.tar.gz
 mv kubesec /usr/bin/kubesec
@@ -44,7 +46,7 @@ kubesec
 
 ###### Scan your resources
 
-```
+```bash
 Examples:
   kubesec scan ./deployment.yaml
   cat file.json | kubesec scan -
@@ -53,7 +55,7 @@ Examples:
 
 ###### Simple usecase
 
-```
+```bash
 kubectl  run pod --image=nginx -oyaml --dry-run=client > file
 cat file | kubesec  scan -o yaml -
 
@@ -86,7 +88,7 @@ cat file | kubesec  scan -o yaml -
 cat node.yaml | kubesec  scan -o yaml - > /root/kubesec_report.json
 
 
-```
+```bash
 root@scw-k8s:~# k run nginx --image=nginx:alpine -oyaml --dry-run=client > pod.yaml
 root@scw-k8s:~# curl -sSX POST --data-binary @"pod.yaml" https://v2.kubesec.io/scan
 
@@ -102,8 +104,8 @@ root@scw-k8s:~# curl -sSX POST --data-binary @"pod.yaml" https://v2.kubesec.io/s
 
 
 
-```
-root@scw-k8s:~# git clone https://github.com/killer-sh/cks-course-environment.gitvb
+```bash
+root@scw-k8s:~# git clone https://github.com/killer-sh/cks-course-environment.git
 root@scw-k8s:~/cks-course-environment# cd course-content/supply-chain-security/static-analysis/conftest/
 
 ls -al
@@ -116,9 +118,9 @@ drwxr-xr-x 3 root root 4096 Jun  5 18:54 kubernetes
 cd kubernetes
 ```
 
-`Kubenetes deployment` we would like to check
+Kubernetes deployment we would like to check.
 
-```
+```yaml
 # deployment we would like to check
 cat deploy.yaml
 apiVersion: apps/v1
@@ -150,7 +152,7 @@ status: {}
 
 Policy file for our `Kubernetes deployment` (set of rules to follow)
 
-```
+```rego
 cat policy/deployment.rego
 # from https://www.conftest.dev
 package main
@@ -170,7 +172,7 @@ deny[msg] {
 
 Run conftest to check `Kubernetes deployment`
 
-```
+```bash
 docker run --rm -v $(pwd):/project openpolicyagent/conftest test deploy.yaml
 FAIL - deploy.yaml - main - Containers must not run as root
 
@@ -179,7 +181,7 @@ FAIL - deploy.yaml - main - Containers must not run as root
 
 ###### Use conftest OPA for Dockerfile
 
-```
+```bash
 root@scw-k8s:~# git clone https://github.com/killer-sh/cks-course-environment.git
 root@scw-k8s:~/cks-course-environment# cd course-content/supply-chain-security/static-analysis/conftest/
 
@@ -190,7 +192,7 @@ cd docker
 Example of policy files
 
 
-```
+```rego
 # from https://www.conftest.dev           |# from https://www.conftest.dev
 package main                              |
                                           |package commands
@@ -218,7 +220,7 @@ deny[msg] {                               |  "pip",
 `Dockerfile` to be checked
 
 
-```
+```dockerfile
 cat Dockerfile
 FROM ubuntu
 ARG DEBIAN_FRONTEND=noninteractive
@@ -228,10 +230,10 @@ RUN go build app.go
 CMD ["./app"]
 ```
 
-Run command to chceck `Dockerfile` via OPA conftest tool
+Run command to check the `Dockerfile` via the OPA conftest tool.
 
 
-```
+```bash
 docker run --rm -v $(pwd):/project openpolicyagent/conftest test Dockerfile --all-namespaces
 FAIL - Dockerfile - main - unallowed image found ["ubuntu"]
 FAIL - Dockerfile - commands - unallowed commands found ["apt-get update && apt-get install -y golang-go"]

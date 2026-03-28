@@ -1,26 +1,29 @@
 ---
-title: "taint and tolerations"
+title: "Taint and tolerations"
 date: "2022-01-06T14:53:42+0100"
 lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Taints are set to ''Nodes''."
+description: "How Kubernetes taints and tolerations work together to control pod scheduling on specific nodes."
 
 tags: ['taint', 'tolerations']
 categories: ["DevOps"]
 ---
 
-# taints are set to ''Nodes''
-# toleration are set to ''PODS''
+# Taints are set on Nodes
+# Tolerations are set on Pods
 
 
-##  taints:
-```
+##  Taints
+
+Taints are applied to nodes to repel pods that do not have a matching toleration. The following command taints a node so that only pods tolerating `app=blue` with effect `NoSchedule` will be scheduled on it.
+
+```bash
 kubectl taint nodes arch app=blue:NoSchedule
 node/arch tainted
 ```
-Other ''taint'' options:
+Other taint effect options:
 
 * NoSchedule
 * PreferNoSchedule
@@ -45,7 +48,7 @@ spec:
     value: blue
 ```
 
-practice
+Here is another practical example. First, taint the node, then create a pod with the matching toleration so it can be scheduled on the tainted node.
 
 ```yaml
 kubectl taint node node01 spray=mortein:NoSchedule
@@ -70,8 +73,10 @@ spec:
 ```
 
 
-##  untaint controlplane in katacoda
+##  Untaint controlplane in Katacoda
 
-```
+To allow regular workloads to be scheduled on the controlplane node, remove the taint by appending a `-` to the taint key.
+
+```bash
 kubectl taint node  controlplane node-role.kubernetes.io/master:NoSchedule-node/controlplane untainted
 ```

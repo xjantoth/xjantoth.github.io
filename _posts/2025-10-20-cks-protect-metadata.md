@@ -3,7 +3,7 @@ title: "Protect Kubernetes node metadata"
 date: 2022-02-21T13:54:39+0100
 lastmod: 2022-02-21T13:54:39+0100
 draft: false
-description: "Deny all traffic to google's metadata server."
+description: "Using Kubernetes NetworkPolicies to deny egress traffic to the cloud provider metadata server and selectively allow access for specific pods."
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['kubernetes', 'node', 'metadata']
@@ -12,7 +12,9 @@ categories: ["Kubernetes"]
 
 ###### Deny all traffic to google's metadata server
 
-Study this rule carefully - it takes time to understand it :)
+Study this rule carefully - it takes time to understand it.
+
+The following NetworkPolicy denies egress traffic to the cloud provider metadata endpoint (169.254.169.254) for all pods in the default namespace, while still allowing traffic to all other destinations.
 
 ```yaml
 cat <<'EOF' > np_cloud_metadata_deny.yaml
@@ -37,9 +39,9 @@ EOF
 
 ###### Allow certain pods to access this server
 
+This second NetworkPolicy grants an exception: pods labeled with `role: metadata-accessor` are explicitly allowed egress access to the metadata endpoint at 169.254.169.254. Combined with the deny policy above, only these specifically labeled pods can reach the metadata server.
 
 ```yaml
-
 cat <<'EOF' > np_cloud_metadata_allow.yaml
 # only pods with label are allowed to access metadata endpoint
 apiVersion: networking.k8s.io/v1

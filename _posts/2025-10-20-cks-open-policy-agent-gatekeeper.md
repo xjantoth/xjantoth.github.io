@@ -5,14 +5,14 @@ lastmod: 2022-01-24T15:03:56+01:00
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "OPA is not Kubenretes specific general purpose policy engine An admission controller is a piece of code that intercepts requests to the Kubernetes API server prior to."
+description: "OPA Gatekeeper overview for Kubernetes: using ConstraintTemplates, Rego policies, and admission controllers to enforce custom policies on pods, namespaces, and deployments."
 
 tags: ['opa', 'gatekeeper']
 categories: ["DevOps"]
 ---
 
 
-* OPA is not Kubenretes specific
+* OPA is not Kubernetes specific
 * general purpose policy engine
 * An admission controller is a piece of code that intercepts requests to the Kubernetes API server prior to persistence of the object, but after the request is authenticated and authorized.
 * Leveraging Rego language
@@ -38,7 +38,9 @@ There are two kinds of `webhooks`:
 * `validating` admission webhook
 * `mutating` admission webhook
 
-```python
+Install Gatekeeper by applying the manifest from the CKS course repository. This creates the gatekeeper-system namespace with the audit and controller-manager pods, along with a webhook service.
+
+```bash
 kubectl create -f https://raw.githubusercontent.com/killer-sh/cks-course-environment/master/course-content/opa/gatekeeper.yaml
 
 # Check what was created in gatekeeper-system namespace
@@ -85,9 +87,9 @@ spec:
 EOF
 ```
 
-A new Custom Resource Definition called `K8sAlwaysDeny` will be created
+A new Custom Resource Definition called `K8sAlwaysDeny` will be created. You can verify this by listing all CRDs before and after applying the template.
 
-```
+```bash
 root@scw-k8s-cks:~# k get crd
 NAME                                                 CREATED AT
 configs.config.gatekeeper.sh                         2022-01-24T14:44:30Z
@@ -129,28 +131,26 @@ spec:
 EOF
 ```
 
-Apply this file ...
+Apply this file to create the constraint that denies all pod creation.
 
-```
+```bash
 # Kubectl it ...
 root@scw-k8s-cks:~# kubectl  create -f all_pod_always_deny.yaml
 k8salwaysdeny.constraints.gatekeeper.sh/pod-always-deny created
 ```
 
-Now, we should not be able to create any pod since `1>0` in Rego language
+Now, we should not be able to create any pod since `1>0` in Rego language always evaluates to true.
 
-```
+```bash
 root@scw-k8s-cks:~# k run podx --image=nginx
 Error from server ([pod-always-deny] ACCESS DENIED!): admission webhook "validation.gatekeeper.sh" denied the request: [pod-always-deny] ACCESS DENIED!
 ```
 
 ##### Require labels on namespaces and pods
 
-To achieve such a goal we need to create `ConstraintTemplate` first with some appropriate `Rego` code.
+To achieve such a goal we need to create a `ConstraintTemplate` first with some appropriate `Rego` code. This template checks whether the required labels are present on the resource.
 
-
-```
-
+```yaml
 cat <<'EOF' > k8srequiredlabels_template.yaml
 apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
@@ -205,7 +205,7 @@ spec:
 EOF
 ```
 
-Then create `K8sRequiredLabels` Custom Resource Definition to ensure POD have some labels.
+Then create a `K8sRequiredLabels` Custom Resource Definition to ensure pods have the required labels.
 
 
 ```yaml
@@ -225,9 +225,9 @@ EOF
 ```
 
 
-Make sure to apply both files and by now we should have labels `cks` enforced on both `PODS` and `namespaces`.
+Make sure to apply both files and by now we should have the `cks` label enforced on both pods and namespaces.
 
-```
+```bash
 root@scw-k8s-cks:~# k create -f all_pod_must_have_cks.yaml
 k8srequiredlabels.constraints.gatekeeper.sh/pod-must-have-cks created
 root@scw-k8s-cks:~# k create -f k8srequiredlabels_on_namespaces.yaml

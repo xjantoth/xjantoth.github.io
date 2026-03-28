@@ -25,7 +25,7 @@ Valid combinations:
 3. ClusterRole -> RoleBinding
 
 
-Make sure that user **Jane** can only read secretes in namespace **red**.
+Make sure that user **Jane** can only read secrets in namespace **red**.
 
 ```yaml
 # Create role secret-manager in namespace red to be able to get secrets
@@ -63,7 +63,7 @@ subjects:
 
 ```
 
-Make sure that user **Jane** can only `list, get` secretes in namespace **blue**.
+Make sure that user **Jane** can only `list, get` secrets in namespace **blue**.
 
 
 ```yaml
@@ -104,7 +104,7 @@ subjects:
 
 Test roles and rolebindings
 
-```
+```bash
 k -n red auth can-i list secrets --as jane
 no
 ```
@@ -167,7 +167,7 @@ subjects:
 
 Test clusterrole and clusterrolebinding/rolebindings
 
-```
+```bash
 k -n kube-system auth can-i delete deployment --as jane
 yes
 k -n red auth can-i delete deployment --as jim
@@ -175,14 +175,14 @@ yes
 
 ```
 
-There are two kind of accounts in Kubenretes:
+There are two kind of accounts in Kubernetes:
 
 * ServiceAccounts
 * "normal users" (need to issue a certificate)
 
 ![Image](/assets/images/blog/rbac-1.png)
 
-There is no k8s User resource in Kubenretes
+There is no k8s User resource in Kubernetes
 
 ![Image](/assets/images/blog/rbac-2.png)
 
@@ -192,7 +192,7 @@ There is no way to **invalidate** a certificate
 If a certificate has been leaked:
 
 * remove all access via RBAC
-* username cannot be used intil certificate would expire
+* username cannot be used until certificate expires
 * create new CA and re-issue all certificates
 
 ![Image](/assets/images/blog/rbac-3.png)
@@ -202,7 +202,7 @@ How to issue a certificate for a normal user "jane"
 ![Image](/assets/images/blog/rbac-4.png)
 
 
-```
+```bash
 # Generate a private key
 openssl genrsa -out jane.key 2048
 
@@ -243,7 +243,7 @@ spec:
 Then save the content above and `kubectl create -f ...`
 
 
-```
+```bash
 k create -f  csr.yaml
 certificatesigningrequest.certificates.k8s.io/jane created
 saq4a@W0188FMI173 blog % k get csr
@@ -265,14 +265,14 @@ jane   6m52s   kubernetes.io/kube-apiserver-client   kubernetes-admin   24h     
 Extract TLS certificate
 
 
-```
+```bash
 kubectl get csr jane -o jsonpath='{.status.certificate}'| base64 -d  > jane.crt
 ```
 
 Now, we need to setup **context** in KUBECONFIG
 
 
-```
+```bash
 k config view
 k config set-credentials jane --client-key=jane.key --client-certificate=jane.crt --embed-certs
 k config set-context jane --user jane --cluster kubernetes
@@ -295,7 +295,7 @@ These SAs should be allowed to view almost everything in the whole cluster. You 
 These SAs should be allowed to create and delete Deployments in Namespaces ns1 and ns2.
 Verify everything using kubectl auth can-i.
 
-```
+```bash
 k create sa pipeline -n ns1
 k create sa pipeline -n ns2
 
@@ -331,7 +331,7 @@ k auth can-i list secrets --as system:serviceaccount:ns2:pipeline -A # NO (defau
 2. Manually sign the CSR with the K8s CA file to generate the CRT at /root/60099.crt.
 Create a new context for kubectl named 60099@internal.users which uses this CRT to connect to K8s.
 
-```
+```bash
 # my solution
 openssl genrsa -out /root/60099.key 2048
 openssl req -new -key /root/60099.key -out /root/60099.csr
@@ -346,10 +346,10 @@ k config use-context 60099@internal.users
 k get ns # fails because no per
 ```
 
-3. Setup suer 60099 via API CSR
+3. Setup user 60099 via API CSR
 
 
-```
+```bash
 openssl genrsa -out /root/60099.key 2048
 openssl req -new -key /root/60099.key -out /root/60099.csr
 

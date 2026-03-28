@@ -1,17 +1,19 @@
 ---
-title: "Create John user in Kuberentes"
+title: "Create John user in Kubernetes"
 date: "2022-01-06T14:53:42+0100"
 lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Create John user in Kuberentes — practical walkthrough with examples."
+description: "Creating a Kubernetes user with certificate-based authentication, including CSR approval, RBAC role and rolebinding setup, and kubeconfig configuration."
 
 tags: ['john', 'user', 'kuberentes']
 categories: ["Kubernetes"]
 ---
 
-```
+The following steps create a user called "john" in Kubernetes using certificate-based authentication. This involves creating an RBAC role and rolebinding, submitting a CertificateSigningRequest, approving it, extracting the signed certificate, and configuring a kubeconfig context.
+
+```bash
 kubectl  create  role developer --verb=create,list,get,update,delete --resource pods --namespace development
 kubectl  create  rolebinding john-role-binding --role developer --user john --namespace development
 

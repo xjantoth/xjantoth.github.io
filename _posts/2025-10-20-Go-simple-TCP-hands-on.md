@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go simple TCP hands on with working code examples."
+description: "Hands-on example of building a simple TCP server in Go that parses HTTP requests, extracts the method and path, and returns an HTML response."
 
 tags: ['go', 'simple', 'tcp', 'hands']
 categories: ["Go"]
 ---
+
+This hands-on example builds a TCP server in Go that manually parses incoming HTTP requests line by line using a `bufio.Scanner`. It extracts the HTTP method and requested URL path from the first line, then constructs and sends back a proper HTTP response with headers and an HTML body. Each connection is handled in its own goroutine and has a 30-second deadline.
 
 ```go
 package main

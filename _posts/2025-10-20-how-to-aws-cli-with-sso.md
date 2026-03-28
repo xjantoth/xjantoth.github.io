@@ -1,17 +1,21 @@
 ---
-title: "How to aws cli with SSO"
+title: "How to Use AWS CLI with SSO"
 date: "2022-01-04T13:36:26+0100"
 lastmod: "2022-01-04T13:36:26+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=420&fit=crop"
-description: "Practical guide: how to aws cli with SSO."
+description: "Step-by-step guide to configuring AWS CLI with SSO authentication, including profile setup and the resulting ~/.aws/config file."
 
 tags: ['aws', 'cli', 'sso']
 categories: ["AWS"]
 ---
 
-```
+## Configure AWS CLI with SSO
+
+The `aws configure sso` command walks you through setting up a named profile that authenticates via AWS SSO. You provide the SSO start URL and region, authorize in the browser, and choose an account and role. The resulting profile can then be used with the `--profile` flag on any AWS CLI command.
+
+```bash
 (venv) [arch:Downloads ] aws configure sso
 SSO start URL [None]: https://devopsinuse.awsapps.com
 SSO Region [None]: eu-central-1
@@ -42,7 +46,9 @@ aws s3 ls --profile devopsinuse
 (venv) [arch:Downloads ] aws s3 ls --profile devopsinuse
 ```
 
-```
+After running the SSO configuration wizard, your `~/.aws/config` file will contain a new profile block with the SSO parameters. Here is an example of what that looks like.
+
+```ini
  cat  ~/.aws/config
 [profile devopsinuse]
 sso_start_url = https://devopsinuse.awsapps.com/start/#/

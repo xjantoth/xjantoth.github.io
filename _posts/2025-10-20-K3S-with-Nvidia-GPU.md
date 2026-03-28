@@ -11,7 +11,9 @@ tags: ['kubernetes', 'k3s', 'raspberry', 'gpu', 'nvidia']
 categories: ["Kubernetes"]
 ---
 
-```
+The following commands install K3S with Docker as the container runtime, deploy the NVIDIA device plugin for GPU support, and create a test pod that runs `nvidia-smi` to verify GPU access inside the cluster.
+
+```bash
 mkdir $HOME/.kube/
 curl -sfL https://get.k3s.io | sh -s - --docker --write-kubeconfig-mode 644 --write-kubeconfig $HOME/.kube/config
 kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v0.6.0/nvidia-device-plugin.yml

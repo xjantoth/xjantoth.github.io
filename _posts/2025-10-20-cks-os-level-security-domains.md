@@ -23,17 +23,19 @@ categories: ["Kubernetes"]
 
 ###### Run a simple container and check user and group
 
-```
+Create a simple busybox pod to test security context settings. This generates the pod manifest and applies it to the cluster.
+
+```bash
 root@scw-k8s:~# k run pod --image=busybox --command -oyaml --dry-run=client -- sh -c 'sleep 1d' > bb.yaml
 root@scw-k8s:~# k create -f  bb.yaml
 ```
 
 ###### Now let's try to setup a security context at a pod level
 
-Edit container recipt first
+Edit the container manifest first to add `securityContext` settings at the pod level with custom user and group IDs.
 
 
-```
+```yaml
 root@scw-k8s:~# cat bb.yaml
 apiVersion: v1
 kind: Pod
@@ -62,7 +64,7 @@ status: {}
 
 ###### Once pod is created you do not have permissions to create a file in `/root` directory :)
 
-```
+```bash
 root@scw-k8s:~# k exec -it pod -- sh
 / $ id
 uid=1000 gid=3000
@@ -81,7 +83,7 @@ touch: test: Permission denied
 Hmm and YOU will see that it actually runs! Why???
 Because we have specified a `securityContext` at the pod level with values 1000 for user and 3000 for a group previously!
 
-```
+```yaml
 root@scw-k8s:~# cat bb.yaml
 apiVersion: v1
 kind: Pod
@@ -113,7 +115,7 @@ status: {}
 ###### Let's try to comment out the first `securityContext` section level and see what happens
 
 
-```
+```yaml
 root@scw-k8s:~# cat  bb.yaml
 apiVersion: v1
 kind: Pod
@@ -141,10 +143,10 @@ spec:
 status: {}
 ```
 
-And check the actuall error
+And check the actual error. Since the pod-level `securityContext` is commented out, the busybox image defaults to root, which conflicts with the `runAsNonRoot: true` setting.
 
 
-```
+```bash
 root@scw-k8s:~# k get pods
 NAME     READY   STATUS                       RESTARTS   AGE
 gvisor   0/1     ContainerStatusUnknown       1          12d
@@ -174,7 +176,7 @@ r
   - well container user 0 (root) maps **directly** to host user 0 (root)
 
 
-```
+```yaml
 root@scw-k8s:~# cat bb.yaml
 apiVersion: v1
 kind: Pod
@@ -206,8 +208,7 @@ status: {}
 Now, we were able to run `sysctl` command inside a container (very dangerous!!!)
 
 
-```
-
+```bash
 / # sysctl kernel.hostname=attacker
 kernel.hostname = attacker
 ```
@@ -220,7 +221,7 @@ kernel.hostname = attacker
 ![Image](/assets/images/blog/sc-3.png)
 
 
-```
+```yaml
 root@scw-k8s:~# cat  bb.yaml
 apiVersion: v1
 kind: Pod
@@ -253,7 +254,7 @@ status: {}
 
 Let's check it out
 
-```
+```bash
 root@scw-k8s:~# k exec -it pod -- sh
 / # cat /proc/1/status
 Name:   sleep
@@ -273,7 +274,7 @@ nonvoluntary_ctxt_switches:     288
 ###### Pod Security Policies
 
 * cluster level resource
-* created by Kubenretes cluster administrator
+* created by Kubernetes cluster administrator
 * it is an **admission controller** and has to be allowed!!!
 
 ![Image](/assets/images/blog/sc-4.png)
@@ -281,10 +282,10 @@ nonvoluntary_ctxt_switches:     288
 ![Image](/assets/images/blog/sc-6.png)
 ![Image](/assets/images/blog/sc-7.png)
 
-Setup `kube-apiserver` first, since **PodSecurityPolicy** is an adminssion controller
+Setup `kube-apiserver` first, since **PodSecurityPolicy** is an admission controller
 
 
-```
+```yaml
 root@scw-k8s:~# cat /etc/kubernetes/manifests/kube-apiserver.yaml  | grep admiss -B10 -A3
   name: kube-apiserver
   namespace: kube-system
@@ -305,7 +306,7 @@ spec:
 Create your very first pod security policy
 
 
-```
+```yaml
 root@scw-k8s:~# cat psp.yaml
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
@@ -329,7 +330,7 @@ spec:
 Now, you will not be able to create pretty much anything since `default serviceaccount` does not have any permissions to use `podsecuritypolicies k8s objects` at all.
 
 
-```
+```bash
 k create role psp --verb=use --resource=podsecuritypolicies
 k create rolebinding psp-rb --role psp --serviceaccount=default:default
 ```
@@ -337,7 +338,7 @@ k create rolebinding psp-rb --role psp --serviceaccount=default:default
 How, about creating a deployment?
 
 
-```
+```bash
 # It is gonna work now :)
 root@scw-k8s:~# k create  deployment jano --image=nginx:alpine
 root@scw-k8s:~# k get deploy
@@ -348,7 +349,7 @@ jano   1/1     1            1           11m
 
 The following deployment is going to fail since we want to use `privileged: true` option. This option is specifically disabled by `podsecuritypolicies` we created a while ago.
 
-```
+```bash
 root@scw-k8s:~# k create deployment cks-psp \
 --image=nginx:alpine --replicas=3 \
 -oyaml --dry-run=client \
@@ -364,7 +365,7 @@ root@scw-k8s:~# k get events | grep cks-psp
 Let's do a bit more exercise and try to comply with our `podsecuritypolicies`.
 
 
-```
+```bash
 root@scw-k8s:~# k create deployment cks-psp-will-work --image=nginx:alpine --replicas=3 -oyaml --dry-run=client | sed -E 's/^(\s+- image.*)$/\1 \n        securityContext:\n          privileged: false/'  | k create -f -
 deployment.apps/cks-psp-will-work created
 
@@ -377,7 +378,7 @@ cks-psp-will-work   3/3     3            3           43s
 ###### Create a privileged pod
 
 
-```
+```bash
 # is CKS simulator
 k run prime --image=nginx:alpine --privileged=true --command -o yaml --dry-run=client -- sh -c 'apk add iptables && sleep 1d' | k create -f -
 pod/prime created
@@ -386,7 +387,7 @@ pod/prime created
 ###### Disable allowPrivilegeEscalation
 
 
-```
+```yaml
 controlplane $ k get deployments.apps logger -oyaml
 apiVersion: apps/v1
 kind: Deployment

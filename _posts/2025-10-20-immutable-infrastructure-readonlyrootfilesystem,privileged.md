@@ -5,13 +5,15 @@ lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Set ''UID'' and ''GID'' within ''securityContext'' for pod and verify results (''runAsUser'' and ''runAsGroup'')."
+description: "Set UID and GID within securityContext for a pod and verify results using runAsUser and runAsGroup."
 
 tags: ['immutable', 'infrastructure']
 categories: ["DevOps"]
 ---
 
-Set ''UID'' and ''GID'' within ''securityContext'' for pod and verify results (''runAsUser'' and ''runAsGroup'')
+Set `UID` and `GID` within `securityContext` for a pod and verify results (`runAsUser` and `runAsGroup`).
+
+The following pod manifest runs a busybox container as user 1000 and group 3000, with an emptyDir volume mounted at `/data/demo`.
 
 ```yaml
 apiVersion: v1
@@ -48,7 +50,7 @@ spec:
 ```
 
 
-Create Nginx pod with ''readOnlyRootFilesystem'' option and adjust necessary ''volumes'' (''/var/cache/nginx'', ''/var/run'')
+Create an Nginx pod with `readOnlyRootFilesystem` option and adjust necessary volumes (`/var/cache/nginx`, `/var/run`). Since Nginx needs to write to these directories at runtime, they are mounted as writable emptyDir volumes.
 
 ```yaml
 apiVersion: v1
@@ -89,7 +91,7 @@ spec:
 
 ```
 
-Run apache (httpd) with ''readOnlyRootFilesystem'' within security context as well as create temporary ''mountPath/volumeMounts''
+Run Apache (httpd) with `readOnlyRootFilesystem` within the security context as well as create temporary `mountPath`/`volumeMounts`. Apache needs a writable logs directory, so `/usr/local/apache2/logs` is mounted as an emptyDir volume.
 
 ```yaml
 apiVersion: v1

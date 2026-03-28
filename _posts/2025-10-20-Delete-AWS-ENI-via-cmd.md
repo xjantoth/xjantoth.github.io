@@ -11,7 +11,9 @@ tags: ['aws', 'eni', 'cmd']
 categories: ["AWS"]
 ---
 
-```
+When deleting an EKS node group, you may encounter a `DependencyViolation` error caused by lingering Elastic Network Interfaces (ENIs). The commands below extract the security group ID from the error message using `sed`, then query the AWS API for all ENIs associated with EKS-managed instances so you can identify and clean them up.
+
+```bash
 echo $t
 error waiting for EKS Node Group (eks-mlflow:eks-mlflow-cpu-ng) deletion: Ec2SecurityGroupDeletionFailure: DependencyViolation - resource has a dependent object. Resource IDs: [sg-00db6bb5ee949a63c]
 

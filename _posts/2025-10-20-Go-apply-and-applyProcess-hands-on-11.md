@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go apply and applyProcess hands on 11 with working code examples."
+description: "A hands-on Go example demonstrating how to use http.HandleFunc with template rendering and POST form handling via apply and applyProcess routes."
 
 tags: ['go', 'and', 'applyprocess', 'hands']
 categories: ["Go"]
 ---
+
+This Go program sets up an HTTP server with multiple routes (index, about, contact, apply) and uses `html/template` to render `.gohtml` templates. The `/apply` route distinguishes between GET and POST requests: a GET renders the apply form, while a POST renders the applyProcess confirmation page.
 
 ```go
 package main

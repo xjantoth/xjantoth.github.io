@@ -11,8 +11,9 @@ categories: ["Linux"]
 ---
 
 
-It is possible to extract pdf text and get some valuable information out of it.
+It is possible to extract PDF text and get some valuable information out of it.
 
+This pipeline extracts USD amounts from multiple PDF files, sums them up, and prints the total. It uses `pdftotext` to convert PDFs to text, `grep` to find lines matching a USD pattern, `sed` to normalize the decimal separator, and `awk` to compute the sum. You need `pdftotext` (from the `poppler` package) installed.
 
 ```bash
 

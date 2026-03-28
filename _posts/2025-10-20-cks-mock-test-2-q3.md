@@ -5,7 +5,7 @@ lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "**3. A pod has been created in the gamma namespace using a service account called cluster-view. This service account has been granted additional permissions as compared."
+description: "CKS mock test 2, question 3: Secure a pod by disabling automatic mounting of the service account secret token using automountServiceAccountToken."
 
 tags: ['cks', 'mock', 'q3']
 categories: ["Kubernetes"]
@@ -15,7 +15,8 @@ categories: ["Kubernetes"]
 
 
 Secure the pod in such a way that the secret token is no longer mounted on this pod. You may delete and recreate the pod.
-**
+
+The key change is setting `automountServiceAccountToken: false` in the pod spec. This prevents Kubernetes from mounting the service account token into the pod, reducing the attack surface while still associating the pod with the `cluster-view` service account.
 
 ```yaml
 cat 3.yaml

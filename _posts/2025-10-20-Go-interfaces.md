@@ -5,11 +5,13 @@ lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go interfaces with working code examples."
+description: "How to define and implement interfaces in Go, demonstrated with a Shape interface that requires Area and Perimeter methods."
 
 tags: ['go', 'interfaces']
 categories: ["Go"]
 ---
+
+This program demonstrates Go interfaces. A `Shape` interface is defined with `Area()` and `Perimeter()` methods. The `Rect` struct implements both methods, which means it implicitly satisfies the `Shape` interface without any explicit declaration. The example shows how a `Rect` value can be assigned to a `Shape` variable and how methods can be called through both the interface and the concrete type.
 
 ```go
 // package main

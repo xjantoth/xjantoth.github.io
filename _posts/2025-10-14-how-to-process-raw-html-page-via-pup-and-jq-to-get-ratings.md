@@ -16,7 +16,7 @@ than some number.
 
 Here is in my opinion a simplified version of that script using `jq` and `pup`.
 
-It turnes out that `pup` binary is preinstalled at my Mac and I use `jq` pretty much everyday.
+It turns out that `pup` binary is preinstalled at my Mac and I use `jq` pretty much everyday.
 `pup` binary converts raw HTML to `json` format that can be later on relatively easy used to parse "likes" and respective URLs.
 
 ```bash
@@ -39,6 +39,3 @@ wget https://www.rouming.cz -O - | \
 
 ```
 
-## Links:
-
-202407181207

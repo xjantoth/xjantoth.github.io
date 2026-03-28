@@ -5,7 +5,7 @@ lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Important Kubernetes request stages."
+description: "How to configure Kubernetes audit logging via the kube-apiserver, including audit policy examples and volume mount setup."
 
 tags: ['cks', 'audit', 'logging', 'server']
 categories: ["Kubernetes"]
@@ -53,9 +53,9 @@ rules:
 
 ##### Kube-apiserver configuration
 
-Now, we need to create an extra folder for auditing
+Now, we need to create an extra folder for auditing.
 
-```
+```bash
 mkdir -p /var/log/kubernetes/audit
 ```
 
@@ -102,7 +102,7 @@ rules:
     # 3. From Secrets only metadata level
     - group: "" # core API group
       resources: ["secrets"]
-    # 4. log evrything related to "RequestResponse"
+    # 4. log everything related to "RequestResponse"
   - level: RequestResponse
 
 
@@ -116,7 +116,7 @@ https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/#log-backend
 Log backend
 The log backend writes audit events to a file in JSONlines format. You can configure the log audit backend using the following kube-apiserver flags:
 
-```
+```text
 --audit-log-path specifies the log file path that log backend uses to write audit events. Not specifying this flag disables log backend. - means standard out
 --audit-log-maxage defined the maximum number of days to retain old audit log files
 --audit-log-maxbackup defines the maximum number of audit log files to retain
@@ -125,14 +125,14 @@ The log backend writes audit events to a file in JSONlines format. You can confi
 
 If your cluster's control plane runs the kube-apiserver as a Pod, remember to mount the hostPath to the location of the policy file and log file, so that audit records are persisted. For example:
 
-```
+```yaml
     --audit-policy-file=/etc/kubernetes/audit-policy.yaml \
     --audit-log-path=/var/log/kubernetes/audit/audit.log
 ```
 
 then mount the volumes:
 
-```
+```yaml
 ...
 volumeMounts:
   - mountPath: /etc/kubernetes/audit-policy.yaml
@@ -164,7 +164,7 @@ volumes:
 
 Solution:
 
-```
+```yaml
 root@scw-k8s-cmdx:~# cat  /etc/kubernetes/audit-policy.yaml
 apiVersion: audit.k8s.io/v1
 kind: Policy
@@ -183,8 +183,9 @@ rules:
 
 ![Image](/assets/images/blog/al-8.png)
 
+Here is a more advanced audit policy that filters out events from specific system components, node groups, and common read-only verbs, while capturing request/response details for secret operations.
 
-```
+```yaml
 root@scw-k8s-cmdx:~# cat /etc/kubernetes/audit-policy.yaml
 apiVersion: audit.k8s.io/v1
 kind: Policy

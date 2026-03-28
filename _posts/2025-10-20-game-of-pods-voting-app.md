@@ -11,6 +11,8 @@ tags: ['game', 'pods', 'voting', 'app']
 categories: ["Kubernetes"]
 ---
 
+This post walks through the Kubernetes "Game of Pods" voting app challenge. The YAML manifests below define the full stack: a PostgreSQL database, Redis cache, worker deployment, vote service, and associated Kubernetes services, all deployed into the `vote` namespace.
+
 ```yaml
 for i in $(ls *.yaml); do echo filename: $i;echo "---" ;cat $i; done
 filename: db-depl.yaml
@@ -159,7 +161,9 @@ spec:
 status: {}
 ```
 
-```
+The following shell history shows the step-by-step `kubectl` commands used to create each deployment and service for the voting app. This includes generating YAML with `--dry-run`, editing manifests, exposing services, and iteratively troubleshooting.
+
+```bash
 e deployment worker --image=kodekloud/examplevotingapp_worker -o yaml --dry-run=client
     4  kubectl  create deployment worker --image=kodekloud/examplevotingapp_worker -o yaml --dry-run
     5  kubectl  create deployment worker --image=kodekloud/examplevotingapp_worker -o yaml --dry-run > worker.yaml

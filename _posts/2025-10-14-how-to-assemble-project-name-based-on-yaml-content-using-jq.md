@@ -3,7 +3,7 @@ title: How to assemble project name based on yaml content using jq
 date: 2024-06-28T10:39:00+0200
 lastmod: 2024-06-28T10:39:00+0200
 draft: false
-description: "If you have multiple files without proper names, you can generate project names based on the values in the YAML files. Here's a solution that uses yq and jq to extract."
+description: "Generate consistent project names from YAML file content using yq, jq, and fzf for interactive search and preview."
 image: "https://miro.medium.com/1*Kmn2vLqmIGiaUdc2-oaNRw.png"
 author: "Jan Toth"
 tags: ['bash', 'devopsinuse', 'jq']

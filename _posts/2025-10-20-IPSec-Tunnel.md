@@ -5,13 +5,17 @@ lastmod: "2022-01-07T11:48:59+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=420&fit=crop"
-description: "Set route via ipsec tunnel node."
+description: "How to set up an IPSec site-to-site tunnel between a local network and an AWS EC2 instance, including routing and redirect configuration."
 
 tags: ['ml', 'ipsec', 'tunnel']
 categories: ["Machine Learning"]
 ---
 
-```py
+## Laptop-side IPSec configuration
+
+This is the IPSec configuration file for the laptop (local) side of the tunnel. It defines the tunnel parameters including authentication, key exchange settings, and the local/remote subnets.
+
+```ini
 # LAPTOP
 cat /etc/ipsec.conf
 config setup
@@ -38,7 +42,11 @@ conn laptop
 ```
 
 
-```py
+## AWS EC2-side IPSec configuration
+
+This is the corresponding IPSec configuration on the AWS EC2 instance. Note that left/right are swapped compared to the laptop configuration.
+
+```ini
 # AWS EC2
 cat /etc/ipsec.conf.bavi
 config setup
@@ -65,38 +73,40 @@ conn aws-ec2
 ```
 
 
-```py
+## Shared secret
+
+Both sides must share the same pre-shared key (PSK). This is stored in `/etc/ipsec.secrets` on each host.
+
+```ini
 cat /etc/ipsec.secrets
 88.212.33.167 18.237.195.235 : PSK "..."
 ```
 
 
-##  set route via ipsec tunnel node
+##  Set route via IPSec tunnel node
 
 
-* run on other hosts in network
+* Run on other hosts in the network to route traffic destined for the remote subnet through the IPSec tunnel node.
 
-
-```py
+```bash
 sudo ip r add  172.31.0.0/20 via 192.168.1.144 dev wlan0
 ip r get 172.31.12.119
 ```
 
 
-##  disable redirect to allow all hosts in network to access other network hosts
+##  Disable redirects to allow all hosts in the network to access the remote network
 
 
-* run on ipsec node
+* Run on the IPSec node. Disabling ICMP send redirects prevents the kernel from redirecting traffic away from the tunnel.
 
-
-```py
+```bash
 echo 0 | sudo tee /proc/sys/net/ipv4/conf/*/send_redirects
 
 
 sudo ip r flush cache
 openssl rand -hex 32
 
-# Check this setting t your PC (laptop)
+# Check this setting on your PC (laptop)
 sysctl net.ipv4.ip_forward=1
 
 

@@ -4,22 +4,26 @@ date: "2021-12-30T16:09:28+0100"
 lastmod: "2021-12-30T16:09:28+0100"
 draft: false
 author: "Jan Toth"
-description: "**Deploy K3S at Raspberry Pi 4''."
+description: "How to deploy Grafana and Prometheus to a Kubernetes cluster running on Raspberry Pi 4 using Helm charts."
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
 
 tags: ['raspberry', 'grafana', 'prometheus', 'helm', 'deployment']
 categories: ["Kubernetes"]
 ---
 
-**Deploy K3S at Raspberry Pi 4''
+**Deploy K3S at Raspberry Pi 4**
 
-```
+First, install K3S on the Raspberry Pi 4. This command downloads and runs the K3S installer, setting the kubeconfig permissions and adding a TLS SAN for the node IP address.
+
+```bash
 curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644 --tls-san 192.168.0.241 raspberry4-k3s
 ```
 
-**Setup /etc/hosts at your laptop (ecause of Ingress)''
+**Setup /etc/hosts at your laptop (because of Ingress)**
 
-```
+Update your local `/etc/hosts` file so that the Ingress hostname resolves to the Raspberry Pi IP address. This is required for accessing services through the Ingress controller.
+
+```bash
 cat /etc/hosts
 ##
 # Host Database
@@ -32,9 +36,11 @@ cat /etc/hosts
 ```
 
 
-**Deploy Grafana''
+**Deploy Grafana**
 
-```
+Deploy Grafana via Helm with Ingress enabled, a Prometheus datasource preconfigured, and a default dashboard loaded from Grafana.com. Persistent storage uses the `local-path` storage class provided by K3S.
+
+```bash
 helm upgrade --install grafana grafana/grafana \
 --set ingress.enabled=true \
 --set "ingress.hosts[0]=raspberrypi" \
@@ -63,9 +69,11 @@ helm upgrade --install grafana grafana/grafana \
 ```
 
 
-**Deploy Prometheus''
+**Deploy Prometheus**
 
-```
+Deploy Prometheus using the community Helm chart. This configuration disables alertmanager, kube-state-metrics, pushgateway, and node-exporter to keep the installation lightweight on the Raspberry Pi. Ingress is enabled under the `/prometheus` path.
+
+```bash
 helm upgrade --install prometheus prometheus-community/prometheus \
 --set alertmanager.enabled=false \
 --set kubeStateMetrics.enabled=false \

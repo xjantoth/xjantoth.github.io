@@ -5,7 +5,7 @@ lastmod: "2022-01-07T11:48:59+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Setup DD WRT /etc/hosts."
+description: "Complete guide to setting up a K3s cluster using k3sup and Ansible, including DD-WRT DNS configuration, SSH key distribution, VirtualBox and AWS provisioning, and troubleshooting."
 
 tags: ['ml', 'ansible', 'k3s', 'k3sup', 'wrt']
 categories: ["Kubernetes"]
@@ -13,8 +13,6 @@ categories: ["Kubernetes"]
 
 ##  Setup DD WRT /etc/hosts
 
-
-```bash
 
 ```bash
 ssh root@192.168.1.1

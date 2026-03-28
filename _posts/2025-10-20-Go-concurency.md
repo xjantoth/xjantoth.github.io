@@ -1,15 +1,17 @@
 ---
-title: "Go concurency"
+title: "Go concurrency"
 date: "2022-01-06T14:23:31+0100"
 lastmod: "2022-01-06T14:23:31+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "Go programming: Go concurency with working code examples."
+description: "Introduction to Go concurrency using goroutines, including basic goroutine invocation and passing arguments to anonymous goroutine functions."
 
 tags: ['go', 'concurency']
 categories: ["Go"]
 ---
+
+This example shows two ways to use goroutines in Go. The first launches a named function as a goroutine with the `go` keyword. The second demonstrates an anonymous goroutine function that receives a copy of the variable as an argument, avoiding a common race condition where the goroutine would otherwise reference a variable that has been modified in the main goroutine.
 
 ```go
 // package main

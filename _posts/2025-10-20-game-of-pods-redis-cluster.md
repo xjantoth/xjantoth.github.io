@@ -5,16 +5,20 @@ lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "Game of Pods - Redis cluster — practical walkthrough with examples."
+description: "KodeKloud Game of Pods Redis cluster challenge: deploy a 6-node Redis cluster with PersistentVolumes and a StatefulSet."
 
 tags: ['game', 'pods', 'redis', 'cluster']
 categories: ["Kubernetes"]
 ---
 
-```
+First, create the host directories on the worker node that will be used as PersistentVolume storage for each Redis instance.
+
+```bash
 for i in {1..6}; do ssh node01 mkdir /redis0${i}; done
 ssh node01 ls /redis*
 ```
+
+The following manifests define six PersistentVolumes (one per Redis replica), a headless Service for cluster communication, and a StatefulSet that runs a 6-replica Redis cluster with ConfigMap-based configuration and persistent storage.
 
 ```yaml
 for i in $(ls *.yaml); do echo filename: $i;echo "---" ;cat $i; done

@@ -5,13 +5,15 @@ lastmod: "2022-01-06T14:53:42+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"
-description: "**Setup API server to allow PodSecurityPolicy Admission controller''."
+description: "How to enable the PodSecurityPolicy admission controller in the Kubernetes API server, create a policy, and bind it to a service account."
 
 tags: ['podsecuritypolicy']
 categories: ["Kubernetes"]
 ---
 
-**Setup API server to allow PodSecurityPolicy Admission controller''
+## Setup API server to allow PodSecurityPolicy Admission controller
+
+To enable PodSecurityPolicy, you need to add it to the `--enable-admission-plugins` flag in the kube-apiserver static pod manifest. After saving the file, the kubelet will automatically restart the API server.
 
 ```yaml
 cat /etc/kubernetes/manifests/kube-apiserver.yaml
@@ -40,7 +42,9 @@ spec:
     - --enable-bootstrap-token-auth=true
 ...
 ```
-**Create podsecuritypolicy in cluster''
+## Create PodSecurityPolicy in the cluster
+
+This policy allows `NET_ADMIN` capability but disallows privilege escalation and privileged containers. It uses permissive rules for SELinux, supplemental groups, run-as-user, and fsGroup.
 
 ```yaml
 cat psp.yaml
@@ -65,16 +69,20 @@ spec:
   volumes:
   - '*'
 ```
-**Create corresponding role/rolebinding for default serviceaccunt to be able to use PodSecurityPolicy''
+## Create corresponding role/rolebinding for the default service account to use the PodSecurityPolicy
 
-```perl
+After creating the policy, you must grant the service account permission to "use" it via a Role and RoleBinding. Without this, pod creation will be denied by the admission controller.
+
+```bash
 k create  role psp-access --verb=use --resource=podsecuritypolicies
 k create  rolebinding  psp-access --role psp-access --serviceaccount default:default
 k create  deployment  nginx --image=nginx
 ```
 
 
-**Create proxy pod for mTLS''
+## Create proxy pod for mTLS
+
+This pod runs two containers: one that pings google.com and a proxy container that installs iptables and lists the current rules. The proxy container requires the `NET_ADMIN` capability, which is allowed by the PodSecurityPolicy created above.
 
 ```yaml
 cat proxy.yaml

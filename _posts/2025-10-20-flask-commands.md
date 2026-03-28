@@ -1,17 +1,19 @@
 ---
-title: "flask commands"
+title: "Flask commands"
 date: "2022-01-07T11:20:36+0100"
 lastmod: "2022-01-07T11:20:36+0100"
 draft: false
 author: "Jan Toth"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
-description: "flask commands — practical walkthrough with examples."
+description: "Custom Flask CLI commands for resetting and bootstrapping a database with seed data using SQLAlchemy."
 
 tags: ['flask', 'commands']
 categories: ["DevOps"]
 ---
 
-```
+This Flask application defines two custom CLI commands: `reset` drops and recreates all database tables, while `boot` does the same and then inserts seed data including VLANs, port range networks, descriptions, and applications. Run them with `flask reset` or `flask boot`.
+
+```python
 with app.app_context():
     # needed to make CLI commands work
     @app.cli.command("reset")

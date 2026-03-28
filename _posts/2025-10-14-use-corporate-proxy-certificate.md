@@ -11,7 +11,9 @@ categories: ["Networking"]
 ---
 
 
-In case you are behind corporate proxy - the following commands might help.
+In case you are behind a corporate proxy, the following commands might help.
+
+These environment variables tell Python-based tools (pip, requests, httplib2) and curl to use the CA bundle provided by the `certifi` package. This is the quickest way to make most CLI tools trust your corporate proxy certificate without modifying system-level CA stores.
 
 ```bash
 export CERT_PATH=$(python3 -m certifi)
