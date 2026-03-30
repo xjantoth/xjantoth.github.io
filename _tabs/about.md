@@ -6,7 +6,7 @@ order: 4
 
 ## Hire Me — Senior DevOps Consultant
 
-I help engineering teams build reliable, scalable infrastructure on Kubernetes and cloud-native platforms. With 6+ years of hands-on experience across AWS, GCP, and on-premises environments, I turn complex infrastructure challenges into automated, repeatable solutions.
+I help engineering teams build reliable, scalable infrastructure on Kubernetes and cloud-native platforms. With 9+ years of hands-on experience across AWS, GCP, and on-premises environments, I turn complex infrastructure challenges into automated, repeatable solutions.
 
 <div style="text-align: center; margin: 2rem 0;">
   <a href="https://calendly.com/devopsinuse" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 1.1rem; padding: 0.75rem 2rem;">
@@ -32,7 +32,7 @@ I help engineering teams build reliable, scalable infrastructure on Kubernetes a
 - **CKA** — Certified Kubernetes Administrator
 - **CKAD** — Certified Kubernetes Application Developer
 - **CKS** — Certified Kubernetes Security Specialist
-- **62,400+ Udemy students** with a **4.5 average rating** across multiple DevOps courses
+- **64,900+ Udemy students** with a **4.5 average rating** across multiple DevOps courses
 
 [View my courses on Udemy](https://www.udemy.com/user/jan-toth/){:target="_blank"}
 
