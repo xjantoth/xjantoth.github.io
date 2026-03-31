@@ -4,7 +4,7 @@ date: 2026-03-31T09:00:00+0200
 lastmod: 2026-03-31T09:00:00+0200
 draft: false
 description: "Retrieve and print stored Jenkins credentials using a Groovy script in the Jenkins Script Console, useful for debugging and auditing credential configurations."
-image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
+image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=420&fit=crop"
 author: "Jan Toth"
 tags: ['jenkins', 'groovy']
 categories: ["DevOps"]
