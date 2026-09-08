@@ -1,7 +1,7 @@
 ---
 title: "How to run n8s on locally on Apple containers Mac"
-date: 2025-10-21T11:10:11:+0200
-lastmod: 2025-10-21T11:10:11:+0200
+date: 2025-10-21T11:10:11 +0200
+lastmod: 2025-10-21T11:10:11 +0200
 draft: false
 description: "Apple has recently introduced their own container solution. I have decided to test it and start n8n. This is what the official GitHub n8n instruction says."
 image: "https://i.ytimg.com/vi/YUw1xk82980/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBSJXX-TBEA6uAZg8hLGFgOYk32_g"

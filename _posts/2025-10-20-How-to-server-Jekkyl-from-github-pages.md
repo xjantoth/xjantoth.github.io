@@ -1,7 +1,7 @@
 ---
 title: "How to serve Jekyll from GitHub Pages"
-date: 2025-10-20T11:46:24:+0200
-lastmod: 2025-10-20T11:46:24:+0200
+date: 2025-10-20T11:46:24 +0200
+lastmod: 2025-10-20T11:46:24 +0200
 draft: false
 description: "How to set custom domain at Github pages at Websupport. Template repo was created from https://github.com/cotes2020/chirpy-starter."
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"

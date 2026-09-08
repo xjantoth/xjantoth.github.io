@@ -1,7 +1,7 @@
 ---
 title: "CKS RBAC example"
-date: 2025-12-27T20:25:14:+0100
-lastmod: 2025-12-27T20:25:14:+0100
+date: 2025-12-27T20:25:14 +0100
+lastmod: 2025-12-27T20:25:14 +0100
 draft: false
 description: "CKS exam topic: RBAC example showing ClusterRole, ClusterRoleBinding, Role, and RoleBinding for certificate signing request approval."
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"

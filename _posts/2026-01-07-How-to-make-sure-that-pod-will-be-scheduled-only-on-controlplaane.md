@@ -1,7 +1,7 @@
 ---
 title: "How to make sure that pod will be scheduled only on Control Plane"
-date: 2026-01-07T22:19:07:+0100
-lastmod: 2026-01-07T22:19:07:+0100
+date: 2026-01-07T22:19:07 +0100
+lastmod: 2026-01-07T22:19:07 +0100
 draft: false
 description: "Practical guide: how to make sure that pod will be scheduled only on Control Plane."
 image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop"

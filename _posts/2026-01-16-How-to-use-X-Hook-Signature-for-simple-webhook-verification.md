@@ -1,7 +1,7 @@
 ---
 title: "How to use X-Hook-Signature for simple webhook verification"
-date: 2026-01-16T15:51:17:+0100
-lastmod: 2026-01-16T15:51:17:+0100
+date: 2026-01-16T15:51:17 +0100
+lastmod: 2026-01-16T15:51:17 +0100
 draft: false
 description: "How to use X-Hook-Signature for HMAC-SHA512 webhook verification when writing a Python web server."
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=420&fit=crop"
